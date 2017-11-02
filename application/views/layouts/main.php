@@ -89,5 +89,8 @@
         <?php $this->load->view($main_view); ?>
     </div>
 </div>
+
+<script src="<?php echo base_url();?>assets/js/orden.js"></script>
+
 </body>
 </html>
