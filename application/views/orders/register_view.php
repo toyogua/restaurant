@@ -5,6 +5,27 @@
 </head>
 <body>
 <div class="container">
+
+    <div class="row col-lg-12">
+        <div class="md-form col-lg-4">
+            <i class="fa fa-user prefix grey-text"></i>
+            <input type="text" id="mesero" class="mesero form-control">
+            <label for="form2">Buscar Mesero</label>
+        </div>
+
+        <div class="md-form col-lg-4">
+            <i class="fa fa-circle-thin prefix grey-text"></i>
+            <input type="text" id="mesa" class="mesa form-control">
+            <label for="form2">Buscar mesa</label>
+        </div>
+    </div>
+
+    <div class="row col-lg-12">
+        <div  class="col-lg-4" id="cargabusqueda" >
+        </div>
+    </div><br>
+
+
     <div class="row">
 
         <div class="col-lg-4 jumbotron" id="categorias" align="center">
