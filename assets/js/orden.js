@@ -94,11 +94,18 @@ $(document).ready(function() {
         //con atencion a como seteamos el elemento (cargarmesero en este caso)
         $( document ).on( "click", ".cargarmesero", function (e) {
         e.preventDefault()
-        var idestudiante = $(this).data("id")
-        var nombreestudiante = $(this).data("nombre")
+            //capturamos el id del paciente
+            var idMesero = $(this).data("id");
+            //capturamos el nombre del paciente
+            var nombreMesero = $(this).data("nombre");
 
-        console.log(idestudiante)
-        console.log(nombreestudiante)
+            //asignamos a la variable global el valor de la variable local
+            idMeseroActual = idMesero;
+            //asignamos a la variable global el valor de la variable local
+            nombreMeseroActual = nombreMesero;
+            //al input tipo text le colocamos el valor de la variable
+            $("#mesero").val(nombreMesero);
+            $("#meseros").remove();
 
 
 
