@@ -12,6 +12,7 @@
 
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/sweetalert.min.js"></script>
 
 
     <!-- Font Awesome -->
@@ -27,6 +28,7 @@
     <link href="<?php echo base_url();?>assets/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/sweetalert.css">
 
 
 </head>
@@ -43,7 +45,7 @@
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapseEx12" aria-controls="collapseEx2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">HABITAT</a>
+            <a class="navbar-brand" href="#">CAFÉ Y RESTAURANTE</a>
             <div class="collapse navbar-collapse" id="collapseEx12">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">

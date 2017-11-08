@@ -22,4 +22,14 @@ class Orders extends CI_Controller
         $this->load->view('layouts/main', $data);
     }
 
+    public function insertarOrden()
+    {
+        $listaOrden = json_decode($_POST['orden']);
+        $listaProducto = json_decode($_POST['detalle']);
+
+
+        $this->Orden_model->insertarOrden($listaOrden, $listaProducto);
+
+    }
+
 }

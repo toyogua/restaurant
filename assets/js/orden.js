@@ -7,112 +7,377 @@ var baseurl = 'http://localhost/restaurant/';
 //Variables para el mesero
 var idMeseroActual = 0;
 var nombreMeseroActual = "";
+
+var idMesaActual = 0;
+var estadoProducto = 0;
+var contador = 0;
+
+var producto = {
+    productolisto: []
+};
+
+var orden = {
+    lista: []
+};
+
+var total = 0.00;
+
 $(document).ready(function() {
 
-        //aca no comprendo que esta tratando de hacer
-        //seria mejor en lugar de "body" poner la clase del elemento que esta utlizando
-        //por ejemplo  $(".claseelemento").on("click", ".btnCategorias", function (e) {
-        //y lo optimo para este caso seria $(".bntCategoris").click( function(){
-        //todo lo demas queda igual
 
-        $("body").on("click", ".btnCategorias", function (e) {
+    var content = "";
+    content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
+
+    $("#contenedor_total").append(content);
+
+    var content = "";
+    content += '<button type="button" class="btn btn-success btn-lg btn-block">Ordenar </button>';
+
+    $("#btn_ordenar").append(content);
+
+
+    //FUNCION DEL CLICK SOBRE CADA BOTON DE CATEGORIAS
+    $(document).on("click", ".btnCategorias", function (e) {
+
+
+        if(idMesaActual == 0 || idMeseroActual == 0){
+            swal("No Identificado!", "Selecciona la mesa y mesero, para continuar con la orden", "error")
+        }else {
             e.preventDefault();//para que no recargue la pagina, no redirecciona con el link
 
-
-            //nombre tomado del data-nombre
+            //Cuando se da click sobre otra categoria oculta la actual
             var id = $(this).data("id");
             var categoria = $(this).data('categoria');
-            console.log(id);
-            console.log(categoria);
+            $("button#cBar").remove()
+            $("button#Cocina").remove()
+
+            if (categoria === "Bar"){
+                $("button#cCocina").remove();
+            }
+            if (categoria === "Cocina"){
+                $("button#c"+categoria).remove();
+            }
 
             $.post(baseurl + 'Products/obtener_productos_categoria/' + id, function (data) {
 
                 var result = JSON.parse(data);
 
-                console.log(result);
-
                 $.each(result, function (i, val) {
 
                     var content = "";
-                    content += '<button type="button" class="btn btn-yellow btn-lg btn-block">' + val.producto + '</button>';
+                    content += '<button type="button" class="producto btn btn-yellow btn-lg btn-block" data-id=' + val.idProducto +' data-nombre=' + val.producto +' data-precio=' + val.precioProducto +' id=c'+ categoria +'>' + val.producto + '</button>';
 
                     $("#contenedor_productos").append(content);
-
                 });
             });
+        }
+    });
+    //FIN FUNCION DEL CLICK SOBRE CADA BOTON DE CATEGORIAS
+    //=================================================================================================================
 
-        });
+    //cuando da click en cada producto
+    $(document).on("click", ".producto", function (e) {
+
+        var idalimento = $(this).data("id");
+        var nombrealimento = $(this).data("nombre");
+        var precio = $(this).data("precio");
+
+        if(estadoProducto === 0){
+
+            var content = "";
+            content += '<b><p class="alimento'+idalimento+' text-center">'+nombrealimento+'</p></b>';
+            content += '<b><p class="alimento'+idalimento+' text-left">Precio:  Q'+precio+'</p></b>';
+            $("#contenedor_des_producto").append(content);//agrega el producto al apartado descripcion
+
+            $.post(baseurl + 'DetalleProducto/obtener_detalle/' + idalimento, function (data) {
+
+                var result = JSON.parse(data);
+
+                if(result){
+                    $.each(result, function (i, val) {
+
+                        var content_ingrediente = "";
+                        content_ingrediente += '<li class="alimento'+idalimento+' text-left">' + val.ingrediente + '</li>';
+
+                        $("#contenedor_des_producto").append(content_ingrediente);
+                        //suma el precio de cada producto al total
+                    });
+                }else{
+                    var content_ingrediente = "";
+                    content_ingrediente += '<p class="alimento'+idalimento+'">No contiene descripción</p>';
+                    $("#contenedor_des_producto").append(content_ingrediente);
+                }
+
+            });
+
+            var content_boton = "";
+            content_boton += '<button type="button" class="btn btn-success btn-lg btn-block btn-agregar alimento'+idalimento+'" data-id="'+idalimento+'" data-nombre="'+nombrealimento+'" data-precio="'+precio+'">Agregar</button>';
+            content_boton += '<button type="button" class="btn btn-danger btn-lg btn-block btn-quitar alimento'+idalimento+'" data-id="'+idalimento+'" data-precio="'+precio+'">Quitar</button>';
+
+            $("#contenedor_boton").append(content_boton);//agrega el producto al apartado descripcion
+
+            estadoProducto = 1;
+        }else{
+            swal("Producto NO Agregado", "Debes agregar el producto seleccionado", "error")
+        }
+
+    });
+    //FIN DE LA FUNCION
+    //==================================================================================================================
+
+    //FUNCION  DE AGREGAR APARTADO DE DESCRIPCION
+    $(document).on("click", ".btn-agregar", function (e) {
+
+        var idproducto = $(this).data("id");
+        var nombreproducto = $(this).data("nombre");
+        var precio = $(this).data("precio");
+
+        $("p.text-total").remove();
+
+        swal({
+                title: "Estas seguro?",
+                text: "de querer agregar este producto",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si, agregalo!",
+                cancelButtonText: "Cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+            function(isConfirm){
+
+                if (isConfirm) {
+
+                    total = (parseFloat(precio) + parseFloat(total));
+
+                    var content = "";
+                    content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
+
+                    $("#contenedor_total").append(content);
+
+                    contador = contador +1;
+                    var content = "";
+                    content += '<tr id="fila'+idproducto+'">';
+                    content += '<td>'+contador+'</td>';
+                    content += '<td>'+nombreproducto+'</td>';
+                    content += '<td class="text-center" style="width: 5%">';
+                    content += '<a href="" data-nombre="'+nombreproducto+'" data-id="'+idproducto+'" data-precio="'+precio+'" class="btnEliminar"><i class="fa fa-close"></i></a>';
+                    content += '</td>';
+                    content += ' </tr>';
+
+                    $("#tblRegistros").append(content);
+
+                    //va agregando al array cada producto
+                    producto.productolisto.push({
+                        "idProducto"    : idproducto
+                    });
+
+                    //cambia el estado del producto y lo quita del apartado de descripcion
+                    $(".alimento"+idproducto).remove();
+                    estadoProducto = 0;
+                    swal("Agregado!", "El producto ha sido agregado correctamente.", "success");
+                }
+            });
+    });
+    //FIN DE LA FUNCION DEL BOTON agregar
+    //==================================================================================================================
+
+    //FUNCION  DE AGREGAR APARTADO DE DESCRIPCION
+    $(document).on("click", ".btn-quitar", function (e) {
+        var idproducto = $(this).data("id");
+        $(".alimento"+idproducto).remove();
+        estadoProducto = 0;
+    });
+    //FIN DE LA FUNCION DEL BOTON AGREGAR
+    //==================================================================================================================
 
 
-        //realiazar busqueda de paciente para reporte
-        //hacemos focus al campo de búsqueda
-        $("#mesero").focus();
-        //comprobamos si se pulsa una tecla
-        $("#mesero").keyup(function (e) {
-            var contenido = "";
-            contenido += '<ul class="list-group" id="meseros"></ul>';
-            $("#cargabusqueda").append(contenido);
+    $("body").on("click", ".btnEliminar", function( e ){
+        e.preventDefault();//para que no recargue la pagina, no redirecciona con el link
 
-            var consulta;
-            //obtenemos el texto introducido en el campo de búsqueda
-            consulta = $("#mesero").val();
-            //hace la búsqueda
-            if (consulta != "") {
-                $.post(baseurl + 'Empleados/buscarMesero', {nombre: consulta}, function (mensaje) {
-                    if (mensaje != '') {
-                        $("#meseros").show();
-                        $("#meseros").html(mensaje);
-                        //console.log(mensaje);
-                    } else {
-                        $("#meseros").html('');
-                    }
-                    ;
-                });
-            }
-        });
+        //nombre tomado del data-nombre
+        var nombre  = $(this).data("nombre");
+        var id      = $(this).data('id');
+        var precio  = $(this).data('precio');
 
-        //cuando se da click sobre el nombre de algun paciente determinado
-        $(".cargarMesero").live('click', function (e) {
-            e.preventDefault();
-            //capturamos el id del paciente
-            var idMesero = $(this).data("id");
-            //capturamos el nombre del paciente
-            var nombreMesero = $(this).data("nombre");
+        //codigo de la alerta
+        swal({
+                title: "Estas seguro?",
+                text: "de querer borrar"+ nombre,
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si, borralo!",
+                cancelButtonText: "Cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+            function(isConfirm){
 
-            //asignamos a la variable global el valor de la variable local
-            idMeseroActual = idMesero;
-            //asignamos a la variable global el valor de la variable local
-            nombreMeseroActual = nombreMesero;
-            //al input tipo text le colocamos el valor de la variable
-            $("#mesero").val(nombreMesero);
-            $("#meseros").remove();
+                if (isConfirm) {
+                    borrarRegistro(id);
+                    total = (parseFloat(total) - parseFloat(precio));
 
-        });
+                }
+            });
 
-        //siempre que se vaya a dar click sobre un elemtento creado dinamicamente en el DOM
-        //ulitilizareos esta funcion .on en lugar de .live
-        //con atencion a como seteamos el elemento (cargarmesero en este caso)
-        $( document ).on( "click", ".cargarmesero", function (e) {
-        e.preventDefault()
-            //capturamos el id del paciente
-            var idMesero = $(this).data("id");
-            //capturamos el nombre del paciente
-            var nombreMesero = $(this).data("nombre");
+    });
 
-            //asignamos a la variable global el valor de la variable local
-            idMeseroActual = idMesero;
-            //asignamos a la variable global el valor de la variable local
-            nombreMeseroActual = nombreMesero;
-            //al input tipo text le colocamos el valor de la variable
-            $("#mesero").val(nombreMesero);
-            $("#meseros").remove();
+    function borrarRegistro(id){
+        //cuando estamos seguros que lo que queremos borrar
+
+        //borra el elemento del array
+        producto.productolisto.splice({"idProducto": id},1);
+
+        //quita la fila de la tabla del apartado orden
+        $("#fila"+id).remove();
+        swal("Borrado!", "El registro ha sido eliminado correctamente.", "success");
+    }
+
+    //FUNCION DE ORDENAR, ULTIMO BLOQUE DE LA PANTALLA
+    $(document).on("click", "#btn_ordenar", function (e) {
+
+        //codigo de la alerta
+        swal({
+                title: "Estas seguro?",
+                text: "de procesar la orden",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si!",
+                cancelButtonText: "Cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+            function(isConfirm){
+
+                if (isConfirm) {
+                    //Crea la orden
+                    orden.lista={
+                        "idMesa"        : idMesaActual,
+                        "totalOrden"    : total,
+                        "idEmpleado"    : idMeseroActual,
+                        "estadoOrden"   : 0
+
+                    };
+
+                    var ordenJSON = JSON.stringify(orden.lista);
+                    var detalleJSON = JSON.stringify(producto.productolisto);
+
+                    // Realizamos la petición al servidor
+                    $.post(baseurl + 'Orders/insertarOrden', {orden: ordenJSON, detalle: detalleJSON},
+                        function(respuesta) {
+                            console.log(respuesta);
+                            swal("Procesando!", "La orden sido creada correctamente.", "success");
+                        }).error(
+                        function(){
+                            console.log('Error al ejecutar la petición');
+                        });
+                }
+                window.location = baseurl+'orders';
+            });
+
+    });
+    //FIN DE LA FUNCION ORDENAR
+    //==================================================================================================================
+
+
+    //Busqueda del mesero=========================================================================================
+    //hacemos focus al campo de búsqueda
+    $("#mesero").focus();
+    //comprobamos si se pulsa una tecla
+    $("#mesero").keyup(function (e) {
+        var contenido = "";
+        contenido += '<ul class="list-group" id="meseros"></ul>';
+        $("#cargamesero").append(contenido);
+
+        var consulta;
+        //obtenemos el texto introducido en el campo de búsqueda
+        consulta = $("#mesero").val();
+        //hace la búsqueda
+        if (consulta != "") {
+            $.post(baseurl + 'Empleados/buscarMesero', {nombre: consulta}, function (mensaje) {
+                if (mensaje != '') {
+                    $("#meseros").show();
+                    $("#meseros").html(mensaje);
+                    //console.log(mensaje);
+                } else {
+                    $("#meseros").html('');
+                }
+                ;
+            });
+        }
+    });
+
+    $( document ).on( "click", ".cargarMesero", function (e) {
+        e.preventDefault();
+        //capturamos el id del mesero
+        var idMesero = $(this).data("id");
+        //capturamos el nombre del mesero
+        var nombreMesero = $(this).data("nombre");
+
+        //asignamos a la variable global el valor de la variable local
+        idMeseroActual = idMesero;
+        //asignamos a la variable global el valor de la variable local
+        nombreMeseroActual = nombreMesero;
+        //al input tipo text le colocamos el valor de la variable local
+        $("#mesero").val(nombreMesero);
+        $("#meseros").remove();
+
+    });
+    //Fin de la busqueda del mesero====================================================================================
 
 
 
-    })
 
+    //Busqueda del mesa=========================================================================================
+    //hacemos focus al campo de búsqueda
+    $("#mesa").focus();
+    //comprobamos si se pulsa una tecla
+    $("#mesa").keyup(function (e) {
 
-})
+        var contenido = "";
+        contenido += '<ul class="list-group" id="mesas"></ul>';
+        $("#cargamesas").append(contenido);
+
+        var consulta;
+        //obtenemos el texto introducido en el campo de búsqueda
+        consulta = $("#mesa").val();
+        //hace la búsqueda
+        if (consulta != "") {
+            $.post(baseurl + 'Mesas/buscarMesas', {nombre: consulta}, function (mensaje) {
+                if (mensaje != '') {
+                    $("#mesas").show();
+                    $("#mesas").html(mensaje);
+                    //console.log(mensaje);
+                } else {
+                    $("#mesas").html('');
+                }
+                ;
+            });
+        }
+    });
+
+    $( document ).on( "click", ".cargarMesa", function (e) {
+        e.preventDefault();
+        //capturamos el id del mesero
+        var idMesa = $(this).data("id");
+        //capturamos el nombre del mesero
+        var noMesa = $(this).data("nombre");
+
+        //asignamos a la variable global el valor de la variable local
+        idMesaActual = idMesa;
+        //asignamos a la variable global el valor de la variable local
+        noMesaActual = noMesa;
+        //al input tipo text le colocamos el valor de la variable local
+        $("#mesa").val(noMesa);
+        $("#mesas").remove();
+
+    });
+    //Fin de la busqueda del mesas====================================================================================
+
+});
 
 
 

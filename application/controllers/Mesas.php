@@ -6,14 +6,14 @@
  * Time: 2:57 PM
  */
 
-class Empleados extends CI_Controller
+class Mesas extends CI_Controller
 {
 
-    public  function buscarMesero()
+    public  function buscarMesas()
     {
-        $nombreMesero = $this->input->post('nombre');
+        $noMesa = $this->input->post('nombre');
 
-        $data = $this->Empleado_model->buscarEmpleado($nombreMesero);
+        $data = $this->Mesa_model->buscarMesa($noMesa);
 
         if($data !== FALSE)
         {
@@ -24,7 +24,7 @@ class Empleados extends CI_Controller
 
                 <div  id="respuesta" class="list-group" >
 
-                    <span class="mesero cargarMesero list-group-item list-group-item-action" data-id="<?php echo $fila->idEmpleado ?>" data-nombre="<?php echo $fila->nombresEmpleado ?>" ><?php echo $fila->nombresEmpleado ?></span>
+                    <span class="mesa cargarMesa list-group-item list-group-item-action" data-id="<?php echo $fila->idMesa ?>" data-nombre="<?php echo $fila->noMesa ?>" ><?php echo $fila->noMesa ?></span>
 
                 </div>
 
