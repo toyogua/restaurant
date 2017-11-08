@@ -21,6 +21,14 @@ class Orden_model extends CI_Model{
         //recuperamos el id insertado
         $idOrden = $this->db->insert_id();
 
+        $this->db->set(
+            array(
+                "estadoMesa"     => 1
+            )
+        )
+            ->where("idMesa", $listaOrden->idMesa)
+            ->update("mesa");//edita el estado de la mesa
+
         //deberia insertar los producto
         foreach($listaProducto as $producto){
             $data[]=array(
@@ -43,7 +51,6 @@ class Orden_model extends CI_Model{
         {
             $result = [
                 "status"        =>      "error",
-                "message"       =>      $errors
             ];
 //            print_r($result); die();
             $this->db->trans_rollback();

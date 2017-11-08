@@ -9,6 +9,7 @@ var idMeseroActual = 0;
 var nombreMeseroActual = "";
 
 var idMesaActual = 0;
+var noMesaActual = "";
 var estadoProducto = 0;
 var contador = 0;
 
@@ -21,6 +22,8 @@ var orden = {
 };
 
 var total = 0.00;
+
+respuesta = false;
 
 $(document).ready(function() {
 
@@ -201,6 +204,8 @@ $(document).ready(function() {
         var id      = $(this).data('id');
         var precio  = $(this).data('precio');
 
+        $("p.text-total").remove();
+
         //codigo de la alerta
         swal({
                 title: "Estas seguro?",
@@ -218,6 +223,11 @@ $(document).ready(function() {
                 if (isConfirm) {
                     borrarRegistro(id);
                     total = (parseFloat(total) - parseFloat(precio));
+
+                    var content = "";
+                    content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
+
+                    $("#contenedor_total").append(content);
 
                 }
             });
@@ -275,7 +285,7 @@ $(document).ready(function() {
                             console.log('Error al ejecutar la petición');
                         });
                 }
-                window.location = baseurl+'orders';
+                //window.location = baseurl+'orders';
             });
 
     });
@@ -366,6 +376,35 @@ $(document).ready(function() {
         //capturamos el nombre del mesero
         var noMesa = $(this).data("nombre");
 
+        //$.post(baseurl + 'Mesas/getMesa/' + idMesa, function(respuesta) {
+        //    if(respuesta === null){
+        //        console.log(respuesta);
+        //        swal({
+        //                title: "Mesa Ocupada?",
+        //                text: "desea agregar más ordenes a la mesa?",
+        //                type: "warning",
+        //                showCancelButton: true,
+        //                confirmButtonColor: "#DD6B55",
+        //                confirmButtonText: "Si!",
+        //                cancelButtonText: "Cancelar!",
+        //                closeOnConfirm: false,
+        //                closeOnCancel: true
+        //            },
+        //            function(isConfirm){
+        //
+        //                if (isConfirm) {
+        //                    swal("Ocupada!", "La mesa ha sido seleccionada correctamente.", "success");
+        //                    //asignamos a la variable global el valor de la variable local
+        //                    idMesaActual = idMesa;
+        //                    //asignamos a la variable global el valor de la variable local
+        //                    noMesaActual = noMesa;
+        //                    //al input tipo text le colocamos el valor de la variable local
+        //                    $("#mesa").val(noMesa);
+        //                    $("#mesas").remove();
+        //                }
+        //            });
+        //    }
+        //});
         //asignamos a la variable global el valor de la variable local
         idMesaActual = idMesa;
         //asignamos a la variable global el valor de la variable local

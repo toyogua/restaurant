@@ -43,4 +43,12 @@ class Mesas extends CI_Controller
 
     }
 
+    public  function getMesa($idMesa)
+    {
+        if ($this->input->is_ajax_request()) {
+            $data = $this->Mesa_model->getMesa($idMesa);
+            echo json_encode($data);
+        }
+    }
+
 }
