@@ -48,6 +48,12 @@
             <a class="navbar-brand" href="#">CAFÉ Y RESTAURANTE</a>
             <div class="collapse navbar-collapse" id="collapseEx12">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item btn-group">
+                        <a class="nav-link" href="<?php echo base_url();?>orders">Ordenar</a>
+                    </li>
+                    <li class="nav-item btn-group">
+                        <a class="nav-link" href="<?php echo base_url();?>orders/display">Ordenes</a>
+                    </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="<?php echo base_url(); ?>">Usuarios <span class="sr-only">(current)</span></a>
                     </li>
@@ -63,9 +69,6 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Ingredientes</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Productos</a>
                         </div>
-                    </li>
-                    <li class="nav-item btn-group">
-                        <a class="nav-link" href="<?php echo base_url();?>">Ordenes</a>
                     </li>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>">Caja</a>
@@ -93,6 +96,7 @@
 </div>
 
 <script src="<?php echo base_url();?>assets/js/orden.js"></script>
+<script src="<?php echo base_url();?>assets/js/categoria.js"></script>
 
 </body>
 </html>

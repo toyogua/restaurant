@@ -3,8 +3,11 @@
 class DetalleOrden_model extends CI_Model{
 
 
-    public function insertarDetalleOrden($data)
-    {
-        $this->db->insert('detalleorden', $data);
+    public function update($idDetalleOrden){
+
+        $this->db->set('estadoDetalleOrden', 1);
+        $this->db->where('idDetalleOrden', $idDetalleOrden);
+        $this->db->update('detalleorden');
+        return true;
     }
 }

@@ -32,4 +32,19 @@ class Orders extends CI_Controller
 
     }
 
+    public  function ordenes_categoria($fecha, $idCategoria)
+    {
+        if ($this->input->is_ajax_request()) {
+            $data = $this->Orden_model->ordenes_categoria($fecha, $idCategoria);
+            echo json_encode($data);
+        }
+    }
+
+    public function display(){
+        $data['categoria_data'] = $this->Categoria_model->get_categorias_info();
+
+        $data['main_view'] = "orders/display_view";
+        $this->load->view('layouts/main', $data);
+    }
+
 }

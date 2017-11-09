@@ -13,7 +13,8 @@ class Orden_model extends CI_Model{
                 'idMesa'         => $listaOrden->idMesa,
                 'totalOrden'     => $listaOrden->totalOrden,
                 'idEmpleado'     => $listaOrden->idEmpleado,
-                'estadoOrden'    => $listaOrden->estadoOrden
+                'estadoOrden'    => $listaOrden->estadoOrden,
+                'fechaOrden'     => $listaOrden->fechaOrden
             )
         )
         ->insert("orden");//inserta la orden
@@ -57,6 +58,47 @@ class Orden_model extends CI_Model{
             return $result;
         }
         return $result;
+
+    }
+
+    public function ordenes_categoria($fecha, $idCategoria){
+        $this->db->from('orden');
+        $this->db->join('mesa', 'mesa.idMesa = orden.idMesa');
+        $this->db->join('detalleorden', 'detalleorden.idOrden = orden.idOrden');
+        $this->db->join('producto', 'producto.idProducto = detalleorden.idProducto');
+        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
+        $this->db->where('orden.fechaOrden', $fecha);
+        $this->db->where('orden.estadoOrden', 0);
+        $this->db->where('detalleorden.estadoDetalleOrden', 0);
+        $this->db->where('producto.idCategoria', $idCategoria);
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return false ;
+        }
+        else{
+            return $query->result();
+        }
+
+    }
+    public function ordenes_info($fecha, $idCategoria){
+        $this->db->from('orden');
+        $this->db->join('mesa', 'mesa.idMesa = orden.idMesa');
+        $this->db->join('detalleorden', 'detalleorden.idOrden = orden.idOrden');
+        $this->db->join('producto', 'producto.idProducto = detalleorden.idProducto');
+        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
+        $this->db->where('orden.fechaOrden', $fecha);
+        $this->db->where('orden.estadoOrden', 0);
+        $this->db->where('detalleorden.estadoDetalleOrden', 0);
+        $this->db->where('producto.idCategoria', $idCategoria);
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return false ;
+        }
+        else{
+            return $query->result();
+        }
 
     }
 }

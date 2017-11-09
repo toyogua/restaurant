@@ -21,12 +21,13 @@ var orden = {
     lista: []
 };
 
+var fecha = new Date;
+var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();
 var total = 0.00;
 
 respuesta = false;
 
 $(document).ready(function() {
-
 
     var content = "";
     content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
@@ -268,7 +269,8 @@ $(document).ready(function() {
                         "idMesa"        : idMesaActual,
                         "totalOrden"    : total,
                         "idEmpleado"    : idMeseroActual,
-                        "estadoOrden"   : 0
+                        "estadoOrden"   : 0,
+                        "fechaOrden"    : hoy
 
                     };
 
@@ -285,7 +287,7 @@ $(document).ready(function() {
                             console.log('Error al ejecutar la petición');
                         });
                 }
-                //window.location = baseurl+'orders';
+                window.location = baseurl+'orders';
             });
 
     });
@@ -415,6 +417,7 @@ $(document).ready(function() {
 
     });
     //Fin de la busqueda del mesas====================================================================================
+
 
 });
 
