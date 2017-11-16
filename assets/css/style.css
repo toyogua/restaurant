@@ -7,3 +7,10 @@
 .jumbotron{
     color: #00acc1;
 }
+
+
+.myModal {
+    top:20%;
+    left:3%;
+    outline: none;
+}

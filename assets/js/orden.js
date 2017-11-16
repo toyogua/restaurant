@@ -23,6 +23,7 @@ var orden = {
 
 var fecha = new Date;
 var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();
+var hora = fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds();
 var total = 0.00;
 
 respuesta = false;
@@ -270,7 +271,8 @@ $(document).ready(function() {
                         "totalOrden"    : total,
                         "idEmpleado"    : idMeseroActual,
                         "estadoOrden"   : 0,
-                        "fechaOrden"    : hoy
+                        "fechaOrden"    : hoy,
+                        "horaOrden"     : hora
 
                     };
 
