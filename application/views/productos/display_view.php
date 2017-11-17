@@ -5,7 +5,7 @@
 <?php echo form_open('Products/display', $attributes);?>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaIngrediente">
+<button type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
     <i class="fa fa-plus"></i>Nuevo Producto
 </button>
 <div class="modal fade  myModal" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
