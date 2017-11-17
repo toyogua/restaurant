@@ -13,7 +13,7 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/sweetalert.min.js"></script>
-
+    <script src="<?php echo base_url();?>assets/js/alertify.min.js"></script>
 
     <!-- Font Awesome -->
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">-->
@@ -29,6 +29,10 @@
 
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/sweetalert.css">
+
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/alertify.min.css" />
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/themes/default.min.css" />
+
 
 
 </head>
@@ -66,8 +70,8 @@
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>">Ingredientes</a>
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>">Productos</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>ingredientes/display">Ingredientes</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Productos</a>
                         </div>
                     </li>
                     <li class="nav-item btn-group">
@@ -97,6 +101,7 @@
 
 <script src="<?php echo base_url();?>assets/js/orden.js"></script>
 <script src="<?php echo base_url();?>assets/js/categoria.js"></script>
+<script src="<?php echo base_url();?>assets/js/ingrediente.js"></script>
 
 </body>
 </html>
