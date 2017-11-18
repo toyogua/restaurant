@@ -6,6 +6,7 @@ class Producto_model extends CI_Model{
     public function get_productos_info()
     {
         $this->db->from('producto');
+        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
         $this->db->order_by('producto','asc');
 
         $query = $this->db->get();

@@ -98,6 +98,11 @@ $(document).ready(function() {
             $(".contenedor_editar_producto").empty();
         });
 
+        $(document).on("click", ".close", function (e) {
+            $(".contenedor_editar_producto").empty();
+            $(".contenedorProductoRegistro").empty();
+        });
+
         $(document).on("click", ".btnEditarProducto", function( e ){
             e.preventDefault();//para que no recargue la pagina, no redirecciona con el link
 
