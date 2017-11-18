@@ -2,7 +2,7 @@
  * Created by DELEON on 10-Nov-17.
  */
 
-var baseurl = 'http://localhost/restaurant/';
+var baseurl = 'https://ordenes-app.herokuapp.com/';
 var ingredientes = {
     lista: []
 };
