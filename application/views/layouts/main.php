@@ -102,6 +102,7 @@
 <script src="<?php echo base_url();?>assets/js/orden.js"></script>
 <script src="<?php echo base_url();?>assets/js/categoria.js"></script>
 <script src="<?php echo base_url();?>assets/js/ingrediente.js"></script>
+<script src="<?php echo base_url();?>assets/js/producto.js"></script>
 
 </body>
 </html>

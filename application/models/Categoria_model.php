@@ -33,4 +33,15 @@ class Categoria_model extends CI_Model{
             return $categoria;
         }
     }
+
+    public function buscarCategoria($categoria){
+
+        $this->db->like('categoria', $categoria);
+        $get_data = $this->db->get('categoria', 3);
+
+        if ($get_data->num_rows() < 1){
+            return false ;
+        }
+        return $get_data->result();
+    }
 }
