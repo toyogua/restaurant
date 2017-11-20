@@ -11,11 +11,9 @@ class Orders extends CI_Controller
 
     public  function index()
     {
-        //devuelve las categorias
-        $data['categoria_data'] = $this->Categoria_model->get_categorias_info();
-
-//        echo $this->Producto_model->get_productos_categoria(1);
-
+        $data['categoria_data'] = $this->Categoria_model->get_categorias_info();//obtiene las categorias
+        $data['meseros_data'] = $this->Empleado_model->get_empleados_info();//obtiene los empleados
+        $data['mesas_data'] = $this->Mesa_model->get_mesas_info();//obtiene las mesas
 
         $data['main_view'] = "orders/register_view";
 
