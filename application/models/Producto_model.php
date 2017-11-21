@@ -34,7 +34,6 @@ class Producto_model extends CI_Model{
         return $query->result();
     }
 
-
     public function get_producto_info($idProducto){
         $this->db->from('producto');
         $this->db->where('idProducto', $idProducto);

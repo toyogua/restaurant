@@ -54,8 +54,8 @@ $(document).ready(function() {
                 //Cuando se da click sobre otra categoria oculta la actual
                 var id = $(this).data("id");
                 var categoria = $(this).data('categoria');
-                $("button#cBar").remove()
-                $("button#Cocina").remove()
+                $("button#cBar").remove();
+                $("button#Cocina").remove();
 
                 if (categoria === "Bar") {
                     $("button#cCocina").remove();
@@ -72,7 +72,7 @@ $(document).ready(function() {
 
                         var content = "";
                         content += '<button type="button" class="producto btn btn-yellow btn-lg btn-block" data-id=' + val.idProducto + ' data-nombre=' + val.producto + ' data-precio=' + val.precioProducto + ' id=c' + categoria + '>' + val.producto + '</button>';
-
+                        //content += '<img src="data:image/jpeg;base64,'+base64_encode(val.imagen)+' "/>';
                         $("#contenedor_productos").append(content);
                     });
                 });
@@ -86,56 +86,6 @@ $(document).ready(function() {
 
             var idalimento = $(this).data("id");
             var nombrealimento = $(this).data("nombre");
-            var precio = $(this).data("precio");
-
-            if (estadoProducto === 0) {
-
-                var content = "";
-                content += '<b><p class="alimento' + idalimento + ' text-center">' + nombrealimento + '</p></b>';
-                content += '<b><p class="alimento' + idalimento + ' text-left">Precio:  Q' + precio + '</p></b>';
-                $("#contenedor_des_producto").append(content);//agrega el producto al apartado descripcion
-
-                $.post(baseurl + 'DetalleProducto/obtener_detalle/' + idalimento, function (data) {
-
-                    var result = JSON.parse(data);
-
-                    if (result) {
-                        $.each(result, function (i, val) {
-
-                            var content_ingrediente = "";
-                            content_ingrediente += '<li class="alimento' + idalimento + ' text-left">' + val.ingrediente + '</li>';
-
-                            $("#contenedor_des_producto").append(content_ingrediente);
-                            //suma el precio de cada producto al total
-                        });
-                    } else {
-                        var content_ingrediente = "";
-                        content_ingrediente += '<p class="alimento' + idalimento + '">No contiene descripción</p>';
-                        $("#contenedor_des_producto").append(content_ingrediente);
-                    }
-
-                });
-
-                var content_boton = "";
-                content_boton += '<button type="button" class="btn btn-success btn-lg btn-block btn-agregar alimento' + idalimento + '" data-id="' + idalimento + '" data-nombre="' + nombrealimento + '" data-precio="' + precio + '">Agregar</button>';
-                content_boton += '<button type="button" class="btn btn-danger btn-lg btn-block btn-quitar alimento' + idalimento + '" data-id="' + idalimento + '" data-precio="' + precio + '">Quitar</button>';
-
-                $("#contenedor_boton").append(content_boton);//agrega el producto al apartado descripcion
-
-                estadoProducto = 1;
-            } else {
-                swal("Producto NO Agregado", "Debes agregar el producto seleccionado", "error")
-            }
-
-        });
-        //FIN DE LA FUNCION
-        //==================================================================================================================
-
-        //FUNCION  DE AGREGAR APARTADO DE DESCRIPCION
-        $(document).on("click", ".btn-agregar", function (e) {
-
-            var idproducto = $(this).data("id");
-            var nombreproducto = $(this).data("nombre");
             var precio = $(this).data("precio");
 
             $("p.text-total").remove();
@@ -164,11 +114,11 @@ $(document).ready(function() {
 
                         contador = contador + 1;
                         var content = "";
-                        content += '<tr id="fila' + idproducto + '">';
+                        content += '<tr id="fila' + idalimento + '">';
                         content += '<td>' + contador + '</td>';
-                        content += '<td>' + nombreproducto + '</td>';
+                        content += '<td>' + nombrealimento + '</td>';
                         content += '<td class="text-center" style="width: 5%">';
-                        content += '<a href="" data-nombre="' + nombreproducto + '" data-id="' + idproducto + '" data-precio="' + precio + '" class="btnEliminar"><i class="fa fa-close"></i></a>';
+                        content += '<a href="" data-nombre="' + nombrealimento + '" data-id="' + idalimento + '" data-precio="' + precio + '" class="btnEliminar"><i class="fa fa-close"></i></a>';
                         content += '</td>';
                         content += ' </tr>';
 
@@ -177,27 +127,18 @@ $(document).ready(function() {
                         console.log(producto);
                         //va agregando al array cada producto
                         producto.lista.push({
-                            "idProducto": idproducto
+                            "idProducto": idalimento
                         });
 
 
                         //cambia el estado del producto y lo quita del apartado de descripcion
-                        $(".alimento" + idproducto).remove();
-                        estadoProducto = 0;
+                        //$(".alimento" + idalimento).remove();
+                        //estadoProducto = 0;
                         swal("Agregado!", "El producto ha sido agregado correctamente.", "success");
                     }
                 });
         });
-        //FIN DE LA FUNCION DEL BOTON agregar
-        //==================================================================================================================
-
-        //FUNCION  DE AGREGAR APARTADO DE DESCRIPCION
-        $(document).on("click", ".btn-quitar", function (e) {
-            var idproducto = $(this).data("id");
-            $(".alimento" + idproducto).remove();
-            estadoProducto = 0;
-        });
-        //FIN DE LA FUNCION DEL BOTON AGREGAR
+        //FIN DE LA FUNCION
         //==================================================================================================================
 
 
@@ -421,6 +362,41 @@ $(document).ready(function() {
         });
         //Fin de la busqueda del mesas====================================================================================
 
+
+
+        //Asigna el mesero seleccionado a la orden
+        $(document).on("click", ".mesero", function (e) {
+            e.preventDefault();
+            //capturamos el id del mesero
+            var idMesero = $(this).data("id");
+            var nombreMesero = $(this).data("nombre");
+
+            //asignamos a la variable global el valor de la variable local
+            idMeseroActual = idMesero;
+            //asignamos a la variable global el valor de la variable local
+            nombreMeseroActual = nombreMesero;
+
+            console.log(idMeseroActual);
+
+        });
+        //Fin de la asginacion de mesero================================================================================
+
+        //Asigna el mesa seleccionado a la orden
+        $(document).on("click", ".mesa", function (e) {
+            e.preventDefault();
+            //capturamos el id del mesero
+            var idMesa = $(this).data("id");
+            var noMesa = $(this).data("nombre");
+
+            //asignamos a la variable global el valor de la variable local
+            idMesaActual = idMesa;
+            //asignamos a la variable global el valor de la variable local
+            noMesaActual = noMesa;
+
+            console.log(idMesaActual);
+
+        });
+        //Fin de la asginacion de mesero================================================================================
     }
 });
 
