@@ -61,7 +61,7 @@ $(document).ready(function() {
 
         $(document).on("click", "#btnRegistrarProducto", function (e) {
 
-            alertify.confirm('Estas segurdo?', 'De querer registrar este producto',
+            alertify.confirm('Estas seguro?', 'De querer registrar este producto',
                 function(){
                     producto.lista={
                         "producto"              : document.getElementById("producto").value,
