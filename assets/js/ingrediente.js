@@ -170,7 +170,7 @@ $(document).ready(function() {
             //nombre tomado del data-nombre
             var nombre  = $(this).data("nombre");
             var id      = $(this).data('id');
-            alertify.confirm('Estas segurdo?', 'De querer registrar eliminar el ingrediente',
+            alertify.confirm('Estas seguro?', 'De querer registrar eliminar el ingrediente',
                 function(){
                     borrarIngrediente(id);
                 },

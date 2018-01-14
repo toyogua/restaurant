@@ -1,3 +1,4 @@
+
 <div class="row">
     <div class="col-lg-6">
         <h4><strong>Seleccionar Mesero:</strong></h4>
@@ -52,7 +53,7 @@
 
         </div>
     </div>
-    
+
     <div class="col-lg-4 jumbotron" id="orden" align="center">
         <h2>Orden</h2>
         <hr>
@@ -60,8 +61,9 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <td style="width: 5%">#</td>
+                <td style="width: 5%">Cant</td>
                 <td>Producto</td>
+                <td>Notas</td>
             </tr>
             </thead>
 

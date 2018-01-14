@@ -34,8 +34,10 @@ class Orden_model extends CI_Model{
         //deberia insertar los producto
         foreach($listaProducto as $producto){
             $data[]=array(
-                'idOrden'       => $idOrden,
-                'idProducto'    => $producto->idProducto
+                'idOrden'           => $idOrden,
+                'idProducto'        => $producto->idProducto,
+                'cantDetalleOrden'  => $producto->cantDetalleOrden,
+                'notaDetalleOrden'  => $producto->notaDetalleOrden
             );
         }
         $this->db->insert_batch('detalleorden', $data);

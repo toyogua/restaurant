@@ -12,7 +12,6 @@ class Products extends CI_Controller
     public  function obtener_productos_categoria($idCategoria)
     {
         if ($this->input->is_ajax_request()) {
-//            $idCategoria = $this->input->post('id');
             $data = $this->Producto_model->get_productos_categoria($idCategoria);
             echo json_encode($data);
         }

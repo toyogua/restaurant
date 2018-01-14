@@ -54,27 +54,46 @@ $(document).ready(function() {
                 //Cuando se da click sobre otra categoria oculta la actual
                 var id = $(this).data("id");
                 var categoria = $(this).data('categoria');
-                $("button#cBar").remove();
-                $("button#Cocina").remove();
+                console.log(categoria);
+                $("div#cBar").remove();
+                $("div#Cocina").remove();
 
                 if (categoria === "Bar") {
-                    $("button#cCocina").remove();
+                    $("div#cCocina").remove();
                 }
                 if (categoria === "Cocina") {
-                    $("button#c" + categoria).remove();
+                    $("div#c" + categoria).remove();
                 }
 
                 $.post(baseurl + 'Products/obtener_productos_categoria/' + id, function (data) {
 
                     var result = JSON.parse(data);
-
+                    var content = "";
+                    content += '<div class="row">';
                     $.each(result, function (i, val) {
 
-                        var content = "";
-                        content += '<button type="button" class="producto btn btn-yellow btn-lg btn-block" data-id=' + val.idProducto + ' data-nombre=' + val.producto + ' data-precio=' + val.precioProducto + ' id=c' + categoria + '>' + val.producto + '</button>';
-                        //content += '<img src="data:image/jpeg;base64,'+base64_encode(val.imagen)+' "/>';
-                        $("#contenedor_productos").append(content);
+                        content += '<div class="card col-lg-3" id=c' + categoria + '>';
+                        content += '<div class="view overlay hm-white-slight">';
+                        content += '<img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%287%29.jpg" class="img-fluid" alt="">';
+                        content += '</div>';
+                        content += '<div class="card-body">';
+                        content += '<h4 class="card-title"><strong>'+val.producto+'</strong></h4>';
+                        content += '<div class="md-form form-group">';
+                        content += '<input type="text" id="form91" class="form-control cantidad">';
+                        content += '<label for="form91">Cantidad</label>';
+                        content += '</div>';
+                        content += '<div class="md-form">';
+                        content += '<textarea type="text" id="form7" class="md-textarea notas"></textarea>';
+                        content += '<label for="form7">Notas</label>';
+                        content += '</div>';
+                        content += '<button type="button" class="producto btn btn-success" data-id=' + val.idProducto + ' data-nombre=' + val.producto + ' data-precio=' + val.precioProducto + ' id=c' + categoria + '>Agregar</button>';
+                        //content += '<a href="#" class="btn btn-primary">Button</a>';
+                        content += '</div>';
+                        content += '</div>';
+                        //content += '<img src="data:image/jpg;base64,'+atob(val.imagen)+' "/>';
                     });
+                    content += '</div>';
+                    $("#contenedor_productos").append(content);
                 });
             }
         });
@@ -87,6 +106,9 @@ $(document).ready(function() {
             var idalimento = $(this).data("id");
             var nombrealimento = $(this).data("nombre");
             var precio = $(this).data("precio");
+
+            var cantidad = $(".cantidad").val();
+            var notas = $(".notas").val();
 
             $("p.text-total").remove();
 
@@ -115,8 +137,9 @@ $(document).ready(function() {
                         contador = contador + 1;
                         var content = "";
                         content += '<tr id="fila' + idalimento + '">';
-                        content += '<td>' + contador + '</td>';
+                        content += '<td>' + cantidad + '</td>';
                         content += '<td>' + nombrealimento + '</td>';
+                        content += '<td>' + notas + '</td>';
                         content += '<td class="text-center" style="width: 5%">';
                         content += '<a href="" data-nombre="' + nombrealimento + '" data-id="' + idalimento + '" data-precio="' + precio + '" class="btnEliminar"><i class="fa fa-close"></i></a>';
                         content += '</td>';
@@ -127,7 +150,9 @@ $(document).ready(function() {
                         console.log(producto);
                         //va agregando al array cada producto
                         producto.lista.push({
-                            "idProducto": idalimento
+                            "idProducto"        : idalimento,
+                            "cantDetalleOrden"  : cantidad,
+                            "notaDetalleOrden"  : notas
                         });
 
 
@@ -238,56 +263,9 @@ $(document).ready(function() {
 
         });
         //FIN DE LA FUNCION ORDENAR
-        //==================================================================================================================
+        //==============================================================================================================
 
-
-        //Busqueda del mesero=========================================================================================
-        //hacemos focus al campo de búsqueda
-        $("#mesero").focus();
-        //comprobamos si se pulsa una tecla
-        $("#mesero").keyup(function (e) {
-            var contenido = "";
-            contenido += '<ul class="list-group" id="meseros"></ul>';
-            $("#cargamesero").append(contenido);
-
-            var consulta;
-            //obtenemos el texto introducido en el campo de búsqueda
-            consulta = $("#mesero").val();
-            //hace la búsqueda
-            if (consulta != "") {
-                $.post(baseurl + 'Empleados/buscarMesero', {nombre: consulta}, function (mensaje) {
-                    if (mensaje != '') {
-                        $("#meseros").show();
-                        $("#meseros").html(mensaje);
-                        //console.log(mensaje);
-                    } else {
-                        $("#meseros").html('');
-                    }
-                    ;
-                });
-            }
-        });
-
-        $(document).on("click", ".cargarMesero", function (e) {
-            e.preventDefault();
-            //capturamos el id del mesero
-            var idMesero = $(this).data("id");
-            //capturamos el nombre del mesero
-            var nombreMesero = $(this).data("nombre");
-
-            //asignamos a la variable global el valor de la variable local
-            idMeseroActual = idMesero;
-            //asignamos a la variable global el valor de la variable local
-            nombreMeseroActual = nombreMesero;
-            //al input tipo text le colocamos el valor de la variable local
-            $("#mesero").val(nombreMesero);
-            $("#meseros").remove();
-
-        });
-        //Fin de la busqueda del mesero====================================================================================
-
-
-        //Busqueda del mesa=========================================================================================
+        //Busqueda del mesa=============================================================================================
         //hacemos focus al campo de búsqueda
         $("#mesa").focus();
         //comprobamos si se pulsa una tecla
