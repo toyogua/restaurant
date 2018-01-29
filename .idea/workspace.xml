@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="11c0b285-02ee-4225-ac1f-8b6d1c9e87eb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/assets/js/categoria.js" afterPath="$PROJECT_DIR$/assets/js/categoria.js" />
-      <change beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -290,7 +288,7 @@
       <workItem from="1515943224173" duration="34148000" />
       <workItem from="1516113388317" duration="43888000" />
       <workItem from="1517242401901" duration="1642000" />
-      <workItem from="1517254528085" duration="1283000" />
+      <workItem from="1517254528085" duration="1296000" />
     </task>
     <task id="LOCAL-00001" summary="Primer deploy para la Nube">
       <created>1510888946264</created>
@@ -348,11 +346,18 @@
       <option name="project" value="LOCAL" />
       <updated>1517243450810</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Cambios interfaz">
+      <created>1517267803683</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1517267803683</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97737000" />
+    <option name="totallyTimeSpent" value="97750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
