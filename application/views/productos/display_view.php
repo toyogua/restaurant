@@ -1,14 +1,12 @@
 <h2 align="center">PRODUCTOS </h2>
 <hr>
 
-<?php $attributes = array('id' => 'display_form', 'class' => 'form_horizontal');?>
-<?php echo form_open('Products/display', $attributes);?>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
     <i class="fa fa-plus"></i>Nuevo Producto
 </button>
-<div class="modal fade  myModal" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
+<div class="modal fade  myModal" data-backdrop="static" data-keyboard="false" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -16,7 +14,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                <div class="contenedorProductoRegistro">
+                <div id="formularionuevoproducto" class="contenedorProductoRegistro">
 
                 </div>
             </div>
@@ -46,77 +44,74 @@
     </div>
 </div>
 
+<table class="table table-bordered table-striped listadoproductos">
+    <thead class="blue-grey lighten-4">
+    <tr>
+
+        <th class="text-center">
+            NOMBRE
+        </th>
+
+        <th class="text-center">
+            PRECIO
+        </th>
+
+        <th class="text-center">
+            COSTO
+        </th>
 
 
-<?php if(isset($productos_data)): ?>
- <?php $contador = 0; ?>
+        <th class="text-center">
+            EXISTENCIA
+        </th>
+        <th class="text-center">
+            CATEGORIA
+        </th>
 
-<!--<table class="table table-bordered table-striped table-responsive">-->
+        <th class="text-center">
+            IMAGEN
+        </th>
+        <th class="text-center">
+            ELIMINAR
+        </th>
 
-    <!--Table head-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th scope="row"><b>#</b></th>-->
-<!--        <th class="th-lg"><b>Producto</b></th>-->
-<!--        <th class="th-lg"><b>Descripción</b></th>-->
-<!--        <th class="th-lg"><b>Costo</b></th>-->
-<!--        <th class="th-lg"><b>Precio</b></th>-->
-<!--        <th class="th-lg"><b>Cantidad</b></th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-    <!--Table head-->
+        <th class="text-center">
+            EDITAR
+        </th>
 
-    <!--Table body-->
-<!--    <tbody>-->
-<div class="row">
+    </tr>
+
+    </thead>
+    <tbody id="mostralistadoproductos">
+    <?php if($productos_data != FALSE): ?>
+
+
     <?php foreach($productos_data as $producto): ?>
-        <?php $contador = $contador + 1; ?>
-<!--        <tr id="fila--><?php //echo $producto->idProducto;?><!--">-->
-<!--            --><?php // echo "<td>" . $contador ."</td>"; ?>
-<!--            --><?php // echo "<td style='width: 25%;'>" . $producto->producto ."</td>"; ?>
-<!--            --><?php // echo "<td style='width: 30%;'>" . $producto->descripcionProducto ."</td>"; ?>
-<!--            --><?php // echo "<td style='width: 15%' align='right'>" . $producto->costoProducto ."</td>"; ?>
-<!--            --><?php // echo "<td style='width: 10%' align='right'>Q " . $producto->precioProducto ."</td>"; ?>
-<!--            --><?php // echo "<td style='width: 10%' align='right'>" . $producto->cantProducto ."</td>"; ?>
+        <tr id="fila<?php echo $producto->idProducto;?>">
+            <td align="center"><?php echo $producto->producto; ?></td>
+            <td align="center"><?php echo $producto->precioProducto; ?></td>
+            <td align="center"><?php echo $producto->costoProducto;?></td>
+            <td align="center"><?php echo $producto->cantProducto; ?></td>
+            <td align="center"><?php echo $producto->categoria;?></td>
+            <td align="center"><img class="img-fluid" style="border-radius: 150px; height: 50px; width: 50px;" src=".<?php echo $producto->imghx;?>"></td>
+            <td align="center"><a class="btnEliminarProducto" title="Borrar"  data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
+            <td align="center"> <a data-toggle="modal" data-target="#modalProducto" class="btnEditarProducto" title="Editar" href="" data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-edit fa-3x" aria-hidden="true"></i></a>
+            </td>
 
-<!--            <td align="center" style='width: 5%'><a class="btnEliminarProducto" title="Borrar" href="" data-nombre="--><?php //echo $producto->producto;?><!--" data-id="--><?php //echo $producto->idProducto;?><!--"><i class="fa fa-times" aria-hidden="true"></i></a></td>-->
-<!--            <td align="center" style='width: 5%'><a data-toggle="modal" data-target="#modalProducto" class="btnEditarProducto" title="Editar" href="" data-id="--><?php //echo $producto->idProducto;?><!--"><i class="fa fa-edit" aria-hidden="true"></i></a></td>-->
+        </tr>
 
-<!--        </tr>-->
-<!--Card-->
 
-<div class="col-md-3" id="fila<?php echo $producto->idProducto;?>">
-    <div class="card">
-
-        <!--Card image-->
-        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%282%29.jpg" alt="Card image cap">
-<!--        <img src="data:image/jpeg;base64,'.base64_encode(--><?php //echo $producto->imagen ?><!--).'"/>;-->
-        <!--Card content-->
-        <div class="card-body text-center">
-            <!--Title-->
-            <h4 class="card-title"><strong><?php echo $producto->producto ?></strong></h4>
-            <!--Text-->
-            <ul>
-                <li class="card-text">Precio: Q <?php echo $producto->precioProducto ?></li>
-                <li class="card-text">Costo: Q <?php echo $producto->costoProducto ?></li>
-                <li class="card-text">Cantidad: <?php echo $producto->cantProducto ?></li>
-                <li class="card-text">Categoria: <?php echo $producto->categoria ?></li>
-            </ul>
-            <a class="btnEliminarProducto" title="Borrar" href="" data-nombre="<?php echo $producto->producto;?>" data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-times red-text" aria-hidden="true"></i></a>
-            <a data-toggle="modal" data-target="#modalProducto" class="btnEditarProducto" title="Editar" href="" data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-edit" aria-hidden="true"></i></a>
-        </div>
-
-    </div>
- </div>
-<!--/.Card-->
     <?php endforeach; ?>
-<!--    </tbody>-->
-<!--</table><br>-->
-</div>
+
+
+    </tbody>
+
+</table>
+
 <?php else: ?>
     <br><br><p class="bg-danger">No se encontraron Productos</p>
+
 <?php endif; ?>
 
-<?php form_close();?>
 
 

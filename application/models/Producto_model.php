@@ -3,8 +3,35 @@
 class Producto_model extends CI_Model{
 
 
+    public  function getListarTodos()
+    {
+
+        $query = $this->db->get('producto');
+
+        return $query->result();
+    }
+
+
     public function get_productos_info()
     {
+        $this->db->distinct();
+        $this->db->select('
+           
+           producto.idProducto,
+           producto.producto,
+           producto.descripcionProducto,
+           producto.costoProducto,
+           producto.precioProducto,
+           producto.cantProducto,
+           producto.idCategoria,
+           producto.imagen as imghx,
+        
+           categoria.idCategoria,
+           categoria.categoria,
+           categoria.descripcionCategoria
+            
+            
+            ');
         $this->db->from('producto');
         $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
         $this->db->order_by('producto','asc');
@@ -35,7 +62,27 @@ class Producto_model extends CI_Model{
     }
 
     public function get_producto_info($idProducto){
+
+        $this->db->distinct();
+        $this->db->select('
+           
+           producto.idProducto,
+           producto.producto,
+           producto.descripcionProducto,
+           producto.costoProducto,
+           producto.precioProducto,
+           producto.cantProducto,
+           producto.idCategoria,
+           producto.imagen as imghx,
+        
+           categoria.idCategoria,
+           categoria.categoria,
+           categoria.descripcionCategoria
+            
+            
+            ');
         $this->db->from('producto');
+        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
         $this->db->where('idProducto', $idProducto);
         $query = $this->db->get();
 
@@ -49,8 +96,20 @@ class Producto_model extends CI_Model{
     }
 
     public function insertProducto($data){
-        $insert_query = $this->db->insert('producto', $data);
-        return $insert_query;
+        $this->db->insert('producto', $data);
+        $last_id = $this->db->insert_id();
+
+        return $last_id;
+        //return $insert_query;
+
+    }
+
+    public function updateImage($id, $archivo)
+    {
+        $this->db->where('idProducto', $id);
+        $this->db->update('producto', $archivo);
+
+        return TRUE;
     }
 
     public function delete_producto($idProducto){
@@ -62,8 +121,10 @@ class Producto_model extends CI_Model{
 
     public function edit_producto($idProducto, $data)
     {
+        $this->db->reset_query();
         $this->db->where('idProducto', $idProducto);
         $this->db->update('producto', $data);
+
         return TRUE;
     }
 

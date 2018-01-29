@@ -1,8 +1,6 @@
-/**
- * Created by DELEON on 01-Nov-17.
- */
 
-var baseurl = 'https://ordenes-app.herokuapp.com/';
+
+
 
 //Variables para el mesero
 var idMeseroActual = 0;

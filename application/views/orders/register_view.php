@@ -46,7 +46,7 @@
 
     </div>
 
-    <div class="col-lg-6 jumbotron" id="menu" align="center">
+    <div class="col-lg-7 jumbotron" id="menu" align="center">
         <h2>Menú</h2>
         <hr>
         <div id="contenedor_productos">
@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <div class="col-lg-4 jumbotron" id="orden" align="center">
+    <div class="col-lg-3 jumbotron" id="orden" align="center">
         <h2>Orden</h2>
         <hr>
         <div id="contenedor_total"></div>

@@ -1,8 +1,5 @@
-/**
- * Created by DELEON on 07-Nov-17.
- */
 
-var baseurl = 'https://ordenes-app.herokuapp.com/';
+var baseurl = 'http://localhost/restaurant/';
 
 var fecha = new Date;
 var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();
@@ -56,13 +53,15 @@ $(document).ready(function() {
 
     $("h2#fecha").append(hoy);
 
-    $(document).on("click", ".btnCategoriaOrden", function (e) {
+    $(document).on("click", ".btnCategoriaOrden", function () {
 
 
         var id = $(this).data("id");
         idCategoria = id;
+
         var categoriaDinamica = $(this).data('categoria');
         categoria = categoriaDinamica;
+
         $(".cBar").remove()
         $(".cCocina").remove()
 
