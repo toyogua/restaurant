@@ -157,7 +157,7 @@ $(document).ready(function() {
 
 
                     },  setInterval(function() {
-                        //cache_clear()
+                        cache_clear()
                     }, 1000));
 
                     // setInterval(function() {
