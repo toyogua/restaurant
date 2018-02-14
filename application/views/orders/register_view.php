@@ -1,11 +1,11 @@
 
 <div class="row">
-    <div class="col-lg-6">
-        <h4><strong>Seleccionar Mesero:</strong></h4>
+    <div  class="col-lg-6">
+        <h6><strong>Seleccionar Mesero:</strong></h6>
         <?php if(isset($meseros_data)): ?>
             <div class="btn-group mr-4" data-toggle="buttons">
                 <?php foreach($meseros_data as $mesero): ?>
-                    <label class="btn btn-primary mesero" data-id="<?php echo $mesero->idEmpleado;?>" data-nombre="<?php echo $mesero->nombresEmpleado;?>">
+                    <label style="cursor: pointer;" class="btn orange btn-sm accent-2 mesero" data-id="<?php echo $mesero->idEmpleado;?>" data-nombre="<?php echo $mesero->nombresEmpleado;?>">
                         <input type="checkbox" autocomplete="off"> <?php echo $mesero->nombresEmpleado ?>
                     </label>
                 <?php endforeach; ?>
@@ -13,14 +13,14 @@
         <?php else: ?>
             <p>No se encontraron meseros registrados!</p>
         <?php endif; ?>
-    </div><br>
+    </div>
 
     <div class="col-lg-6">
-        <h4><strong>Seleccionar Mesa:</strong></h4>
+        <h6><strong>Seleccionar Mesa:</strong></h6>
         <?php if(isset($meseros_data)): ?>
             <div class="btn-group mr-4" data-toggle="buttons">
                 <?php foreach($mesas_data as $mesa): ?>
-                    <label class="btn btn-danger mesa" data-id="<?php echo $mesa->idMesa;?>" data-nombre="<?php echo $mesa->noMesa;?>" >
+                    <label style="cursor: pointer;" class="btn btn-danger btn-sm mesa" data-id="<?php echo $mesa->idMesa;?>" data-nombre="<?php echo $mesa->noMesa;?>" >
                         <input type="checkbox" autocomplete="off"> <?php echo $mesa->noMesa ?>
                     </label>
                 <?php endforeach; ?>
@@ -40,14 +40,23 @@
         <hr>
         <div>
             <?php foreach($categoria_data as $categoria): ?>
-                <button type="button" class="btn btn-amber btn-lg btn-block btnCategorias" data-id="<?php echo $categoria->idCategoria;?>" data-categoria="<?php echo $categoria->categoria;?>"><?php echo $categoria->categoria ?></button>
+                <button style="cursor: pointer;" type="button" class="btn orange accent-2 btn-lg btn-block btnCategorias" data-id="<?php echo $categoria->idCategoria;?>" data-categoria="<?php echo $categoria->categoria;?>"><?php echo $categoria->categoria ?></button>
             <?php endforeach; ?>
         </div>
 
     </div>
 
     <div class="col-lg-7 jumbotron" id="menu" align="center">
-        <h2>Menú</h2>
+
+        <h3>Menú</h3>
+
+            <span id="opsiguiente" title="Siguiente" style="float: right; cursor:pointer; " class="fa fa-chevron-circle-right fa-2x  "></span>
+            <span  id="opanterior" title="Anterior" style="float: left; cursor:pointer; " class="fa fa-chevron-circle-left fa-2x"></span>
+
+        <br>
+
+
+
         <hr>
         <div id="contenedor_productos">
 

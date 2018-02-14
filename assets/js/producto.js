@@ -3,6 +3,13 @@ var producto = {
     lista: []
 };
 
+var ingredienteslista = {
+    listos: []
+};
+
+var ingredienteslistaborrar = {
+    listos: []
+};
 
 idCategoriaActual = 0;
 categoriaActual = "";
@@ -12,7 +19,6 @@ var idProducto = 0;
 
 $(document).ready(function() {
 
-    //console.log(hora);
     if( window.location.href === baseurl + 'Products/display'){
 
         $(document).on("click", ".btnNuevoProducto", function () {
@@ -27,10 +33,16 @@ $(document).ready(function() {
             content += '<textarea type="text" class="md-textarea form-control" name="descripcion" id="descripcion"></textarea>';
             content += '<label>Descripción</label>';
             content += '</div>';
-            //content += '<div class="row">';
             content += '<div class="md-form">';
             content += '<input type="number" class="form-control" name="costo" id="costo">';
             content += '<label>Costo</label>';
+            content += '</div>';
+            content += '<div class="md-form">';
+            content += '<label><i  class="fa fa-plus-circle text-primary font-weight-bold">Ingredientes</i></label>';
+            content += '<input type="text" class="form-control buscaringrediente" name="buscaringrediente" id="buscaringrediente">';
+            content += '<ul  id="resingrediente"></ul>';
+            content += '<div  class="row" name="ingredientes" id="txtareaingredientes"></div>';
+
             content += '</div>';
             content += '<div class="md-form">';
             content += '<input type="number" class="form-control" name="precio" id="precio">';
@@ -80,6 +92,30 @@ $(document).ready(function() {
 
         });
 
+        $(document).on("click", "#buscaringrediente", function (){
+            $("#buscaringrediente").focus();
+            //comprobamos si se pulsa una tecla
+            $("#buscaringrediente").keyup(function (e) {
+                var escribe = "";
+                escribe = $("#buscaringrediente").val();
+
+                $.post(baseurl+'products/getIngrediente', {ingrediente: escribe}, function(mensaje)
+                {
+                    if (mensaje!= '')
+                    {
+                        $("#resingrediente").show();
+                        $("#resingrediente").html(mensaje);
+
+                    } else
+                    {
+                        $("#resingrediente").html('');
+                    };
+                });
+
+            });
+        });
+
+
         //destruir contenido de formulario al dar click en cancelar en el modal
         $(document).on("click", "#btnCancelarRegistroProducto", function () {
             $("#formularionuevoproducto").empty();
@@ -95,6 +131,37 @@ $(document).ready(function() {
 
             $("#categoria").val(nombrecategoria);
             $("#rescategorias").remove();
+        });
+
+        //click sobre el nombre de algunos de los ingredientes encontrados en el formulario
+        //de creacion de algun producto
+        $(document).on("click", ".eningrediente", function () {
+           var ingrediente = $("#txtingrediente").data("nombre");
+           var idingrediente = $("#txtingrediente").data("id");
+           var cantidad = $("#cantidadingrediente").val();
+
+
+            console.log(ingrediente);
+            console.log(idingrediente);
+            console.log(cantidad);
+            if (cantidad ==""){
+
+                alertify.error('El campo cantidad no puede ir vacio');
+                return false;
+            }
+
+            ingredienteslista.listos.push({
+                "idingrediente"   : idingrediente,
+                "cantidad"       : cantidad
+
+            });
+
+            console.log(ingredienteslista);
+
+            $("#buscaringrediente").val("");
+
+            $("#txtareaingredientes").append('<div id="'+ idingrediente +'" data-id="'+ idingrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+ingrediente+''+" " + ''+cantidad+''+ "  " +'<i style="cursor: pointer;" data-id="'+ idingrediente +'" class="closeingre fa fa-times"></i></div>');
+            $("#resingrediente").empty();
         });
 
 
@@ -117,23 +184,22 @@ $(document).ready(function() {
                         "precioProducto"        : document.getElementById("precio").value,
                         "cantProducto"          : document.getElementById("cantidad").value,
                         "idCategoria"           : categoriaseleccionada
-                        //"imagen"                : document.getElementById("imagen").value
 
                     };
+
+                    var productoJSON = JSON.stringify(producto.lista);
+                    var ingredienteslistosinsertar = JSON.stringify(ingredienteslista.listos);
 
                     const form = document.getElementById('formcrearproducto');
                     const formData = new FormData(form);
                     formData.append("categoria", categoriaseleccionada);
+                    formData.append("ingredientes", ingredienteslistosinsertar);
 
 
-                    var productoJSON = JSON.stringify(producto.lista);
+
 
                     $.ajax({
-                        // type: "POST",
-                        // url: baseurl + 'products/create',
-                        // dataType: 'json',
-                        //
-                        // data:{producto:productoJSON} ,
+
                         type: 'POST',
                         url: baseurl + 'products/create',
                         data: formData,
@@ -160,9 +226,9 @@ $(document).ready(function() {
                         cache_clear()
                     }, 1000));
 
-                    // setInterval(function() {
-                    //     cache_clear()
-                    // }, 1000);
+                    ingredienteslista = {
+                        listos: []
+                    };
                 },
                 function(){
                     alertify.error('Cancelado')
@@ -192,8 +258,22 @@ $(document).ready(function() {
 
                 var result = JSON.parse(data);
 
+
+
                 if(result){
+                    $.post(baseurl + 'Products/getProductoIngrediente/' + id, function (data2) {
+
+                        var resultingredientes = JSON.parse(data2);
+                        console.log(resultingredientes);
+
+                        $.each(resultingredientes, function (j, val2) {
+                            $("#txtareaingredientes").append('<div id="'+ val2.idIngrediente +'" data-id="'+ val2.idIngrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+val2.ingrediente+''+" " + ''+val2.cantIngrediente+''+ "  " +'<i style="cursor: pointer;" data-id="'+ val2.idIngrediente +'" class="eliminaingrediente fa fa-times"></i></div>');
+                        });
+                    });
                     $.each(result, function (i, val) {
+
+
+
                         var content = "";
                         content += '<form enctype="multipart/form-data" id="formeditarproducto">';
                         content += '<div class="">';
@@ -207,6 +287,14 @@ $(document).ready(function() {
                         content += '<div class="">';
                         content += '<label class="h6">Costo</label><br>';
                         content += '<input type="text" class="" name="costo" id="costo" value="'+val.costoProducto+'">';
+                        content += '</div>';
+
+                        content += '<div class="md-form">';
+                        content += '<label><i  class="fa fa-plus-circle text-primary font-weight-bold">Ingredientes</i></label>';
+                        content += '<input type="text" class="form-control buscaringrediente" name="buscaringrediente" id="buscaringrediente">';
+                        content += '<ul  id="resingrediente"></ul>';
+                        content += '<div  class="row" name="ingredientes" id="txtareaingredientes"></div>';
+
                         content += '</div>';
                         content += '<div class="">';
                         content += '<label class="h6">Precio</label><br>';
@@ -258,6 +346,8 @@ $(document).ready(function() {
                     };
 
                     var productoJSON = JSON.stringify(producto.lista);
+                    var ingredientesparainsertar = JSON.stringify(ingredienteslista.listos);
+                    var ingredientesparaborrar = JSON.stringify(ingredienteslistaborrar.listos);
 
                     console.log(producto.lista);
 
@@ -265,6 +355,9 @@ $(document).ready(function() {
                     const formData = new FormData(form);
                     formData.append("categoria", categoriaseleccionada);
                     formData.append("idproducto", idProducto);
+                    formData.append("ingredientes", ingredientesparainsertar);
+                    formData.append("ingredientesborrar", ingredientesparaborrar);
+
 
 
 
@@ -384,12 +477,37 @@ $(document).ready(function() {
         });
         //Fin de la busqueda del categorias=============================================================================
 
+
     }
+
+    $(document).on("click", ".closeingre", function () {
+
+        var ingredienteaborrar = $(this).data("id");
+        $("div #"+ingredienteaborrar).remove();
+        ingredienteslista.listos.splice({"idingrediente": ingredienteaborrar}, 1);
+        console.log(ingredienteaborrar);
+        console.log(ingredienteslista);
+
+    });
+
+    $(document).on("click", ".eliminaingrediente", function () {
+
+        var ingredienteaborrar = $(this).data("id");
+        $("div #"+ingredienteaborrar).remove();
+        ingredienteslistaborrar.listos.push({
+            "idingrediente"   : ingredienteaborrar
+
+        });
+        console.log(ingredienteslistaborrar);
+
+
+    });
 
     function cache_clear() {
         window.location.reload(true);
         // window.location.reload(); use this if you do not remove cache
     }
+
 
 });
 

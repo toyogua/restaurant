@@ -46,8 +46,10 @@ class Producto_model extends CI_Model{
     }
 
     //devuelve todos los productos que esten relacionados a una categoria
-    public function get_productos_categoria($idCategoria)
+    public function get_productos_categoria($idCategoria, $porpagina, $desde)
     {
+       $this->db->reset_query();
+        $this->db->limit($porpagina, $desde);
         $this->db->from('producto');
         $this->db->where('idCategoria',$idCategoria);
 
@@ -59,6 +61,23 @@ class Producto_model extends CI_Model{
 
 //        return json_encode( $query->result() );
         return $query->result();
+    }
+
+    public function countProductosCategoria($idCategoria)
+    {
+        $this->db->reset_query();
+
+        $this->db->from('producto');
+        $this->db->where('idCategoria',$idCategoria);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+//        return json_encode( $query->result() );
+        return $query->num_rows();
     }
 
     public function get_producto_info($idProducto){
@@ -77,8 +96,8 @@ class Producto_model extends CI_Model{
         
            categoria.idCategoria,
            categoria.categoria,
-           categoria.descripcionCategoria
-            
+           categoria.descripcionCategoria,
+       
             
             ');
         $this->db->from('producto');
@@ -93,6 +112,32 @@ class Producto_model extends CI_Model{
             return $query->result();
         }
 
+    }
+
+    public function getIngredientesProducto($idProducto)
+    {
+        $this->db->distinct();
+        $this->db->select('
+           
+           detalleproducto.idProducto,
+           detalleproducto.idIngrediente,
+           detalleproducto.cantIngrediente,
+        
+           ingrediente.idIngrediente,
+           ingrediente.ingrediente
+       
+            ');
+        $this->db->from('detalleproducto');
+        $this->db->join('ingrediente', 'ingrediente.idIngrediente = detalleproducto.idIngrediente');
+        $this->db->where('idProducto', $idProducto);
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return false ;
+        }
+        else{
+            return $query->result();
+        }
     }
 
     public function insertProducto($data){
@@ -127,5 +172,31 @@ class Producto_model extends CI_Model{
 
         return TRUE;
     }
+
+    public function  getIngredienteAjax($ingrediente)
+    {
+        $this->db->like('ingrediente', $ingrediente);
+        $get_data = $this->db->get('ingrediente', 3);
+
+        if ($get_data->num_rows() < 1){
+            return false ;
+        }
+        return $get_data->result();
+    }
+
+    public function insertardetalleproducto($dataingrediente)
+    {
+        $this->db->insert('detalleproducto', $dataingrediente);
+        return TRUE;
+    }
+
+    public function deleteIngrediente($idIngrediente, $idProducto){
+        $this->db->where('idIngrediente', $idIngrediente);
+        $this->db->where('idProducto', $idProducto);
+        $this->db->delete('detalleproducto');
+        return TRUE;
+
+    }
+
 
 }

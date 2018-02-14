@@ -1,5 +1,5 @@
 
-var baseurl = 'https://ordenes-app.herokuapp.com/';
+var baseurl = 'http://localhost/restaurant/';
 
 var fecha = new Date;
 var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();

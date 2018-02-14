@@ -12,6 +12,14 @@
     <script src="<?php echo base_url();?>assets/js/ingrediente.js"></script>
     <script src="<?php echo base_url();?>assets/js/producto.js"></script>
 
+<!--    <script src="--><?php //echo base_url();?><!--assets/js/Gruntfile.js"></script>-->
+<!--    <script src="--><?php //echo base_url();?><!--assets/js/jquery.twbsPagination.min.js"></script>-->
+<!--    <script src="--><?php //echo base_url();?><!--assets/js/pagination.js"></script>-->
+<!---->
+<!--    <script src="--><?php //echo base_url();?><!--assets/js/datatables.min.js"></script>-->
+
+
+
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/tether.min.js"></script>
 
@@ -22,6 +30,8 @@
 
     <!-- Font Awesome -->
     <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">-->
+
+    <link href="<?php echo base_url();?>assets/css/datatables.min.css" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url();?>assets/css/bootstrap.min.css" rel="stylesheet">

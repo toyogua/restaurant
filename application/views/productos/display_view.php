@@ -3,15 +3,15 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
+<button style="cursor: pointer;" type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
     <i class="fa fa-plus"></i>Nuevo Producto
 </button>
 <div class="modal fade  myModal" data-backdrop="static" data-keyboard="false" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title font-weight-bold" id="productoModalLabel">Nuevo Producto</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span></button>
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h4   class="modal-title font-weight-bold" id="productoModalLabel">Nuevo Producto</h4>
+<!--                <button style="cursor: pointer;" type="button" class="close" data-dismiss="modal" aria-label="Close"></button>-->
             </div>
             <div class="modal-body">
                 <div id="formularionuevoproducto" class="contenedorProductoRegistro">
@@ -26,7 +26,7 @@
     </div>
 </div>
 
-<div class="modal fade  myModal" id="modalProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
+<div class="modal fade  myModal" data-backdrop="static" data-keyboard="false" id="modalProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -39,6 +39,29 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" id="btnCancelarEditarProducto" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-success" id="btnEditProducto" data-dismiss="modal">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalIngrediente" tabindex="-1" role="dialog" aria-labelledby="modalIngredienteLlb" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4  class="modal-title font-weight-bold" id="productoModalLabel">Selecciona Ingrediente</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row text-center col-md-11">
+                    <label>Ingrediente</label>
+                    <input type="text">
+                    <label>Cantidad</label>
+                    <input type="number">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="" data-dismiss="modal">Agregar</button>
             </div>
         </div>
     </div>
