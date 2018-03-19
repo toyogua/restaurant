@@ -95,12 +95,14 @@ $(document).ready(function() {
                     content += '</div>';
                     content += '<div class="card-body">';
                     content += '<h6 class="card-title"><strong>' + val.producto + '</strong></h6>';
+                    content += '<p> ' + val.descripcionProducto + '</p>';
                     content += '<label>Q ' + val.precioProducto + '</label>';
                     content += '<div style="padding-bottom: 5px;" class="md-form form-group">';
-                    content += '<input placeholder="Cantidad" type="text" id="p' + val.idProducto + '" class="form-control cantidad">';
+                    content += '<input placeholder="Cantidad" type="number" id="p' + val.idProducto + '" class="form-control cantidad">';
                     content += '</div>';
                     content += '<div>';
-                    content += '<label><i style="cursor: pointer;" class="fa fa-plus">Notas</i></label>';
+                    //content += '<label><i style="cursor: pointer;" class="fa fa-plus">Notas</i></label>';
+                    content += '<input id=nota'+ val.idProducto +' type="text" class="notas" placeholder="Notas">';
                     content += '</div>';
                     content += '</div>';
                     content += '</div>';
@@ -173,12 +175,14 @@ $(document).ready(function() {
             content += '</div>';
             content += '<div class="card-body">';
             content += '<h6 class="card-title"><strong>'+val.producto+'</strong></h6>';
+            content += '<p> ' + val.descripcionProducto + '</p>';
             content += '<label>Q '+ val.precioProducto +'</label>';
             content += '<div style="padding-bottom: 5px;" class="md-form form-group">';
-            content += '<input placeholder="Cantidad" type="text" id="p'+ val.idProducto +'" class="form-control cantidad">';
+            content += '<input placeholder="Cantidad" type="number" id="p'+ val.idProducto +'" class="form-control cantidad">';
             content += '</div>';
             content += '<div>';
-            content += '<label><i style="cursor: pointer;" class="fa fa-plus">Notas</i></label>';
+            //content += '<label><i data-toggle="modal" data-target="#modalNotasOrden" style="cursor: pointer;" class="fa fa-plus">Notas</i></label>';
+            content += '<input id=nota'+ val.idProducto +' type="text" class="notas" placeholder="Notas">';
             content += '</div>';
             content += '</div>';
             content += '</div>';
@@ -198,7 +202,8 @@ $(document).ready(function() {
         var precio = $(this).data("precio");
 
         var cantidad = $("#p"+idalimento).val();
-        var notas = $(".notas").val();
+        //var notas = $(".notas").val();
+        var notas = $("#nota"+idalimento).val();
 
         subtotal = precio * cantidad;
 
@@ -228,6 +233,7 @@ $(document).ready(function() {
                     total = (parseFloat(subtotal) + parseFloat(total));
 
                     $(".cantidad").val("");
+                    $(".notas").val("");
 
                     var content = "";
                     content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
@@ -342,6 +348,10 @@ $(document).ready(function() {
                         "horaOrden": hora
 
                     };
+
+                    $("#tblRegistros").empty();
+                    $("#contenedor_total").empty();
+                    total = 0;
 
                     var ordenJSON = JSON.stringify(orden.lista);
                     var detalleJSON = JSON.stringify(producto.lista);
@@ -477,6 +487,5 @@ $(document).ready(function() {
 
     //}
 });
-
 
 

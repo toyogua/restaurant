@@ -15,7 +15,7 @@ class Mesa_model extends CI_Model{
         return $get_data->result();
     }
 
-    //debuelve la informacion de todas las mesas que se encuentren ocupadas
+    //devuelve la informacion de todas las mesas que se encuentren ocupadas
     public function getMesa($idMesa){
 
         $this->db->where('idMesa', $idMesa);

@@ -3,7 +3,7 @@
 RewriteEngine On
 
 #comentar la linea siguiente linea antes de deployar en la cloud
-#RewriteBase /restaurant/
+RewriteBase /restaurant/
 
 RewriteCond %{REQUEST_URI} ^system.*
 RewriteRule ^(.*)$ /index.php?/$1 [L]

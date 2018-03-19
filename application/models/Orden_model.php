@@ -39,6 +39,26 @@ class Orden_model extends CI_Model{
                 'cantDetalleOrden'  => $producto->cantDetalleOrden,
                 'notaDetalleOrden'  => $producto->notaDetalleOrden
             );
+
+            //obtenemos todos los ingredientes asociados al producto que viene
+            $res = $this->descuentaStockIngrediente($producto->idProducto);
+
+            foreach ( $res as $item){
+               //obtenemos la cantidad en existencia de ingredientes que tenemos
+                $totaladescontar = $producto->cantDetalleOrden * $item->cantidad;
+
+                $quedan = $item->stockingrediente - $totaladescontar;
+
+                $data2 = array(
+                    'cantIngrediente'               => $quedan,
+
+                );
+                //actualizamos el nuevo stock de los ingredientes
+                $this->actualizaStockIngrediente($item->idIngrediente, $data2);
+
+
+            }
+
         }
         $this->db->insert_batch('detalleorden', $data);
 
@@ -62,6 +82,37 @@ class Orden_model extends CI_Model{
         }
         return $result;
 
+    }
+
+    public function descuentaStockIngrediente($idproducto)
+    {
+        $this->db->select('
+           
+           detalleproducto.idProducto,
+           detalleproducto.cantIngrediente as cantidad,
+           ingrediente.idIngrediente,
+           ingrediente.cantIngrediente as stockingrediente, 
+       
+            ');
+        $this->db->from('detalleproducto');
+        $this->db->join('ingrediente', 'ingrediente.idIngrediente = detalleproducto.idIngrediente');
+        $this->db->where('idProducto', $idproducto);
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return FALSE;
+        }
+        else{
+            return $query->result();
+        }
+    }
+
+    public function actualizaStockIngrediente($idingrediente, $data)
+    {
+        $this->db->where('idIngrediente', $idingrediente);
+        $this->db->update('ingrediente', $data);
+
+        return TRUE;
     }
 
     public function ordenes_categoria($fecha, $idCategoria){

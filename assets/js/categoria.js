@@ -1,5 +1,5 @@
 
-var baseurl = 'https://ordenes-app.herokuapp.com/';
+var baseurl = 'http://localhost/restaurant/';
 
 var fecha = new Date;
 var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();
@@ -32,8 +32,10 @@ $(document).ready(function() {
                             content += '<table class="c'+categoria+' table table-striped table-bordered detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'">';
                             content += '<tr class="detalle'+val.idDetalleOrden+' c'+categoria+'">';
                             content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';
+                            content += '<td class="c'+categoria +' text-danger">'+ val.notaDetalleOrden +'</td>';
                             content += '<td class="c'+categoria+' text-center detalle'+val.idDetalleOrden+'" style="width: 5%" id="detalle'+val.idDetalleOrden+'">';
-                            content += '<i href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check"></i>';
+                            content += '<i style="cursor: pointer;" href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
+
                             content += '</td class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                             content += '</tr class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                             content += '</table class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
@@ -62,8 +64,8 @@ $(document).ready(function() {
         var categoriaDinamica = $(this).data('categoria');
         categoria = categoriaDinamica;
 
-        $(".cBar").remove()
-        $(".cCocina").remove()
+        $(".cBar").remove();
+        $(".cCocina").remove();
 
         if (categoria === "Bar"){
             $(".c"+'Cocina').remove();
@@ -83,8 +85,10 @@ $(document).ready(function() {
                     content += '<table class="c'+categoria+' table table-striped table-bordered detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'">';
                     content += '<tr class="detalle'+val.idDetalleOrden+' c'+categoria+'">';
                     content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';
+                    content += '<td class="c'+categoria +' text-danger">'+ val.notaDetalleOrden +'</td>';
                     content += '<td class="c'+categoria+' text-center detalle'+val.idDetalleOrden+'" style="width: 5%" id="detalle'+val.idDetalleOrden+'">';
-                    content += '<i href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check"></i>';
+                    content += '<i style="cursor: pointer;" href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
+
                     content += '</td class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                     content += '</tr class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                     content += '</table class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
@@ -100,13 +104,33 @@ $(document).ready(function() {
 
     $(document).on("click", ".btnProductoListo", function (e) {
         var idDetalleOrden = $(this).data("id");
-        $.post(baseurl + 'DetalleOrden/updateDetalle/' + idDetalleOrden, function (data) {
-            var result = JSON.parse(data);
-            if(result){
-                console.log(result);
-            }
-            $(".detalle"+idDetalleOrden).remove();
-        });
+        swal({
+                title: "Estas seguro?",
+                text: "de procesar la orden",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si!",
+                cancelButtonText: "Cancelar!",
+                closeOnConfirm: false,
+                closeOnCancel: true
+            },
+            function (isConfirm) {
+
+                if (isConfirm){
+                    $.post(baseurl + 'DetalleOrden/updateDetalle/' + idDetalleOrden, function (data) {
+                        var result = JSON.parse(data);
+                        if(result){
+                            console.log(result);
+                        }
+                        $(".detalle"+idDetalleOrden).remove();
+                    });
+
+                    swal("Procesando!", "La orden fue despachada.", "success");
+                }
+
+            });
+
     });
 
 
