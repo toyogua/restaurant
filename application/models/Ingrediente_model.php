@@ -32,8 +32,8 @@ class Ingrediente_model extends CI_Model{
     }
 
     public function insertIngredientes($data){
-        $insert_query = $this->db->insert('ingrediente', $data);
-        return $insert_query;
+         $this->db->insert('ingrediente', $data);
+        return TRUE;
     }
 
     public function delete_ingrediente($idIngrediente){

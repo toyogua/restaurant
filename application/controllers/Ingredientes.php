@@ -31,14 +31,16 @@ class Ingredientes extends CI_Controller
             'descripcionIngrediente'    => $listaIngredientes->ingredienteDescripcion,
             'costoIngrediente'          => $listaIngredientes->costoIngrediente,
             'cantIngrediente'           => $listaIngredientes->cantIngrediente,
-            'fechaIngreso'              => $listaIngredientes->fechaIngreso
+            'fechaIngreso'              => $listaIngredientes->fechaIngreso,
+            'medida'                    => $listaIngredientes->medida
         );
 
-        $this->Ingrediente_model->insertIngredientes($data);
+        $res = $this->Ingrediente_model->insertIngredientes($data);
+        echo json_encode($res);
     }
 
 
-    public function edit($idIngrediente){
+    public function edit(){
         $listaIngredientes = json_decode($_POST['ingredientes']);
 
         $data = array(
@@ -46,10 +48,12 @@ class Ingredientes extends CI_Controller
             'descripcionIngrediente'    => $listaIngredientes->ingredienteDescripcion,
             'costoIngrediente'          => $listaIngredientes->costoIngrediente,
             'cantIngrediente'           => $listaIngredientes->cantIngrediente,
-            'fechaIngreso'              => $listaIngredientes->fechaIngreso
+            'fechaIngreso'              => $listaIngredientes->fechaIngreso,
+            'medida'                    => $listaIngredientes->medida
         );
 
-        $this->Ingrediente_model->edit_ingrediente($idIngrediente, $data);
+        $res = $this->Ingrediente_model->edit_ingrediente($listaIngredientes->idingrediente, $data);
+        echo json_encode($res);
     }
 
     public function delete($idIngrediente){

@@ -124,7 +124,8 @@ class Producto_model extends CI_Model{
            detalleproducto.cantIngrediente,
         
            ingrediente.idIngrediente,
-           ingrediente.ingrediente
+           ingrediente.ingrediente,
+           ingrediente.medida
        
             ');
         $this->db->from('detalleproducto');

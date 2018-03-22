@@ -123,6 +123,7 @@ class Products extends CI_Controller
                 'idProducto'         => $id,
                 'cantIngrediente'    => $ingrediente->cantidad
 
+
             );
 
             $this->Producto_model->insertardetalleproducto($dataingrediente);
@@ -238,6 +239,11 @@ class Products extends CI_Controller
                             <span><input id="cantidadingrediente" type="number" required placeholder="Cantidad"></span>
                         </div>
 
+                        <div class="col-md-4">
+                            <span><p data-medida="<?php echo $fila->medida ?>"><?php echo $fila->medida ?></p></span>
+                        </div>
+
+
                     </div>
 
 
@@ -266,6 +272,8 @@ class Products extends CI_Controller
 
         echo json_encode($data);
     }
+
+
 
 
 

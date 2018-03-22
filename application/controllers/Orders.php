@@ -11,6 +11,12 @@ class Orders extends CI_Controller
 
     public  function index()
     {
+        $bebida = "bebida";
+        $comida = "comida";
+
+        $data['categorias_bebida'] = $this->Categoria_model->getCategoriaBebida($bebida);
+        $data['categorias_comida'] = $this->Categoria_model->getCategoriaComida($comida);
+
         $data['categoria_data'] = $this->Categoria_model->get_categorias_info();//obtiene las categorias
         $data['meseros_data'] = $this->Empleado_model->get_empleados_info();//obtiene los empleados
         $data['mesas_data'] = $this->Mesa_model->get_mesas_info();//obtiene las mesas
@@ -42,6 +48,12 @@ class Orders extends CI_Controller
         $data['categoria_data'] = $this->Categoria_model->get_categorias_info();
 
         $data['main_view'] = "orders/display_view";
+        $this->load->view('layouts/main', $data);
+    }
+
+    public function login()
+    {
+        $data['main_view'] = "orders/login_view";
         $this->load->view('layouts/main', $data);
     }
 

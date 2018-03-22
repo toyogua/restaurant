@@ -30,7 +30,24 @@ $(document).ready(function() {
             content += '<input type="text" class="form-control" id="cantidad">';
             content += '<label>Cantidad</label>';
             content += '</div>';
+
             content += '<div class="md-form">';
+            content += '<p class="text-info">Elija la unidad de medida</p>';
+            content += '<div class="row">';
+            content += '<div class="col-md-1"><label for="rgramos">Gramos</label></div>';
+            content += '<div class="col-md 2">';
+            content += '<input class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
+            content += '</div>';
+
+            content += '<div class="col-md-1"><label for="runidad">Unidad</label></div>';
+            content += '<div class="col-md 2">';
+            content += '<input class="rmedida" name="rmedida" type="radio" id="runidad" value="Unidad">';
+            content += '</div>';
+            content += '</div>';
+            content += '</div>';
+
+            content += '<div class="md-form">';
+
             content += '<label>Fecha de Ingreso</label><br>';
             content += '<input type="date" class="form-control" id="fecha">';
             content += '</div>';
@@ -44,6 +61,8 @@ $(document).ready(function() {
         });
 
         $(document).on("click", "#btnRegistrarIngrediente", function (e) {
+            //detectamos los radio button presionados
+            var medida = $('input:radio[name=rmedida]:checked').val();
 
             alertify.confirm('Estas segurdo?', 'De querer registrar este ingrediente',
                 function(){
@@ -53,24 +72,29 @@ $(document).ready(function() {
                         "costoIngrediente"          : document.getElementById("costo").value,
                         "cantIngrediente"           : document.getElementById("cantidad").value,
                         "fechaIngreso"              : document.getElementById("fecha").value,
+                        "medida"                    : medida
                     };
 
                     var ordenJSON = JSON.stringify(ingredientes.lista);
                     console.log(ordenJSON);
 
-                    $.post(baseurl + 'Ingredientes/create', {ingredientes: ordenJSON},
-                        function(respuesta) {
-                            console.log(respuesta);
-                            alertify.success('Registrado')
-                        }).error(
-                        function(){
-                            console.log('Error al ejecutar la petición');
-                        });
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'Ingredientes/create',
+                        dataType: 'json',
+                        data: {ingredientes: ordenJSON},
+                        success: function (res) {
+                            console.log(res);
+                            if (res) {
 
-                    location.reload(true);
-                    //$("#modaIngrediente").hide();
-                    //$("body").show();
-                    //$(".contenedorIngredienteRegistro").empty();
+                                alertify.success('Registrado');
+                            }
+
+                        }
+                    });
+                    setInterval(function() {
+                        cache_clear()
+                    }, 1000);
 
                 },
                 function(){
@@ -115,6 +139,22 @@ $(document).ready(function() {
                         content += '<label class="h6">Cantidad</label><br>';
                         content += '<input type="text" class="" id="cantidad" value="'+val.cantIngrediente+'">';
                         content += '</div><br>';
+
+                        content += '<div class="md-form">';
+                        content += '<p class="text-info">Elija la unidad de medida: '+ val.medida+'</p>';
+                        content += '<div class="row">';
+                        content += '<div class="col-md-1"><label for="rgramos">Gramos</label></div>';
+                        content += '<div class="col-md 2">';
+                        content += '<input class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
+                        content += '</div>';
+
+                        content += '<div class="col-md-1"><label for="runidad">Unidad</label></div>';
+                        content += '<div class="col-md 2">';
+                        content += '<input class="rmedida" name="rmedida" type="radio" id="runidad" value="Unidad">';
+                        content += '</div>';
+                        content += '</div>';
+                        content += '</div>';
+
                         content += '<div class="">';
                         content += '<label class="h6">Fecha de Ingreso</label><br>';
                         content += '<input type="date" class="" id="fecha" value="'+val.fechaIngreso+'">';
@@ -132,6 +172,8 @@ $(document).ready(function() {
         });
 
         $(document).on("click", "#btnEditIngrediente",function(e){
+            //detectamos los radio button presionados
+            var medida = $('input:radio[name=rmedida]:checked').val();
             alertify.confirm('Estas segurdo?', 'De querer editar el ingrediente',
                 function(){
                     ingredientes.lista={
@@ -139,26 +181,38 @@ $(document).ready(function() {
                         "ingredienteDescripcion"    : document.getElementById("descripcion").value,
                         "costoIngrediente"          : document.getElementById("costo").value,
                         "cantIngrediente"           : document.getElementById("cantidad").value,
-                        "fechaIngreso"              : document.getElementById("fecha").value
+                        "fechaIngreso"              : document.getElementById("fecha").value,
+                        "medida"                    : medida,
+                        "idingrediente"             : idIngrediente
                     };
 
                     var ordenJSON = JSON.stringify(ingredientes.lista);
                     console.log(ordenJSON);
 
-                    $.post(baseurl + 'Ingredientes/edit/' + idIngrediente, {ingredientes: ordenJSON},
-                        function(respuesta) {
-                            console.log(respuesta);
-                            alertify.success('Editado')
-                        }).error(
-                        function(){
-                            console.log('Error al ejecutar la petición');
-                        });
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'Ingredientes/edit',
+                        dataType: 'json',
+                        data: {ingredientes: ordenJSON},
+                        success: function (res) {
+                            console.log(res);
+                            if (res) {
 
-                    location.reload(true);
+                                alertify.success('Actualizado');
+                            }
+
+                        }
+                    });
+                    setInterval(function() {
+                        cache_clear()
+                    }, 1000);
+
                 },
                 function(){
                     alertify.error('Cancelado')
                 });
+
+
         });
 
         $(document).on("click", ".btnEliminarIngrediente", function( e ){

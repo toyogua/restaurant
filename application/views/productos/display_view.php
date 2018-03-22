@@ -7,7 +7,7 @@
     <i class="fa fa-plus"></i>Nuevo Producto
 </button>
 <div class="modal fade  myModal" data-backdrop="static" data-keyboard="false" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog moda-sm" role="document">
         <div class="modal-content text-center">
             <div class="modal-header">
                 <h4   class="modal-title font-weight-bold" id="productoModalLabel">Nuevo Producto</h4>
@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnCancelarRegistroProducto" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="btnRegistrarProducto" data-dismiss="modal">Registrar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-danger" id="btnCancelarRegistroProducto" data-dismiss="modal">Cancelar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-success" id="btnRegistrarProducto" data-dismiss="modal">Registrar</button>
             </div>
         </div>
     </div>
@@ -37,14 +37,14 @@
                 <div class="contenedor_editar_producto"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="btnCancelarEditarProducto" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="btnEditProducto" data-dismiss="modal">Editar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-danger" id="btnCancelarEditarProducto" data-dismiss="modal">Cancelar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-success" id="btnEditProducto" data-dismiss="modal">Editar</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="modalIngrediente" tabindex="-1" role="dialog" aria-labelledby="modalIngredienteLlb" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="modalIngrediente" tabindex="-1" role="dialog" aria-labelledby="modalIngredienteLlb" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
@@ -60,8 +60,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-success" id="" data-dismiss="modal">Agregar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-danger" id="" data-dismiss="modal">Cancelar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-success" id="" data-dismiss="modal">Agregar</button>
             </div>
         </div>
     </div>

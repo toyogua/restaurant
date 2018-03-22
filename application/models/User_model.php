@@ -3,23 +3,11 @@
 class User_model extends CI_Model{
 
 
-    public function create_user(){
+    public function create_user( $data ){
 
-        $options = ['cost'=>12];
-        $encripted_pass = password_hash($this->input->post('password'), PASSWORD_BCRYPT,  $options);
+        $this->db->insert('users',$data);
 
-        $data = array(
-
-            'nombres'       => $this->input->post('nombres'),
-            'apellidos'     => $this->input->post('apellidos'),
-            'email'         => $this->input->post('email'),
-            'username'      => $this->input->post('username'),
-            'password'      => $encripted_pass
-        );
-
-        $insert_data = $this->db->insert('users',$data);
-
-        return $insert_data;
+        return TRUE;
 
     }
 
@@ -30,9 +18,9 @@ class User_model extends CI_Model{
         return TRUE;
     }
 
-    public function delete_user($idUser){
-        $this->db->where('id', $idUser);
-        $this->db->delete('users');
+    public function delete_user($data, $id){
+        $this->db->where('idEmpleado', $id);
+        $this->db->update('users', $data );
         return TRUE;
     }
 
@@ -53,7 +41,7 @@ class User_model extends CI_Model{
         $db_password = $result->row(2)->password;
 
         if(password_verify($password, $db_password)){
-            return $result->row(0)->id;
+            return $result->row(0)->idUser;
         }
         else{
             return FALSE;
@@ -78,17 +66,10 @@ class User_model extends CI_Model{
     }
 
 
-    public function update_pass($user_id)
+    public function update_pass($data, $user_id)
     {
 
-        $options = ['cost'=>12];
-        $encripted_pass = password_hash($this->input->post('nuevapass'), PASSWORD_BCRYPT,  $options);
-
-        $data = array(
-            'password'      => $encripted_pass
-        );
-
-        $this->db->where('id', $user_id);
+        $this->db->where('idEmpleado', $user_id);
         $this->db->update('users', $data);
 
         return TRUE;
@@ -97,16 +78,37 @@ class User_model extends CI_Model{
 
     public function get_users_info()
     {
-        $this->db->from('users');
-        $this->db->order_by('nombres','asc');
-
+        $this->db->select('
+           
+           empleado.idEmpleado,
+           empleado.nombresEmpleado,
+           empleado.apellidosEmpleado,
+           empleado.telefonoEmpleado,
+           empleado.emailEmpleado,
+           empleado.idTipoEmpleado,
+           
+           tipoempleado.idTipoEmpleado,
+           tipoempleado.tipoEmpleado,
+           
+           users.idUser,
+           users.username,
+           users.idEmpleado
+           
+           
+       
+            ');
+        $this->db->from('empleado');
+        $this->db->join('tipoempleado', 'tipoempleado.idTipoEmpleado = empleado.idTipoEmpleado');
+        $this->db->join('users', 'users.idEmpleado = empleado.idEmpleado');
+        $this->db->where('empleado.estado', 1);
         $query = $this->db->get();
 
-        if ($query->num_rows() < 1) {
+        if ($query->num_rows() < 1){
             return FALSE;
         }
-
-        return $query->result();
+        else{
+            return $query->result();
+        }
     }
 
     public function get_user_info($id)

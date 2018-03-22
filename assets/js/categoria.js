@@ -12,6 +12,7 @@ $(document).ready(function() {
     //console.log(hora);
     if( window.location.href === baseurl + 'orders/display'){
         function getOrdenesAutomaticas(){
+            $("#contenedor_ordenes").empty();
             if(categoria != ''){
                 $(".cBar").remove();
                 $(".cCocina").remove();
@@ -28,7 +29,7 @@ $(document).ready(function() {
                     if(result){
                         $.each(result, function (i, val) {
                             var content = "";
-                            content += '<p class="text-left detalle'+val.idDetalleOrden+' c'+categoria+'">Orden: '+val.idOrden+' - Mesa: '+val.noMesa+'</p>';
+                            content += '<p class="text-left detalle'+val.idDetalleOrden+' c'+categoria+'">Orden: '+val.idOrden+' - Mesa: '+val.noMesa  +' Alias: '+ val.aliasMesa +'</p>';
                             content += '<table class="c'+categoria+' table table-striped table-bordered detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'">';
                             content += '<tr class="detalle'+val.idDetalleOrden+' c'+categoria+'">';
                             content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';
@@ -57,7 +58,7 @@ $(document).ready(function() {
 
     $(document).on("click", ".btnCategoriaOrden", function () {
 
-
+        $("#contenedor_ordenes").empty();
         var id = $(this).data("id");
         idCategoria = id;
 
@@ -81,7 +82,7 @@ $(document).ready(function() {
                 $.each(result, function (i, val) {
 
                     var content = "";
-                    content += '<p class="text-left detalle'+val.idDetalleOrden+' c'+categoria+'">Orden: '+val.idOrden+' - Mesa: '+val.noMesa+'</p>';
+                    content += '<p class="text-left detalle'+val.idDetalleOrden+' c'+categoria+'">Orden: '+val.idOrden+' - Mesa: '+val.noMesa  +' Alias: '+ val.aliasMesa +'</p>';
                     content += '<table class="c'+categoria+' table table-striped table-bordered detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'">';
                     content += '<tr class="detalle'+val.idDetalleOrden+' c'+categoria+'">';
                     content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';

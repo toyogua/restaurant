@@ -56,4 +56,72 @@ class Categoria_model extends CI_Model{
         return $get_data->result();
     }
 
+    public function insertarCategoria($data)
+    {
+        $this->db->insert('categoria', $data);
+        return TRUE;
+    }
+
+    public function getCategoriaInfo( $idcategoria ){
+        $this->db->select('
+            idCategoria,
+            categoria,
+            descripcionCategoria
+        
+            ');
+        $this->db->from("categoria");
+        $this->db->where("idCategoria", $idcategoria);
+        $query = $this->db->get();
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+
+    public function udpateCategoria($data, $idcategoria)
+    {
+        $this->db->where('idCategoria', $idcategoria);
+        $this->db->update('categoria', $data);
+
+        return TRUE;
+    }
+
+    public function deleteCategoria( $idcategoria)
+    {
+        $this->db->where('idCategoria', $idcategoria);
+        $this->db->delete('categoria');
+        return TRUE;
+    }
+
+    public function getCategoriaBebida( $palabraclave ){
+        $this->db->from('categoria');
+        $this->db->like('categoria', $palabraclave);
+        $this->db->order_by('categoria','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+
+    public function getCategoriaComida( $palabraclave )
+    {
+        $this->db->from('categoria');
+        $this->db->like('categoria', $palabraclave);
+        $this->db->order_by('categoria','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+
+
 }

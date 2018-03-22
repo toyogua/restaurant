@@ -46,9 +46,62 @@ class Categorias extends CI_Controller
     public  function getCategoria($idCategoria)
     {
         if ($this->input->is_ajax_request()) {
-            $data = $this->Cateogria_model->getCategoria($idCategoria);
+            $data = $this->Categoria_model->getCategoria($idCategoria);
             echo json_encode($data);
         }
     }
+
+    public function listarCategorias ()
+    {
+        $data['categorias_data'] = $this->Categoria_model->get_categorias_info();
+        $data['main_view'] = "categorias/listar_categorias";
+        $this->load->view('layouts/main', $data);
+    }
+
+    public function create()
+    {
+        $nombrecategoria        = $this->input->post('txtNombreCategoria');
+        $descripcioncategoria   = $this->input->post('txtDescripcionCategoria');
+
+        $data = array(
+            'categoria'               => $nombrecategoria,
+            'descripcionCategoria'      => $descripcioncategoria
+
+        );
+
+        $res = $this->Categoria_model->insertarCategoria($data);
+        echo json_encode($res);
+    }
+
+    public function getCategoriaInfo( $idcategoria )
+    {
+        $data = $this->Categoria_model->getCategoriaInfo( $idcategoria );
+        echo json_encode($data);
+    }
+
+    public function edit()
+    {
+        $nombre = $this->input->post('nombre');
+        $descripcion = $this->input->post('descripcion');
+        $idcategoria = $this->input->post('idcategoria');
+
+        $data = array(
+                'categoria'             => $nombre,
+                'descripcionCategoria'  => $descripcion
+        );
+
+        $res = $this->Categoria_model->udpateCategoria( $data, $idcategoria);
+
+        echo json_encode( $res );
+    }
+
+    public function delete()
+    {
+        $id = $this->input->post('id');
+        $res = $this->Categoria_model->deleteCategoria($id);
+
+        echo json_encode( $res );
+    }
+
 
 }

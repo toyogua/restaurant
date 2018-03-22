@@ -8,6 +8,7 @@ class Users extends CI_Controller {
 
         parent::__construct();
 
+        $this->load->model('User_model');
 
     }
 
@@ -132,6 +133,7 @@ class Users extends CI_Controller {
             if($this->input->post('username') && $this->input->post('password')){
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
+                var_dump($username);
 
                 $user_id = $this->User_model->login_user($username, $password);
 

@@ -19,7 +19,7 @@ class Mesa_model extends CI_Model{
     public function getMesa($idMesa){
 
         $this->db->where('idMesa', $idMesa);
-        $this->db->where('estadoMesa', 1);
+        $this->db->where('ocupada', 0);
         $get_data = $this->db->get('mesa');
 
         if ($get_data->num_rows() > 0){
@@ -27,10 +27,21 @@ class Mesa_model extends CI_Model{
         }
     }
 
+    public function obtenerMesa( $id )
+    {
+        $this->db->where('idMesa', $id);
+        $query = $this->db->get('mesa');
+
+        if ($query->num_rows() > 0){
+            return $query->result();
+        }
+    }
+
     //devuelven la informacion de todas las mesas registradas
     public function get_mesas_info()
     {
         $this->db->from('mesa');
+        $this->db->where('estado', 1);
         $this->db->order_by('noMesa','asc');
 
         $query = $this->db->get();
@@ -40,5 +51,28 @@ class Mesa_model extends CI_Model{
         }
 
         return $query->result();
+    }
+
+    public function crearMesa( $data )
+    {
+        $this->db->insert('mesa', $data );
+
+        return TRUE;
+    }
+
+    public function actualizarMesa( $data, $id)
+    {
+        $this->db->where('idMesa', $id);
+        $this->db->update('mesa', $data);
+
+        return TRUE;
+    }
+
+    public function eliminarMesa( $data, $id)
+    {
+        $this->db->where('idMesa', $id);
+        $this->db->update('mesa', $data);
+
+        return TRUE;
     }
 }

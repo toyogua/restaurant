@@ -15,7 +15,8 @@ class Orden_model extends CI_Model{
                 'idEmpleado'     => $listaOrden->idEmpleado,
                 'estadoOrden'    => $listaOrden->estadoOrden,
                 'fechaOrden'     => $listaOrden->fechaOrden,
-                'horaOrden'      => $listaOrden->horaOrden
+                'horaOrden'      => $listaOrden->horaOrden,
+                'aliasMesa'      => $listaOrden->aliasMesa
             )
         )
         ->insert("orden");//inserta la orden

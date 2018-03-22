@@ -5,6 +5,8 @@ var nombreMeseroActual = "";
 
 var idMesaActual = 0;
 var noMesaActual = "";
+var aliasMesa = "";
+
 var estadoProducto = 0;
 var contador = 0;
 
@@ -35,7 +37,31 @@ var total = 0.00;
 respuesta = false;
 
 $(document).ready(function() {
-    //if( window.location.href === baseurl + 'orders') {
+// Tooltips Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+
+    //$('.mesa').tooltip('show');
+
+    if( window.location.href === baseurl + 'orders'){
+        $('#mCapturaMeseroMesa').modal('show');
+    }
+
+    //validamos que el empleado haya seleccionado mesa y mesero antes de eliminar el modal de entrada
+    $("#btnEntrarEmpleado").click(function () {
+        if (idMesaActual == 0 || idMeseroActual == 0) {
+            swal("No Identificado!", "Selecciona la mesa y mesero, para continuar con la orden", "error");
+             return false;
+        }
+        $('#btnEntrarEmpleado').attr('data-dismiss', "modal");
+
+    });
+
+    //APLICAMOS EL EFECTO TOGGLE PARA ESCONDER EL DIV DE LAS CATEGORIAS BEBIDA
+    $( "#contenedorBebida" ).toggle( "blind", 1000 );
+    $( "#contenedorComida" ).toggle( "blind", 1000 );
+
 
     var content = "";
     content += '<b><p class="btn-danger text-center text-total">Total: Q' + total + '</p></b>';
@@ -51,6 +77,7 @@ $(document).ready(function() {
     //FUNCION DEL CLICK SOBRE CADA BOTON DE CATEGORIAS
     $(document).on("click", ".btnCategorias", function (e) {
 
+        desde = 0;
 
         if (idMesaActual == 0 || idMeseroActual == 0) {
             swal("No Identificado!", "Selecciona la mesa y mesero, para continuar con la orden", "error")
@@ -64,6 +91,7 @@ $(document).ready(function() {
 
             $("div#cBar").remove();
             $("div#cCocina").remove();
+            $("#contenedor_productos").empty();
 
             if (categoria === "Bar") {
                 $("div#cCocina").remove();
@@ -71,9 +99,9 @@ $(document).ready(function() {
             if (categoria === "Cocina") {
                 $("div#cBar").remove();
             }
-
+            paginaactual = 1;
             $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: id, porpagina:porpagina, desde:0}, function (data) {
-                paginaactual = 1;
+
                 console.log("pagina actual "+paginaactual);
 
                 if (data){
@@ -83,7 +111,7 @@ $(document).ready(function() {
 
                     });
                 }
-                // $( "#opsiguiente").unbind( "click" );
+
                 var result = JSON.parse(data);
                 var content = "";
                 content += '<div class="row">';
@@ -119,20 +147,33 @@ $(document).ready(function() {
     function calcularpaginas(data2) {
 
         totalresultados = data2;
-        totalpaginas = Math.round(totalresultados / porpagina);
-        console.log("total de paginas "+totalpaginas);
+        console.log("total datos "+totalresultados);
+        totalpaginas = Math.trunc(totalresultados / porpagina);
+        totalpaginas = totalpaginas + 1;
+        console.log("total paginas "+totalpaginas);
     }
 
     $("#opanterior").click( function () {
         $("div#cBar").remove();
         $("div#cCocina").remove();
+        $("#contenedor_productos").empty();
         if(desde === 0){
             desde = 0;
+            console.log("desde"+desde);
 
         }else{
+
             desde = desde - 4;
+
+            console.log("pagina actual"+paginaactual);
+            console.log("desde"+desde);
             $("div#cBar").remove();
             $("div#cCocina").remove();
+        }
+        if(paginaactual > 1){
+            paginaactual = paginaactual - 1;
+        }else {
+            paginaactual = 1;
         }
 
         $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
@@ -144,14 +185,17 @@ $(document).ready(function() {
     $("#opsiguiente").click( function () {
         $("div#cBar").remove();
         $("div#cCocina").remove();
+        $("#contenedor_productos").empty();
 
         if(totalpaginas === 1){
             desde = 0;
+            console.log("desde",desde);
         }else
-        if (paginaactual <= totalpaginas){
+        if (paginaactual <totalpaginas){
             paginaactual = paginaactual + 1;
             desde =  desde + 4;
-            console.log("pagina"+paginaactual)
+            console.log("desde"+desde);
+            console.log("pagina actual"+paginaactual)
         }
 
         $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
@@ -193,7 +237,7 @@ $(document).ready(function() {
     }//fin renderproducto
 
     //cuando da click en cada producto
-    $(document).on("click", ".producto", function (e) {
+    $(document).on("click", ".producto", function () {
 
         var subtotal = 0;
 
@@ -340,12 +384,13 @@ $(document).ready(function() {
                 if (isConfirm) {
                     //Crea la orden
                     orden.lista = {
-                        "idMesa": idMesaActual,
-                        "totalOrden": total,
-                        "idEmpleado": idMeseroActual,
-                        "estadoOrden": 0,
-                        "fechaOrden": hoy,
-                        "horaOrden": hora
+                        "idMesa":       idMesaActual,
+                        "totalOrden":   total,
+                        "idEmpleado":   idMeseroActual,
+                        "estadoOrden":  0,
+                        "fechaOrden":   hoy,
+                        "horaOrden":    hora,
+                        "aliasMesa":    aliasMesa
 
                     };
 
@@ -408,35 +453,7 @@ $(document).ready(function() {
         //capturamos el nombre del mesero
         var noMesa = $(this).data("nombre");
 
-        //$.post(baseurl + 'Mesas/getMesa/' + idMesa, function(respuesta) {
-        //    if(respuesta === null){
-        //        console.log(respuesta);
-        //        swal({
-        //                title: "Mesa Ocupada?",
-        //                text: "desea agregar más ordenes a la mesa?",
-        //                type: "warning",
-        //                showCancelButton: true,
-        //                confirmButtonColor: "#DD6B55",
-        //                confirmButtonText: "Si!",
-        //                cancelButtonText: "Cancelar!",
-        //                closeOnConfirm: false,
-        //                closeOnCancel: true
-        //            },
-        //            function(isConfirm){
-        //
-        //                if (isConfirm) {
-        //                    swal("Ocupada!", "La mesa ha sido seleccionada correctamente.", "success");
-        //                    //asignamos a la variable global el valor de la variable local
-        //                    idMesaActual = idMesa;
-        //                    //asignamos a la variable global el valor de la variable local
-        //                    noMesaActual = noMesa;
-        //                    //al input tipo text le colocamos el valor de la variable local
-        //                    $("#mesa").val(noMesa);
-        //                    $("#mesas").remove();
-        //                }
-        //            });
-        //    }
-        //});
+
         //asignamos a la variable global el valor de la variable local
         idMesaActual = idMesa;
         //asignamos a la variable global el valor de la variable local
@@ -457,6 +474,8 @@ $(document).ready(function() {
         var idMesero = $(this).data("id");
         var nombreMesero = $(this).data("nombre");
 
+        $("#divInformaMeseroSeleccionado").text('Seleccionó: '+ nombreMesero +'');
+
         //asignamos a la variable global el valor de la variable local
         idMeseroActual = idMesero;
         //asignamos a la variable global el valor de la variable local
@@ -470,9 +489,16 @@ $(document).ready(function() {
     //Asigna el mesa seleccionado a la orden
     $(document).on("click", ".mesa", function (e) {
         e.preventDefault();
+
+
         //capturamos el id del mesero
         var idMesa = $(this).data("id");
         var noMesa = $(this).data("nombre");
+
+        var alias = $(".txtAliasMesa").val();
+        aliasMesa = alias;
+
+        $("#divInformaMesaSeleccionada").text('Seleccionó: '+ noMesa +'');
 
         //asignamos a la variable global el valor de la variable local
         idMesaActual = idMesa;
@@ -484,8 +510,19 @@ $(document).ready(function() {
     });
     //Fin de la asginacion de mesero================================================================================
 
+    $(document).on("click", "#btnBebida", function () {
 
-    //}
+        $( "#contenedorBebida" ).toggle( "blind", 1000 );
+
+    });
+
+    $(document).on("click", "#btnComida", function () {
+
+        $( "#contenedorComida" ).toggle( "blind", 1000 );
+
+    });
+
+
 });
 
 

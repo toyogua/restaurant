@@ -139,8 +139,10 @@ $(document).ready(function() {
            var ingrediente = $("#txtingrediente").data("nombre");
            var idingrediente = $("#txtingrediente").data("id");
            var cantidad = $("#cantidadingrediente").val();
+           //var medida = $('input:radio[name=rmedidas]:checked').val();
 
 
+            //console.log(medida);
             console.log(ingrediente);
             console.log(idingrediente);
             console.log(cantidad);
@@ -151,8 +153,9 @@ $(document).ready(function() {
             }
 
             ingredienteslista.listos.push({
-                "idingrediente"   : idingrediente,
-                "cantidad"       : cantidad
+                "idingrediente"  : idingrediente,
+                "cantidad"       : cantidad,
+                "medida"         : medida
 
             });
 
@@ -160,7 +163,7 @@ $(document).ready(function() {
 
             $("#buscaringrediente").val("");
 
-            $("#txtareaingredientes").append('<div id="'+ idingrediente +'" data-id="'+ idingrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+ingrediente+''+" " + ''+cantidad+''+ "  " +'<i style="cursor: pointer;" data-id="'+ idingrediente +'" class="closeingre fa fa-times"></i></div>');
+            $("#txtareaingredientes").append('<div id="'+ idingrediente +'" data-id="'+ idingrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+ingrediente+''+" " + ''+cantidad+''+ "  " +''+" " + ''+medida+'<i style="cursor: pointer;" data-id="'+ idingrediente +'" class="closeingre fa fa-times"></i></div>');
             $("#resingrediente").empty();
         });
 
@@ -267,7 +270,7 @@ $(document).ready(function() {
                         console.log(resultingredientes);
 
                         $.each(resultingredientes, function (j, val2) {
-                            $("#txtareaingredientes").append('<div id="'+ val2.idIngrediente +'" data-id="'+ val2.idIngrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+val2.ingrediente+''+" " + ''+val2.cantIngrediente+''+ "  " +'<i style="cursor: pointer;" data-id="'+ val2.idIngrediente +'" class="eliminaingrediente fa fa-times"></i></div>');
+                            $("#txtareaingredientes").append('<div id="'+ val2.idIngrediente +'" data-id="'+ val2.idIngrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+val2.ingrediente+''+" " + ''+val2.cantIngrediente+''+ "  " +''+val2.medida+'<i style="cursor: pointer;" data-id="'+ val2.idIngrediente +'" class="eliminaingrediente fa fa-times"></i></div>');
                         });
                     });
                     $.each(result, function (i, val) {
@@ -503,13 +506,12 @@ $(document).ready(function() {
 
     });
 
-    function cache_clear() {
-        window.location.reload(true);
-        // window.location.reload(); use this if you do not remove cache
-    }
 
 
 });
 
-
+function cache_clear() {
+    window.location.reload(true);
+    // window.location.reload(); use this if you do not remove cache
+}
 
