@@ -98,7 +98,7 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Perfil</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Cambiar clave</a>
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>">Salir</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Salir</a>
                         </div>
                     </li>
                 </ul>
