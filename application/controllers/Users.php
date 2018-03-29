@@ -115,8 +115,6 @@ class Users extends CI_Controller {
     public function login()
     {
 
-        //$this->load->model('user_model');
-
         $this->form_validation->set_rules('username', 'Nombre de Usuario', 'trim|required|min_length[3]');
 
         $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[3]');
@@ -133,8 +131,6 @@ class Users extends CI_Controller {
             if($this->input->post('username') && $this->input->post('password')){
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
-                var_dump($username);
-
                 $user_id = $this->User_model->login_user($username, $password);
 
                 if ($user_id) {
