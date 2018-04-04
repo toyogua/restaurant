@@ -14,7 +14,6 @@ class Producto_model extends CI_Model{
 
     public function get_productos_info()
     {
-        $this->db->distinct();
         $this->db->select('
            
            producto.idProducto,
@@ -23,17 +22,21 @@ class Producto_model extends CI_Model{
            producto.costoProducto,
            producto.precioProducto,
            producto.cantProducto,
-           producto.idCategoria,
+           producto.idSubCategoria,
            producto.imagen as imghx,
         
            categoria.idCategoria,
            categoria.categoria,
-           categoria.descripcionCategoria
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria
             
             
             ');
         $this->db->from('producto');
-        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
+        $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
         $this->db->order_by('producto','asc');
 
         $query = $this->db->get();
@@ -82,7 +85,6 @@ class Producto_model extends CI_Model{
 
     public function get_producto_info($idProducto){
 
-        $this->db->distinct();
         $this->db->select('
            
            producto.idProducto,
@@ -91,17 +93,22 @@ class Producto_model extends CI_Model{
            producto.costoProducto,
            producto.precioProducto,
            producto.cantProducto,
-           producto.idCategoria,
+           producto.idSubCategoria,
            producto.imagen as imghx,
         
            categoria.idCategoria,
            categoria.categoria,
            categoria.descripcionCategoria,
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria
        
             
             ');
         $this->db->from('producto');
-        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
+        $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
         $this->db->where('idProducto', $idProducto);
         $query = $this->db->get();
 

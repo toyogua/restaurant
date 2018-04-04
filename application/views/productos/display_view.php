@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
                 <button style="cursor: pointer;" type="button" class="btn btn-danger" id="btnCancelarEditarProducto" data-dismiss="modal">Cancelar</button>
-                <button style="cursor: pointer;" type="button" class="btn btn-success" id="btnEditProducto" data-dismiss="modal">Editar</button>
+                <button style="cursor: pointer;" type="button" class="btn btn-success" id="btnMEditProducto" data-dismiss="modal">Editar</button>
             </div>
         </div>
     </div>
@@ -92,6 +92,10 @@
         </th>
 
         <th class="text-center">
+            SUBCATEGORIA
+        </th>
+
+        <th class="text-center">
             IMAGEN
         </th>
         <th class="text-center">
@@ -115,10 +119,11 @@
             <td align="center"><?php echo $producto->precioProducto; ?></td>
             <td align="center"><?php echo $producto->costoProducto;?></td>
             <td align="center"><?php echo $producto->cantProducto; ?></td>
-            <td align="center"><?php echo $producto->categoria;?></td>
+            <td align="center"><?php echo $producto->categoria; ?></td>
+            <td align="center"><?php echo $producto->nombre;?></td>
             <td align="center"><img class="img-fluid" style="border-radius: 150px; height: 50px; width: 50px;" src=".<?php echo $producto->imghx;?>"></td>
-            <td align="center"><a class="btnEliminarProducto" title="Borrar"  data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
-            <td align="center"> <a data-toggle="modal" data-target="#modalProducto" class="btnEditarProducto" title="Editar" href="" data-id="<?php echo $producto->idProducto;?>"><i class="fa fa-edit fa-3x" aria-hidden="true"></i></a>
+            <td align="center"><a title="Borrar" ><i id="btnEliminarProducto" data-id="<?php echo $producto->idProducto;?>" class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
+            <td align="center"> <a  data-id="<?php echo $producto->idProducto; ?>" data-toggle="modal" data-target="#modalProducto"  title="Editar" href=""><i id="btnEditarProductoTbl" data-id="<?php echo $producto->idProducto;?>" class="fa fa-edit fa-3x btnEditarProducto" aria-hidden="true"></i></a>
             </td>
 
         </tr>

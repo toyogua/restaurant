@@ -60,20 +60,22 @@ class Products extends CI_Controller
     }
 
     public function display(){
-        $data['productos_data'] = $this->Producto_model->get_productos_info();
+        if($this->Producto_model->get_productos_info()){
+            $data['productos_data'] = $this->Producto_model->get_productos_info();
+        }
+
         $data['main_view'] = "productos/display_view";
         $this->load->view('layouts/main', $data);
     }
 
     public function get_producto($idProducto){
-        if ($this->input->is_ajax_request()) {
+
             $data = $this->Producto_model->get_producto_info($idProducto);
 
 
 
             echo json_encode($data);
-            //echo json_encode($data2);
-        }
+
     }
 
     public function getProductoIngrediente($idProducto)
@@ -87,13 +89,14 @@ class Products extends CI_Controller
 
         $ruta = './assets/img/productos/';
 
-        $producto = $this->input->post('producto');
-        $descripcion = $this->input->post('descripcion');
-        $costo = $this->input->post('costo');
-        $precio = $this->input->post('precio');
-        $cantidad = $this->input->post('cantidad');
-        $imagen = $_FILES['imagen']['name'];
-        $categoria = $this->input->post('categoria');
+        $producto       = $this->input->post('producto');
+        $descripcion    = $this->input->post('descripcion');
+        $costo          = $this->input->post('costo');
+        $precio         = $this->input->post('precio');
+        $cantidad       = $this->input->post('cantidad');
+        $imagen         = $_FILES['imagen']['name'];
+        //$categoria      = $this->input->post('categoria');
+        $idsubcategoria = $this->input->post('idsubcategoria');
 
 
         $temporal = $_FILES['imagen']['tmp_name']; //Obtenemos la ruta Original del archivo
@@ -108,7 +111,7 @@ class Products extends CI_Controller
             'costoProducto'          => $costo,
             'precioProducto'         => $precio,
             'cantProducto'           => $cantidad,
-            'idCategoria'            => $categoria,
+            'idSubCategoria'         => $idsubcategoria,
             'imagen'                 => $Destino
         );
 
@@ -160,7 +163,7 @@ class Products extends CI_Controller
         $imagen = $_FILES['imagen']['name'];
 
         $imgcon = $this->input->post('imgcon');
-        $categoria = $this->input->post('categoria');
+        $idsubcategoria = $this->input->post('idsubcategoria');
 
 
 
@@ -179,7 +182,7 @@ class Products extends CI_Controller
             'costoProducto'          => $costo,
             'precioProducto'         => $precio,
             'cantProducto'           => $cantidad,
-            'idCategoria'            => $categoria,
+            'idSubCategoria'         => $idsubcategoria,
             'imagen'                 => $Destino
         );
 
@@ -231,7 +234,7 @@ class Products extends CI_Controller
 <!--                <ul id="ingrediente" class="text-center" >-->
                     <div class="row ">
                         <div class="col-md-4">
-                            <input id="txtingrediente" value="<?php echo $fila->ingrediente ?>" style="cursor: pointer; padding-top: 4px; padding-bottom: 4px;" class="list-group-item  eningrediente" data-id="<?php echo $fila->idIngrediente ?>" data-nombre="<?php echo $fila->ingrediente ?>" ></input>
+                            <input id="txtingrediente" value="<?php echo $fila->ingrediente ?>" style="cursor: pointer; padding-top: 4px; padding-bottom: 4px;" class="list-group-item  eningrediente" data-id="<?php echo $fila->idIngrediente ?>" data-medida="<?php echo $fila->medida; ?>" data-nombre="<?php echo $fila->ingrediente ?>" ></input>
 
                         </div>
 

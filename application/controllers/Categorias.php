@@ -9,6 +9,7 @@
 class Categorias extends CI_Controller
 {
 
+
     public  function buscarCategorias()
     {
         $categoria = $this->input->post('nombre');
@@ -53,44 +54,50 @@ class Categorias extends CI_Controller
 
     public function listarCategorias ()
     {
-        $data['categorias_data'] = $this->Categoria_model->get_categorias_info();
-        $data['main_view'] = "categorias/listar_categorias";
+        $data['subcategorias_data'] = $this->Categoria_model->get_subcategorias_info();
+        $data['main_view'] = "categorias/listar_subcategorias";
         $this->load->view('layouts/main', $data);
     }
 
     public function create()
     {
-        $nombrecategoria        = $this->input->post('txtNombreCategoria');
-        $descripcioncategoria   = $this->input->post('txtDescripcionCategoria');
+        $nombresubcategoria        = $this->input->post('txtNombreCategoria');
+
+        $idcategoria            = $this->input->post('idcategoria');
 
         $data = array(
-            'categoria'               => $nombrecategoria,
-            'descripcionCategoria'      => $descripcioncategoria
+            'nombre'               => $nombresubcategoria,
+            'idCategoria'          => $idcategoria,
+            'estado'               => 1
 
         );
 
-        $res = $this->Categoria_model->insertarCategoria($data);
+        $res = $this->Categoria_model->insertarSubCategoria($data);
         echo json_encode($res);
     }
 
-    public function getCategoriaInfo( $idcategoria )
+    public function getSubCategoriaInfo( $idsubcategoria )
     {
-        $data = $this->Categoria_model->getCategoriaInfo( $idcategoria );
+        $data = $this->Categoria_model->getSubCategoriaInfo( $idsubcategoria );
         echo json_encode($data);
     }
 
     public function edit()
     {
-        $nombre = $this->input->post('nombre');
-        $descripcion = $this->input->post('descripcion');
-        $idcategoria = $this->input->post('idcategoria');
+        $nombresubcategoria        = $this->input->post('nombre');
+
+        $idsubcategoria            = $this->input->post('subcategoria');
+
+        $idcategoria               = $this->input->post('idcategoria');
 
         $data = array(
-                'categoria'             => $nombre,
-                'descripcionCategoria'  => $descripcion
+            'nombre'               => $nombresubcategoria,
+            'idCategoria'          => $idcategoria,
+            'estado'               => 1
+
         );
 
-        $res = $this->Categoria_model->udpateCategoria( $data, $idcategoria);
+        $res = $this->Categoria_model->udpateSubCategoria( $data, $idsubcategoria);
 
         echo json_encode( $res );
     }
@@ -98,10 +105,33 @@ class Categorias extends CI_Controller
     public function delete()
     {
         $id = $this->input->post('id');
-        $res = $this->Categoria_model->deleteCategoria($id);
+
+        $data = array(
+                'estado'    => 0
+        );
+        $res = $this->Categoria_model->deleteSubCategoria( $data, $id);
 
         echo json_encode( $res );
     }
 
+    /**
+     * @descr-devuelve todas las categorias en notacion json
+     *
+     */
+    public function todasLasCategorias(  )
+    {
+        $res = $this->Categoria_model->categorias();
+
+        echo json_encode( $res );
+
+
+    }
+
+    public function todasSubCategoriasJSON()
+    {
+        $res = $this->Categoria_model->get_subcategorias_info();
+
+        echo json_encode( $res );
+    }
 
 }

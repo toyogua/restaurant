@@ -78,7 +78,7 @@
     </tr>
 
     </thead>
-    <tbody id="mostralistadoproductos">
+    <tbody>
     <?php if($users_data != FALSE): ?>
 
 

@@ -15,6 +15,8 @@ idCategoriaActual = 0;
 categoriaActual = "";
 categoriaseleccionada = 0;
 
+var idsubcategoria = 0;
+
 var idProducto = 0;
 
 $(document).ready(function() {
@@ -22,6 +24,13 @@ $(document).ready(function() {
     if( window.location.href === baseurl + 'Products/display'){
 
         $(document).on("click", ".btnNuevoProducto", function () {
+
+            $.post(baseurl + 'categorias/todasSubCategoriasJSON/', function (data) {
+                var resultado = JSON.parse(data);
+                $.each(resultado, function (i, val) {
+                    $("#divsubcategorias").append('<a class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
+                });
+            });
 
             var content = "";
             content += '<form enctype="multipart/form-data" id="formcrearproducto">';
@@ -56,17 +65,31 @@ $(document).ready(function() {
             content += '<h6>Imagen</h6><br>';
             content += '<input name="imagen" type="file"  id="imagen">';
             content += '</div>';
-            content += '<div class="md-form">';
-            content += '<label>Categoria</label>';
-            content += '<input type="text" class="form-control categoria" name="categoria" id="categoria">';
-            content += '<ul  id="rescategorias"></ul>';
+            content += '<div class="row">';
+
+            content += '<div class="col-md-8">';
+            content += '<p  class="text-info">Subcategoria</p>';
+            content += '<div class="btn-group">';
+            content += '<button type="button" class="btn btn-danger">Subcategoria</button>';
+            content += '<button style="cursor: pointer;" type="button" class="btn btn-danger dropdown-toggle px-3" ' +
+                'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                '<span class="sr-only">Toggle Dropdown</span> </button>';
+            content += '<div  id="divsubcategorias" class="dropdown-menu">';
             content += '</div>';
+
+            content += '</div>'; //fin <div class="btn-group">
+            content += '</div>'; //fin <div class="col-md-4">
+
+            content += '<div class="col-md-3">';
+            content += '<label class="text-success accent-4" id="lblSubCategoria"></label>';
+            content += '</div>';
+
+
+            content += '</div><br>'; //fin <div class="row">
+            content += '</form>';
 
             $(".contenedorProductoRegistro").append(content);
         });
-
-
-
 
 
         $(document).on("click", "#categoria", function (){
@@ -139,7 +162,7 @@ $(document).ready(function() {
            var ingrediente = $("#txtingrediente").data("nombre");
            var idingrediente = $("#txtingrediente").data("id");
            var cantidad = $("#cantidadingrediente").val();
-           //var medida = $('input:radio[name=rmedidas]:checked').val();
+           var medida = $("#txtingrediente").data("medida");
 
 
             //console.log(medida);
@@ -154,8 +177,7 @@ $(document).ready(function() {
 
             ingredienteslista.listos.push({
                 "idingrediente"  : idingrediente,
-                "cantidad"       : cantidad,
-                "medida"         : medida
+                "cantidad"       : cantidad
 
             });
 
@@ -172,6 +194,17 @@ $(document).ready(function() {
             $(".contenedorProductoRegistro").empty();
 
         });
+
+        $(document).on("click", ".subcategoriasencontradas", function () {
+            var nombre = $(this).data("nombre");
+            var id = $(this).data("id");
+
+            $("#lblSubCategoria").text("Seleccionó:  " + nombre );
+
+            idsubcategoria = id;
+
+        });
+
 
         $(document).on("click", "#btnRegistrarProducto", function () {
 
@@ -195,8 +228,9 @@ $(document).ready(function() {
 
                     const form = document.getElementById('formcrearproducto');
                     const formData = new FormData(form);
-                    formData.append("categoria", categoriaseleccionada);
+                    //formData.append("categoria", categoriaseleccionada);
                     formData.append("ingredientes", ingredienteslistosinsertar);
+                    formData.append("idsubcategoria", idsubcategoria);
 
 
 
@@ -239,31 +273,22 @@ $(document).ready(function() {
         });
 
 
-        $(document).on("click", "#btnCancelarEditarProducto", function (e) {
-            $(".contenedor_editar_producto").empty();
-        });
+        $(document).on("click", "#btnEditarProductoTbl", function( e ){
 
-        $(document).on("click", ".close", function (e) {
-            $(".contenedor_editar_producto").empty();
-            $(".contenedorProductoRegistro").empty();
-        });
-
-        $(document).on("click", ".btnEditarProducto", function( e ){
             e.preventDefault();//para que no recargue la pagina, no redirecciona con el link
 
-            //nombre tomado del data-nombre
-            var nombre  = $(this).data("nombre");
             var id      = $(this).data("id");
             idProducto = id;
-
+            console.log(id);
+            console.log(idProducto);
 
             $.post(baseurl + 'Products/get_producto/' + id, function (data) {
 
                 var result = JSON.parse(data);
 
+                console.log( result );
 
 
-                if(result){
                     $.post(baseurl + 'Products/getProductoIngrediente/' + id, function (data2) {
 
                         var resultingredientes = JSON.parse(data2);
@@ -313,27 +338,55 @@ $(document).ready(function() {
                         content += '<input type="hidden" name="imgcon" id="imgcon" value="'+val.imghx+'">';
                         content += '<img style="border-radius: 150px; height: 50px; width: 50px;"  src=".'+val.imghx+'">';
                         content += '</div>';
-                        content += '<div class="">';
-                        content += '<label class="h6">Categoria</label><br>';
-                        content += '<input type="text" class="categoria" name="categoria" data-id="'+val.idCategoria+'" id="categoria" value="'+val.categoria+'">';
-                        content += '<ul  id="rescategorias"></ul>';
+                        content += '<div class="text-primary"><p class="btn-group">La Subcategoria actual es : '+ val.nombre +'</p></div>';
+                        content += '<div class="row">';
+                        content += '<input type="hidden" id="txtidsubcategoria" value="'+ val.idSubCategoria +'">';
+                        content += '<div class="col-md-8">';
+                        content += '<p  class="text-info">Subcategoria</p>';
+                        content += '<div class="btn-group">';
+                        content += '<button type="button" class="btn btn-danger">Subcategoria</button>';
+                        content += '<button id="btncargarsubcategorias" style="cursor: pointer;" type="button" class="btn btn-danger dropdown-toggle px-3" ' +
+                            'data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+
+                            '<span class="sr-only">Toggle Dropdown</span> </button>';
+                        content += '<div  id="divsubcategorias" class="dropdown-menu">';
                         content += '</div>';
+
+                        content += '</div>'; //fin <div class="btn-group">
+                        content += '</div>'; //fin <div class="col-md-4">
+
+                        content += '<div class="col-md-3">';
+                        content += '<label class="text-success accent-4" id="lblSubCategoria"></label>';
+                        content += '</div>';
+
+
+                        content += '</div><br>'; //fin <div class="row">
                         content += '</form>';
                         $(".contenedor_editar_producto").append(content);
                     });
-                }else{
-                    //var content_ingrediente = "";
-                    //content_ingrediente += '<p class="alimento'+idalimento+'">No contiene descripción</p>';
-                    //$("#contenedor_des_producto").append(content_ingrediente);
-                }
+
 
             });
         });
 
-        $(document).on("click", "#btnEditProducto",function(){
+        // se crea una funcion por aparte para solo cargar los tipos de empleados para evitar conflictos en el modal
+        // de editar una subcategoria
+        $(document).on("click", "#btncargarsubcategorias", function( ) {
+            $("#divsubcategorias").empty();
 
-            if(categoriaseleccionada === 0){
-                categoriaseleccionada = $("#categoria").data("id");
+            $.post(baseurl + 'categorias/todasSubCategoriasJSON/', function (data) {
+                var resultado = JSON.parse(data);
+                $.each(resultado, function (i, val) {
+                    $("#divsubcategorias").append('<a class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
+                });
+            });
+
+        });
+
+
+        $(document).on("click", "#btnMEditProducto",function(){
+
+            if(idsubcategoria === 0){
+                idsubcategoria = $("#txtidsubcategoria").val();
             }
             alertify.confirm('Estas segurdo?', 'De querer editar el producto',
 
@@ -356,12 +409,10 @@ $(document).ready(function() {
 
                     const form = document.getElementById('formeditarproducto');
                     const formData = new FormData(form);
-                    formData.append("categoria", categoriaseleccionada);
+                    formData.append("idsubcategoria", idsubcategoria);
                     formData.append("idproducto", idProducto);
                     formData.append("ingredientes", ingredientesparainsertar);
                     formData.append("ingredientesborrar", ingredientesparaborrar);
-
-
 
 
                     $.ajax({
@@ -384,12 +435,12 @@ $(document).ready(function() {
                             }
 
                         }
-                    });
+                    },
 
 
                     setInterval(function() {
-                        cache_clear()
-                    }, 1000);
+                        cargar()
+                    }, 1000));
 
                 },
                 function(){
@@ -397,15 +448,28 @@ $(document).ready(function() {
                 });
         });
 
+        $(document).on("click", "#btnCancelarEditarProducto", function (e) {
+            $(".contenedor_editar_producto").empty();
+        });
+
+        // $(document).on("click", "#btnEditProducto", function (e) {
+        //     $(".contenedor_editar_producto").empty();
+        // });
+
+        $(document).on("click", ".close", function (e) {
+            $(".contenedor_editar_producto").empty();
+            $(".contenedorProductoRegistro").empty();
+        });
 
 
-        $(document).on("click", ".btnEliminarProducto", function( e ){
+
+        $(document).on("click", "#btnEliminarProducto", function( e ){
             e.preventDefault();//para que no recargue la pagina, no redirecciona con el link
 
             //nombre tomado del data-nombre
             var nombre  = $(this).data("nombre");
             var id      = $(this).data('id');
-            alertify.confirm('Estas segurdo?', 'De querer registrar eliminar el producto',
+            alertify.confirm('Estas segurdo?', 'De querer  eliminar el producto',
                 function(){
                     borrarProducto(id);
                 },
@@ -506,12 +570,14 @@ $(document).ready(function() {
 
     });
 
-
-
 });
 
 function cache_clear() {
     window.location.reload(true);
     // window.location.reload(); use this if you do not remove cache
+}
+
+function cargar() {
+    window.location.href = baseurl+"Products/display";
 }
 

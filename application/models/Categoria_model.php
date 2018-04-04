@@ -3,7 +3,32 @@
 class Categoria_model extends CI_Model{
 
 
-    public function get_categorias_info()
+    public function get_subcategorias_info()
+    {
+        $this->db->select('
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria,
+         
+           categoria.idCategoria,
+           categoria.categoria
+           
+          ');
+        $this->db->from('subcategorias');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
+        $this->db->where('subcategorias.estado', 1 );
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return FALSE;
+        }
+        else{
+            return $query->result();
+        }
+    }
+
+    public function categorias()
     {
         $this->db->from('categoria');
         $this->db->order_by('categoria','asc');
@@ -56,22 +81,60 @@ class Categoria_model extends CI_Model{
         return $get_data->result();
     }
 
-    public function insertarCategoria($data)
+    public function insertarSubCategoria($data)
     {
-        $this->db->insert('categoria', $data);
+        $this->db->insert('subcategorias', $data);
         return TRUE;
     }
 
-    public function getCategoriaInfo( $idcategoria ){
+    public function getSubCategoriaInfo( $idsubcategoria ){
         $this->db->select('
-            idCategoria,
-            categoria,
-            descripcionCategoria
-        
-            ');
-        $this->db->from("categoria");
-        $this->db->where("idCategoria", $idcategoria);
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria,
+         
+           categoria.categoria
+           
+          ');
+        $this->db->from('subcategorias');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
+        $this->db->where('subcategorias.idSubcategoria', $idsubcategoria);
+        $this->db->where('subcategorias.estado', 1);
         $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return FALSE;
+        }
+        else{
+            return $query->result();
+        }
+    }
+
+    public function udpateSubCategoria($data, $idsubcategoria)
+    {
+        $this->db->where('idSubcategoria', $idsubcategoria);
+        $this->db->update('subcategorias', $data);
+
+        return TRUE;
+    }
+
+    public function deleteSubCategoria( $data, $idsubcategoria)
+    {
+        $this->db->where('idSubcategoria', $idsubcategoria);
+        $this->db->update('subcategorias', $data);
+
+        return TRUE;
+    }
+
+    public function getSubCategoriaBebida(  ){
+        $this->db->from('subcategorias');
+        $this->db->where('idCategoria', 2);
+        $this->db->where('estado', 1);
+        $this->db->order_by('nombre','asc');
+
+        $query = $this->db->get();
+
         if ($query->num_rows() < 1) {
             return FALSE;
         }
@@ -79,40 +142,12 @@ class Categoria_model extends CI_Model{
         return $query->result();
     }
 
-    public function udpateCategoria($data, $idcategoria)
+    public function getSubCategoriaComida(  )
     {
-        $this->db->where('idCategoria', $idcategoria);
-        $this->db->update('categoria', $data);
-
-        return TRUE;
-    }
-
-    public function deleteCategoria( $idcategoria)
-    {
-        $this->db->where('idCategoria', $idcategoria);
-        $this->db->delete('categoria');
-        return TRUE;
-    }
-
-    public function getCategoriaBebida( $palabraclave ){
-        $this->db->from('categoria');
-        $this->db->like('categoria', $palabraclave);
-        $this->db->order_by('categoria','asc');
-
-        $query = $this->db->get();
-
-        if ($query->num_rows() < 1) {
-            return FALSE;
-        }
-
-        return $query->result();
-    }
-
-    public function getCategoriaComida( $palabraclave )
-    {
-        $this->db->from('categoria');
-        $this->db->like('categoria', $palabraclave);
-        $this->db->order_by('categoria','asc');
+        $this->db->from('subcategorias');
+        $this->db->where('idCategoria', 1);
+        $this->db->where('estado', 1);
+        $this->db->order_by('nombre','asc');
 
         $query = $this->db->get();
 

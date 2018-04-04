@@ -146,7 +146,7 @@ $(document).ready(function() {
         });
     });
 
-    $(document).on("click", "#btnEditarMesaTbl", function( e ){
+    $(document).on("click", "#btnEditarEmpleadoTbl", function( e ){
         e.preventDefault();
         var idmpleado = $(this).data("id");
 

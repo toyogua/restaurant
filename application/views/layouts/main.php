@@ -59,7 +59,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mdb.min.js"></script>
 <div class="container col-lg-12">
 
-    <?php if ($this->session->userdata('logged_admin')):?>
+    <?php if ($this->session->userdata("role", "Administrador")):?>
 
     <nav class="navbar navbar-toggleable-md  navbar-dark brown darken-2">
         <div class="container">
@@ -103,15 +103,13 @@
                     </li>
                 </ul>
 
-
-
-
-            </div>
+           </div>
         </div>
     </nav>
     <br><div class="col col-lg-12">
         <?php $this->load->view($main_view); ?>
     </div>
+
 
     <?php else: ?>
         <br>

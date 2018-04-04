@@ -36,13 +36,28 @@ class User_model extends CI_Model{
 
     public function login_user($username, $password)
     {
-        $this->db->where('username', $username);
-        $result = $this->db->get('users');
+        $this->db->select('
+           empleado.idEmpleado,
+           
+           tipoempleado.idTipoEmpleado,
+           tipoempleado.tipoEmpleado,
+           users.idUser,
+           users.username,
+           users.password
+  
+            ');
+        $this->db->from('users');
+        $this->db->join('empleado', 'empleado.idEmpleado = users.idEmpleado');
+        $this->db->join('tipoempleado', 'tipoempleado.idTipoEmpleado = empleado.idTipoEmpleado');
 
-        $db_password = $result->row(2)->password;
+        $this->db->where('users.username', $username);
+        $result = $this->db->get();
+
+        $db_password = $result->row()->password;
 
         if(password_verify($password, $db_password)){
-            return $result->row(0)->idUser;
+
+            return $result->row();
         }
         else{
             return FALSE;
