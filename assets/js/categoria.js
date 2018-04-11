@@ -35,7 +35,7 @@ $(document).ready(function() {
                             content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';
                             content += '<td class="c'+categoria +' text-danger">'+ val.notaDetalleOrden +'</td>';
                             content += '<td class="c'+categoria+' text-center detalle'+val.idDetalleOrden+'" style="width: 5%" id="detalle'+val.idDetalleOrden+'">';
-                            content += '<i style="cursor: pointer;" href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
+                            content += '<i style="cursor: pointer;" href="" data-mesa="'+ val.idMesa+'" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
 
                             content += '</td class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                             content += '</tr class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
@@ -88,7 +88,7 @@ $(document).ready(function() {
                     content += '<td class="c'+categoria+' btnProductoListo text-left detalle'+val.idDetalleOrden+'" id="detalle'+val.idDetalleOrden+'" data-id=' + val.idDetalleOrden +'>'+val.producto+'</td>';
                     content += '<td class="c'+categoria +' text-danger">'+ val.notaDetalleOrden +'</td>';
                     content += '<td class="c'+categoria+' text-center detalle'+val.idDetalleOrden+'" style="width: 5%" id="detalle'+val.idDetalleOrden+'">';
-                    content += '<i style="cursor: pointer;" href="" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
+                    content += '<i style="cursor: pointer;" href="" data-mesa="'+ val.idMesa +'" data-id="'+val.idDetalleOrden+'" class="c'+categoria+' btnProductoListo fa fa-check fa-4x"></i>';
 
                     content += '</td class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
                     content += '</tr class="c'+categoria+' detalle'+val.idDetalleOrden+'">';
@@ -105,6 +105,7 @@ $(document).ready(function() {
 
     $(document).on("click", ".btnProductoListo", function (e) {
         var idDetalleOrden = $(this).data("id");
+        var idmesa = $(this).data("mesa");
         swal({
                 title: "Estas seguro?",
                 text: "de procesar la orden",
@@ -119,13 +120,29 @@ $(document).ready(function() {
             function (isConfirm) {
 
                 if (isConfirm){
-                    $.post(baseurl + 'DetalleOrden/updateDetalle/' + idDetalleOrden, function (data) {
-                        var result = JSON.parse(data);
-                        if(result){
-                            console.log(result);
+
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'DetalleOrden/updateDetalle',
+                        dataType: 'json',
+                        data: {idDetalleOrden: idDetalleOrden, idmesa: idmesa},
+                        success: function (res) {
+                            console.log(res);
+                            if (res) {
+
+                                alertify.success('Actualizada');
+                            }
+                            $(".detalle"+idDetalleOrden).remove();
+
                         }
-                        $(".detalle"+idDetalleOrden).remove();
                     });
+                    // $.post(baseurl + 'DetalleOrden/updateDetalle/' + idDetalleOrden, function (data) {
+                    //     var result = JSON.parse(data);
+                    //     if(result){
+                    //         console.log(result);
+                    //     }
+                    //     $(".detalle"+idDetalleOrden).remove();
+                    // });
 
                     swal("Procesando!", "La orden fue despachada.", "success");
                 }

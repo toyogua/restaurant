@@ -22,11 +22,20 @@ class DetalleOrden extends CI_Controller
         $this->load->view('layouts/main', $data);
     }
 
-    public function updateDetalle($idDetalleOrden){
+    public function updateDetalle(){
+
+        $orden = $this->input->post('idDetalleOrden');
+        $mesa = $this->input->post('idmesa');
         if ($this->input->is_ajax_request()) {
-            $data = $this->DetalleOrden_model->update($idDetalleOrden);
+            $data = $this->DetalleOrden_model->update($orden);
             echo json_encode($data);
         }
+
+        $data2 = array(
+            'ocupada'   => 0
+        );
+
+        $this->Mesa_model->actualizarMesa( $data2, $mesa);
     }
 
 }

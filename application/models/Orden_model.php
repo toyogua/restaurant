@@ -26,7 +26,7 @@ class Orden_model extends CI_Model{
 
         $this->db->set(
             array(
-                "estadoMesa"     => 1
+                "ocupada"     => 1
             )
         )
             ->where("idMesa", $listaOrden->idMesa)
@@ -81,7 +81,7 @@ class Orden_model extends CI_Model{
             $this->db->trans_rollback();
             return $result;
         }
-        return $result;
+        return TRUE;
 
     }
 
@@ -121,11 +121,12 @@ class Orden_model extends CI_Model{
         $this->db->join('mesa', 'mesa.idMesa = orden.idMesa');
         $this->db->join('detalleorden', 'detalleorden.idOrden = orden.idOrden');
         $this->db->join('producto', 'producto.idProducto = detalleorden.idProducto');
-        $this->db->join('categoria', 'categoria.idCategoria = producto.idCategoria');
+        $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
         $this->db->where('orden.fechaOrden', $fecha);
         $this->db->where('orden.estadoOrden', 0);
         $this->db->where('detalleorden.estadoDetalleOrden', 0);
-        $this->db->where('producto.idCategoria', $idCategoria);
+        $this->db->where('categoria.idCategoria', $idCategoria);
         $query = $this->db->get();
 
         if ($query->num_rows() < 1){

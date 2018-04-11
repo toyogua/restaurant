@@ -41,6 +41,7 @@ class Mesa_model extends CI_Model{
     public function get_mesas_info()
     {
         $this->db->from('mesa');
+        $this->db->where('ocupada', 0);
         $this->db->where('estado', 1);
         $this->db->order_by('noMesa','asc');
 

@@ -19,6 +19,7 @@ class Empleado_model extends CI_Model{
     public function get_empleados_info()
     {
         $this->db->from('empleado');
+        $this->db->where('estado', 1);
         $this->db->order_by('nombresEmpleado','asc');
 
         $query = $this->db->get();

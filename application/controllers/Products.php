@@ -47,14 +47,14 @@ class Products extends CI_Controller
    }
 
 
-    public  function obtener_productos_categoria()
+    public  function obtener_productos_subcategoria()
     {
-        $idCategoria    =   $this->input->post('id');
+        $idSubcategoria    =   $this->input->post('id');
         $porpagina      =   $this->input->post('porpagina');
         $desde          =   $this->input->post('desde');
         if ($this->input->is_ajax_request()) {
 
-            $data = $this->Producto_model->get_productos_categoria($idCategoria, $porpagina, $desde);
+            $data = $this->Producto_model->get_productos_subcategoria($idSubcategoria, $porpagina, $desde);
             echo json_encode($data);
         }
     }

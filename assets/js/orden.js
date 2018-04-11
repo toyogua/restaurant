@@ -100,7 +100,7 @@ $(document).ready(function() {
                 $("div#cBar").remove();
             }
             paginaactual = 1;
-            $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: id, porpagina:porpagina, desde:0}, function (data) {
+            $.post(baseurl + 'Products/obtener_productos_subcategoria/',  {id: id, porpagina:porpagina, desde:0}, function (data) {
 
                 console.log("pagina actual "+paginaactual);
 
@@ -176,7 +176,7 @@ $(document).ready(function() {
             paginaactual = 1;
         }
 
-        $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
+        $.post(baseurl + 'Products/obtener_productos_subcategoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
 
             renderProductos( nombrecategoria, data);
         });
@@ -198,7 +198,7 @@ $(document).ready(function() {
             console.log("pagina actual"+paginaactual)
         }
 
-        $.post(baseurl + 'Products/obtener_productos_categoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
+        $.post(baseurl + 'Products/obtener_productos_subcategoria/',  {id: idcategoria, porpagina:porpagina, desde:desde}, function (data) {
 
             renderProductos( nombrecategoria, data);
 
@@ -367,23 +367,9 @@ $(document).ready(function() {
     //FUNCION DE ORDENAR, ULTIMO BLOQUE DE LA PANTALLA
     $(document).on("click", "#btn_ordenar", function (e) {
 
-        //codigo de la alerta
-        swal({
-                title: "Estas seguro?",
-                text: "de procesar la orden",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Si!",
-                cancelButtonText: "Cancelar!",
-                closeOnConfirm: false,
-                closeOnCancel: true
-            },
-            function (isConfirm) {
-
-                if (isConfirm) {
-                    //Crea la orden
-                    orden.lista = {
+        alertify.confirm('Estas seguro?', 'De querer procesar esta orden',
+            function(){
+                orden.lista = {
                         "idMesa":       idMesaActual,
                         "totalOrden":   total,
                         "idEmpleado":   idMeseroActual,
@@ -401,17 +387,27 @@ $(document).ready(function() {
                     var ordenJSON = JSON.stringify(orden.lista);
                     var detalleJSON = JSON.stringify(producto.lista);
 
-                    // Realizamos la petición al servidor
-                    $.post(baseurl + 'Orders/insertarOrden', {orden: ordenJSON, detalle: detalleJSON},
-                        function (respuesta) {
-                            console.log(respuesta);
-                            swal("Procesando!", "La orden sido creada correctamente.", "success");
-                        }).error(
-                        function () {
-                            console.log('Error al ejecutar la petición');
-                        });
-                }
-                window.location = baseurl + 'orders';
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'Orders/insertarOrden',
+                        dataType: 'json',
+                        data: {orden: ordenJSON, detalle: detalleJSON},
+                        success: function (res) {
+                            console.log(res);
+                            if (res) {
+
+                                alertify.success('Actualizada');
+                            }
+
+                        }
+                    });
+                setInterval(function() {
+                    cache_clear()
+                }, 1000);
+
+            },
+            function(){
+                alertify.error('Cancelado')
             });
 
     });

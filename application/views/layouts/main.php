@@ -90,7 +90,7 @@
                         </div>
                     </li>
                     <li class="nav-item btn-group">
-                        <a class="nav-link" href="<?php echo base_url();?>">Caja</a>
+                        <a class="nav-link" href="<?php echo base_url();?>ventas">Caja</a>
                     </li>
 
                     <li class="nav-item btn-group navbar-toggler-right">

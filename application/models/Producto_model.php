@@ -49,12 +49,12 @@ class Producto_model extends CI_Model{
     }
 
     //devuelve todos los productos que esten relacionados a una categoria
-    public function get_productos_categoria($idCategoria, $porpagina, $desde)
+    public function get_productos_subcategoria($idSubcategoria, $porpagina, $desde)
     {
        $this->db->reset_query();
         $this->db->limit($porpagina, $desde);
         $this->db->from('producto');
-        $this->db->where('idCategoria',$idCategoria);
+        $this->db->where('idSubcategoria',$idSubcategoria);
 
         $query = $this->db->get();
 
@@ -66,12 +66,12 @@ class Producto_model extends CI_Model{
         return $query->result();
     }
 
-    public function countProductosCategoria($idCategoria)
+    public function countProductosCategoria( $idsubcategoria)
     {
         $this->db->reset_query();
 
         $this->db->from('producto');
-        $this->db->where('idCategoria',$idCategoria);
+        $this->db->where('idSubCategoria', $idsubcategoria);
 
         $query = $this->db->get();
 
@@ -79,7 +79,6 @@ class Producto_model extends CI_Model{
             return FALSE;
         }
 
-//        return json_encode( $query->result() );
         return $query->num_rows();
     }
 

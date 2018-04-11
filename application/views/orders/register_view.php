@@ -112,6 +112,7 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
+                            <?php if($mesas_data != FALSE): ?>
                             <?php foreach($mesas_data as $mesa): ?>
                             <div class="row">
                                 <div class="col-md-4">
@@ -125,6 +126,8 @@
 
 
                             <?php endforeach; ?>
+
+                            <?php endif; ?>
 
                         </div>
                     </div>
