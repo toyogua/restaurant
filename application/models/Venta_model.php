@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: ROCKSOFT
  * Date: 10/04/2018
- * Time: 08:24 PM
+ * Time: 08:34 PM
  */
 
 class Ventas extends CI_Model
@@ -36,4 +36,4 @@ class Ventas extends CI_Model
 }
 
 
-//End of file locations application/models/Ventas.php
+//End of file locations application/models/Venta_model.php
