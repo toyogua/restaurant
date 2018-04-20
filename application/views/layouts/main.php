@@ -14,6 +14,7 @@
     <script src="<?php echo base_url();?>assets/js/crudCategorias.js"></script>
     <script src="<?php echo base_url();?>assets/js/crudEmpleados.js"></script>
     <script src="<?php echo base_url();?>assets/js/crudMesas.js"></script>
+    <script src="<?php echo base_url();?>assets/js/ventas.js"></script>
     <script src="<?php echo base_url();?>assets/js/jquery-ui.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/formAnimado.js"></script>
     <script src="<?php echo base_url();?>assets/js/TweenLite.min.js"></script>

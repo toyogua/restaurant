@@ -13,13 +13,15 @@ class Ventas extends CI_Controller
     {
 
         parent::__construct();
+        $this->load->model('Venta_model');
 
     }
 
     public function index()
     {
 
-
+        $data['ordenes']    = $this->Venta_model->obtenerOrdenesApagar();
+        $data['mesas']      = $this->Venta_model->obtenesMesasOcupadas();
 
         $data['main_view'] = "ventas/registrar_venta_view";
 
@@ -27,12 +29,12 @@ class Ventas extends CI_Controller
     }
 
 
-    public function create($id)
+    public function obtenerOrdenMesa()
     {
 
-        $data['main_view'] = "home_view";
+        $res = $this->Venta_model->obtenerOrden( $this->input->post('idmesa'));
 
-        $this->load->view('layouts/main', $data);
+        echo json_encode( $res );
     }
 
     public function update($id)
