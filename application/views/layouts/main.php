@@ -76,8 +76,8 @@
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>orders/display">Ordenes</a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?php echo base_url(); ?>users/display">Empleados <span class="sr-only">(current)</span></a>
+                    <li class="nav-item btn-group">
+                        <a class="nav-link" href="<?php echo base_url(); ?>users/display">Empleados</a>
                     </li>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>mesas/listar">Mesas</a>

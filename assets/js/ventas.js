@@ -2,7 +2,13 @@ var apagar = {
     listos: []
 };
 
+var mesaorden = 0;
 var total = 0;
+//variable para saber cuantos productos por orden y mesa existen
+var enordenhay = 0;
+//variable para saber la cantidad de productos que se han insertado en la tabla ventas
+var controlinsertados = 0;
+
 
 $(document).ready(function() {
 
@@ -12,6 +18,7 @@ $(document).ready(function() {
         $(".dvmesacobrar").empty();
 
         var idmesa = $(this).data('idmesa');
+        mesaorden = idmesa;
 
         $.ajax({
             type: "POST",
@@ -19,28 +26,45 @@ $(document).ready(function() {
             dataType: 'json',
             data: {idmesa: idmesa},
             success: function (res) {
-                console.log(res);
+
+
                 if (res) {
+                    var cuentaproductos = 0;
+                    cuentaproductos = res.length;
+                    //llamado a la funcion
+                    controlproductos(cuentaproductos);
+
                     $.each(res, function (i, val) {
                         var subtotal = 0;
                         subtotal = parseInt(val.cantDetalleOrden) * parseInt(val.precioProducto);
                         
                         suma(subtotal);
 
-                    $("#dvmesa"+idmesa).append('<div id="dv'+val.idProducto+'" class="input-group col-md-3">'+
-                        '<span id="sp'+val.idProducto+'" class="input-group-addon">'+
-                        '<input data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="checkproducto" value="'+val.idProducto+'" type="checkbox"'+
-                        'aria-label="Radio button for following text input">'+
-                        '</span>'+
-                        '<label id="lbl'+ val.idProducto +'" '+
-                        'class="badge badge-pill purple btn btn-md">'+ val.producto +'  - Cantidad:'+val.cantDetalleOrden+' - Subtotal:'+subtotal+'</label>'+
+                    $("#dvmesa"+idmesa).append('<div id="dv'+val.idProducto+'" class="col-md-11">'+
+
+                        '<label id="lbl'+ val.idProducto +'"  style="font-size: 15px;" class="input-group">'+
+
+                        '<input style="transform: scale(2.0); margin-right: 10px;" id="producto" data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="form-check checkproducto" value="'+val.idProducto+'" type="checkbox"'+
+                        'aria-label="Radio button for following text input">'  + val.producto +'  - Cantidad: '+val.cantDetalleOrden+' - Subtotal: '+subtotal+''+
+                        
+                        '</label>'+
+
                         '</div>');
 
                     });
                 }
+                else{
+                    $("#dvmesa"+idmesa).append('<div><label class="text-danger">No hay orden para esta mesa</label></div>')
+                }
             }
         });
     });
+
+    //funcion que toma los productos que se encuentran en cada orden en cada mesa
+    function controlproductos(cuentaproductos) {
+        enordenhay = cuentaproductos;
+        console.log(enordenhay);
+    }
 
     function suma(subtotal)
     {
@@ -81,7 +105,8 @@ $(document).ready(function() {
                         });
                     }
                 );
-                
+                controlinsertados = controlinsertados + apagar.listos.length;
+                console.log(controlinsertados);
                 var productosJSON = JSON.stringify(apagar.listos);
             
                     $.ajax({
@@ -109,10 +134,31 @@ $(document).ready(function() {
                     console.log(val);
                     $("input:checkbox:checked").remove();
                     $("#lbl"+val.idproducto).remove();
-                    $("#sp"+val.idproducto).remove();
                 });
 
                 apagar.listos=[];
+
+                if( enordenhay === controlinsertados){
+                    console.log("Listo ya se acabo");
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'Ventas/marcarComoPagada',
+                        dataType: 'json',
+                        data: {idmesa: mesaorden},
+                        success: function (res) {
+                            if (res) {
+
+                                alertify.success('Venta Procesada');
+                                setInterval(function() {
+                                    cache_clear()
+                                }, 1000);
+                            }
+
+                        }
+                    });
+                }else{
+                    console.log("Siga trabajando...");
+                }
 
             },
             function(){

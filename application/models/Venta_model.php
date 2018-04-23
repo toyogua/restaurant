@@ -57,13 +57,10 @@ class Venta_model extends CI_Model
         $this->db->join('producto', 'producto.idProducto = detalleorden.idProducto');
         $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
         $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
-        //$this->db->where('orden.fechaOrden', $fecha);
         $this->db->where('orden.estadoOrden', 1);
-        //$this->db->where('detalleorden.estadoDetalleOrden', 0);
         $this->db->where('orden.pagada', 0);
         $this->db->where('mesa.idMesa', $idmesa);
 
-        //$this->db->where('categoria.idCategoria', $idCategoria);
         $query = $this->db->get();
 
         if ($query->num_rows() < 1){
@@ -89,6 +86,22 @@ class Venta_model extends CI_Model
         $this->db->insert('detalleventas', $data);
         return TRUE;
 
+    }
+
+    public function marcarOrden( $data, $idmesa)
+    {
+        $this->db->where('idMesa', $idmesa);
+        $this->db->update('orden', $data);
+
+        return TRUE;
+    }
+
+    public function marcarDesocupadaMesa( $data, $idmesa)
+    {
+        $this->db->where('idMesa', $idmesa);
+        $this->db->update('mesa', $data);
+
+        return TRUE;
     }
 }
 

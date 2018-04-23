@@ -20,7 +20,7 @@
         <span><button data-empleado="<?php echo $this->session->userdata("idempleado"); ?>" id="btnPagarOrden" style="cursor:pointer;" type="button" class="btn btn-primary">Pagar</button></span>
     </div>
     <div class="col-md-1">
-        <span><label id="lbltotalventa" class="text text-primary"></label></span>
+        <span><label id="lbltotalventa" class="font-weight-bold text-xl"></label></span>
     </div>
 
 </div>

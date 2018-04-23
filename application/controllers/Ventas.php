@@ -68,6 +68,25 @@ class Ventas extends CI_Controller
 
     }
 
+    public function marcarComoPagada()
+    {
+        $idmesa = $this->input->post('idmesa');
+
+        $data = array(
+            'pagada'    => 1
+        );
+
+        $this->Venta_model->marcarOrden($data, $idmesa);
+
+        $datamesa = array(
+            'ocupada' => 0
+        );
+
+        $res = $this->Venta_model->marcarDesocupadaMesa( $datamesa, $idmesa);
+
+        echo json_encode( $res );
+    }
+
     public function delete($id)
     {
 
