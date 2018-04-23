@@ -120,7 +120,8 @@ class Users extends CI_Controller {
                         'username'      => $username,
                         'logged_admin'  => true,
                         'tipoempleado'  => $usuario->idTipoEmpleado,
-                        'role'          => $usuario->tipoEmpleado
+                        'role'          => $usuario->tipoEmpleado,
+                        'idempleado'    => $usuario->idEmpleado
                     );
 
                     //var_dump($user_data);

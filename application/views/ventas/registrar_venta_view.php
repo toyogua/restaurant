@@ -16,8 +16,11 @@
     <?php endforeach; ?>
     </div>
 
-    <div class="col-md-4">
-        <span><button id="btnPagarOrden" style="cursor:pointer;" type="button" class="btn btn-primary">Pagar</button></span>
+    <div class="col-md-2">
+        <span><button data-empleado="<?php echo $this->session->userdata("idempleado"); ?>" id="btnPagarOrden" style="cursor:pointer;" type="button" class="btn btn-primary">Pagar</button></span>
+    </div>
+    <div class="col-md-1">
+        <span><label id="lbltotalventa" class="text text-primary"></label></span>
     </div>
 
 </div>

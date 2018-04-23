@@ -75,15 +75,19 @@ class Venta_model extends CI_Model
 
     }
 
-    public function editar($id)
+    public function insertarVenta($data)
     {
+        $this->db->insert('ventas', $data);
+        $last_id = $this->db->insert_id();
 
+        return $last_id;
 
     }
 
-    public function borrar($id)
+    public function insertaDetalleVenta( $data )
     {
-
+        $this->db->insert('detalleventas', $data);
+        return TRUE;
 
     }
 }

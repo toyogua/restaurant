@@ -37,12 +37,35 @@ class Ventas extends CI_Controller
         echo json_encode( $res );
     }
 
-    public function update($id)
+    public function pagarProductos()
     {
 
-        $data['main_view'] = "home_view";
+        $productos =    json_decode($_POST['productos']);
+        $idempleado =   $this->input->post('idempleado');
+        $total =        $this->input->post('total');
 
-        $this->load->view('layouts/main', $data);
+        $fecha = date('y/m/d');
+
+        $data = array(
+            'idempleado'                => $idempleado,
+            'fecha'                     => $fecha,
+            'total'                     => $total
+        );
+
+        $idventa = $this->Venta_model->insertarVenta( $data );
+
+        foreach($productos as $producto)
+        {
+
+            $arrproductos = array(
+
+                'idproducto'            => $producto->idproducto,
+                'idventa'               => $idventa,
+            );
+
+            $this->Venta_model->insertaDetalleVenta( $arrproductos );
+        }
+
     }
 
     public function delete($id)
