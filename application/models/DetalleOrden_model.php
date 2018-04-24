@@ -8,6 +8,6 @@ class DetalleOrden_model extends CI_Model{
         $this->db->set('estadoDetalleOrden', 1);
         $this->db->where('idDetalleOrden', $idDetalleOrden);
         $this->db->update('detalleorden');
-        return true;
+        return TRUE;
     }
 }

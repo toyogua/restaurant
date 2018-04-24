@@ -43,7 +43,6 @@ class Products extends CI_Controller
        }
 
 
-       //echo json_encode($data);
    }
 
 
@@ -59,22 +58,22 @@ class Products extends CI_Controller
         }
     }
 
-    public function display(){
-        if($this->Producto_model->get_productos_info()){
-            $data['productos_data'] = $this->Producto_model->get_productos_info();
-        }
+    public function display()
+    {
 
-        $data['main_view'] = "productos/display_view";
-        $this->load->view('layouts/main', $data);
+       $data['productos_data'] = $this->Producto_model->get_productos_info();
+
+       $data['main_view'] = "productos/display_view";
+       $this->load->view('layouts/main', $data);
     }
 
-    public function get_producto($idProducto){
+    public function get_producto($idProducto)
+    {
 
-            $data = $this->Producto_model->get_producto_info($idProducto);
+        $data = $this->Producto_model->get_producto_info($idProducto);
 
 
-
-            echo json_encode($data);
+        echo json_encode($data);
 
     }
 
@@ -95,8 +94,8 @@ class Products extends CI_Controller
         $precio         = $this->input->post('precio');
         $cantidad       = $this->input->post('cantidad');
         $imagen         = $_FILES['imagen']['name'];
-        //$categoria      = $this->input->post('categoria');
         $idsubcategoria = $this->input->post('idsubcategoria');
+        $servicio       = $this->input->post('servicio');
 
 
         $temporal = $_FILES['imagen']['tmp_name']; //Obtenemos la ruta Original del archivo
@@ -112,7 +111,8 @@ class Products extends CI_Controller
             'precioProducto'         => $precio,
             'cantProducto'           => $cantidad,
             'idSubCategoria'         => $idsubcategoria,
-            'imagen'                 => $Destino
+            'imagen'                 => $Destino,
+            'servicio'               => $servicio
         );
 
         $id = $this->Producto_model->insertProducto($data);
@@ -134,6 +134,42 @@ class Products extends CI_Controller
 
         echo json_encode($id);
 
+    }
+
+    public function insertarSinIngredientes()
+    {
+        $ruta = './assets/img/productos/';
+
+        $producto       = $this->input->post('producto');
+        $descripcion    = $this->input->post('descripcion');
+        $costo          = $this->input->post('costo');
+        $precio         = $this->input->post('precio');
+        $cantidad       = $this->input->post('cantidad');
+        $servicio       = $this->input->post('existencia');
+        $imagen         = $_FILES['imagen']['name'];
+        $idsubcategoria = $this->input->post('idsubcategoria');
+
+
+        $temporal = $_FILES['imagen']['tmp_name']; //Obtenemos la ruta Original del archivo
+        $Destino = $ruta.$imagen;	//Creamos una ruta de destino con la variable ruta y el nombre original del archivo
+
+        move_uploaded_file($temporal, $Destino); //Movemos el archivo temporal a la ruta especificada
+
+
+        $data = array(
+            'producto'               => $producto,
+            'descripcionProducto'    => $descripcion,
+            'costoProducto'          => $costo,
+            'precioProducto'         => $precio,
+            'cantProducto'           => $cantidad,
+            'idSubCategoria'         => $idsubcategoria,
+            'imagen'                 => $Destino,
+            'servicio'               => $servicio
+        );
+
+        $res = $this->Producto_model->insertProducto($data);
+
+        echo json_encode( $res );
     }
 
 

@@ -31,6 +31,22 @@ class Empleado_model extends CI_Model{
         return $query->result();
     }
 
+    public function obtenerMeseros()
+    {
+        $this->db->from('empleado');
+        $this->db->where('estado', 1);
+        $this->db->where('idTipoEmpleado', 3);
+        $this->db->order_by('nombresEmpleado','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+
     public function todosTipos(){
         $this->db->from('tipoempleado');
         $this->db->where('estado', 1);

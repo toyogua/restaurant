@@ -68,7 +68,7 @@ $(document).ready(function() {
             return false;
         }
 
-        alertify.confirm('Estas seguro?', 'De querer registrar esta Sub Categoria',
+        alertify.confirm('Estás seguro?', 'De querer registrar esta Sub Categoría',
             function(){
 
                 const form = document.getElementById('frmCapturaNuevaCategoria');
@@ -192,7 +192,7 @@ $(document).ready(function() {
         }
         console.log(categoriaSubcategoria);
 
-        alertify.confirm('Estas segurdo?', 'De querer editar esta categoria',
+        alertify.confirm('Estáss seguro?', 'De querer editar esta categoría',
             function(){
 
                 $.ajax({
@@ -224,7 +224,7 @@ $(document).ready(function() {
 
         var id = $(this).data('id');
 
-        alertify.confirm('Estas seguro?', 'De querer borrar esta categoria',
+        alertify.confirm('Estas seguro?', 'De querer borrar esta Sub categoría',
             function(){
 
                 $.ajax({

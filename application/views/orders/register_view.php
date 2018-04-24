@@ -93,11 +93,15 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu">
+                            <?php if($meseros_data != FALSE): ?>
                             <?php foreach($meseros_data as $mesero): ?>
                                 <a class="dropdown-item mesero" data-id="<?php echo $mesero->idEmpleado; ?>" data-nombre="<?php echo $mesero->nombresEmpleado; ?>" href="#"><?php echo $mesero->nombresEmpleado;?></a>
 
                             <?php endforeach; ?>
+                            <?php else: ?>
+                                <div class="bg-danger">No hay meseros creados. Vaya al menú Empleados para crearlos.</div>
 
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="md-form"><label id="divInformaMeseroSeleccionado"></label></div>

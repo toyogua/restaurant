@@ -136,13 +136,6 @@ $(document).ready(function() {
 
                         }
                     });
-                    // $.post(baseurl + 'DetalleOrden/updateDetalle/' + idDetalleOrden, function (data) {
-                    //     var result = JSON.parse(data);
-                    //     if(result){
-                    //         console.log(result);
-                    //     }
-                    //     $(".detalle"+idDetalleOrden).remove();
-                    // });
 
                     swal("Procesando!", "La orden fue despachada.", "success");
                 }
@@ -151,7 +144,17 @@ $(document).ready(function() {
 
     });
 
-
+    //detectar el cambio en el menu principal
+    var cambio = false;
+    $('.navbar-nav  li a').each(function(index) {
+        if(this.href.trim() == window.location){
+            $(this).parent().addClass("btn btn-info btn-sm");
+            cambio = true;
+        }
+    });
+    if(!cambio){
+        $('.navbar-nav  li:first').addClass("btn btn-info btn-sm");
+    }
 });
 
 

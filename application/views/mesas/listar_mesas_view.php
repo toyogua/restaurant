@@ -57,7 +57,7 @@
         </th>
 
         <th class="text-center">
-            OCUPADA
+            OCUPADA/DESOCUPADA
         </th>
 
 

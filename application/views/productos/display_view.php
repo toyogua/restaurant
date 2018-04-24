@@ -98,19 +98,20 @@
         <th class="text-center">
             IMAGEN
         </th>
-        <th class="text-center">
-            ELIMINAR
-        </th>
-
-        <th class="text-center">
-            EDITAR
-        </th>
+<!--        <th class="text-center">-->
+<!--            ELIMINAR-->
+<!--        </th>-->
+<!---->
+<!--        <th class="text-center">-->
+<!--            EDITAR-->
+<!--        </th>-->
 
     </tr>
 
     </thead>
     <tbody id="mostralistadoproductos">
-    <?php if($productos_data != FALSE): ?>
+
+    <?php if($productos_data!=FALSE): ?>
 
 
     <?php foreach($productos_data as $producto): ?>
@@ -118,7 +119,7 @@
             <td align="center"><?php echo $producto->producto; ?></td>
             <td align="center"><?php echo $producto->precioProducto; ?></td>
             <td align="center"><?php echo $producto->costoProducto;?></td>
-            <td align="center"><?php echo $producto->cantProducto; ?></td>
+            <td align="center"><?php echo ($producto->servicio == 1)? "NO MANEJA EXISTENCIA" : $producto->cantProducto; ?></td>
             <td align="center"><?php echo $producto->categoria; ?></td>
             <td align="center"><?php echo $producto->nombre;?></td>
             <td align="center"><img class="img-fluid" style="border-radius: 150px; height: 50px; width: 50px;" src=".<?php echo $producto->imghx;?>"></td>

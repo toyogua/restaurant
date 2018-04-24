@@ -47,6 +47,7 @@ $(document).ready(function() {
             content += '<label>Costo</label>';
             content += '</div>';
             content += '<div class="md-form">';
+            content += '<input type="checkbox" id="chkactivaingrediente" style="transform: scale(2.0); float: right; margin-right: 250px; margin-top: 15px; " checked="checked">';
             content += '<label><i  class="fa fa-plus-circle text-primary font-weight-bold">Ingredientes</i></label>';
             content += '<input type="text" class="form-control buscaringrediente" name="buscaringrediente" id="buscaringrediente">';
             content += '<ul  id="resingrediente"></ul>';
@@ -58,6 +59,7 @@ $(document).ready(function() {
             content += '<label>Precio</label>';
             content += '</div>';
             content += '<div class="md-form">';
+            content += '<input type="checkbox" id="chkactivacantidad" style="transform: scale(2.0); float: right; margin-right: 250px; margin-top: 15px; " checked="checked">';
             content += '<label>Cantidad</label>';
             content += '<input type="number" class="form-control" name="cantidad" id="cantidad">';
             content += '</div>';
@@ -208,17 +210,25 @@ $(document).ready(function() {
 
         $(document).on("click", "#btnRegistrarProducto", function () {
 
-
-
-            alertify.confirm('Estas seguro?', 'De querer registrar este producto',
+            alertify.confirm('Estás seguro?', 'De querer registrar este producto',
                 function(){
+
+                //verificamos si el producto trae cantidad
+                if( $("#chkactivacantidad").is(':checked') ) {
+
+                        var servicio = 0;
+
+                    }else{
+
+                        servicio = 1;
+                    }
 
                     producto.lista={
                         "producto"              : document.getElementById("producto").value,
                         "descripcionProducto"   : document.getElementById("descripcion").value,
                         "costoProducto"         : document.getElementById("costo").value,
                         "precioProducto"        : document.getElementById("precio").value,
-                        "cantProducto"          : document.getElementById("cantidad").value,
+                        "cantProducto"          : cantidad,
                         "idCategoria"           : categoriaseleccionada
 
                     };
@@ -231,37 +241,52 @@ $(document).ready(function() {
                     //formData.append("categoria", categoriaseleccionada);
                     formData.append("ingredientes", ingredienteslistosinsertar);
                     formData.append("idsubcategoria", idsubcategoria);
+                    formData.append("servicio", servicio);
 
+                    //verificamos si tra ingredientes o no
+                    if( $("#chkactivaingrediente").is(':checked') ) {
 
+                        $.ajax({
 
+                            type: 'POST',
+                            url: baseurl + 'products/create',
+                            data: formData,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                if (res) {
 
-                    $.ajax({
+                                    alertify.success('Registrado');
 
-                        type: 'POST',
-                        url: baseurl + 'products/create',
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        success: function (res) {
-                            console.log(res);
-                            if (res) {
-
-                                alertify.success('Registrado');
-
-
-                            }
-                            else {
-                                console.log("Error al enviar los alimentos")
+                                }
                             }
 
+                        },  setInterval(function() {
+                            cargar()
+                        }, 1000));
 
-                        }
+                    }else{
+                        $.ajax({
 
+                            type: 'POST',
+                            url: baseurl + 'products/insertarSinIngredientes',
+                            data: formData,
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            success: function (res) {
+                                if (res) {
 
-                    },  setInterval(function() {
-                        cache_clear()
-                    }, 1000));
+                                    alertify.success('Registrado');
+
+                                }
+                            }
+
+                        },  setInterval(function() {
+                            cargar()
+                        }, 1000));
+                    }
 
                     ingredienteslista = {
                         listos: []

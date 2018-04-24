@@ -23,11 +23,11 @@ $(document).ready(function() {
             content += '</div>';
             //content += '<div class="row">';
             content += '<div class="md-form">';
-            content += '<input type="text" class="form-control" id="costo">';
+            content += '<input type="number" class="form-control" id="costo">';
             content += '<label>Costo</label>';
             content += '</div>';
             content += '<div class="md-form">';
-            content += '<input type="text" class="form-control" id="cantidad">';
+            content += '<input type="number" class="form-control" id="cantidad">';
             content += '<label>Cantidad</label>';
             content += '</div>';
 
@@ -64,7 +64,7 @@ $(document).ready(function() {
             //detectamos los radio button presionados
             var medida = $('input:radio[name=rmedida]:checked').val();
 
-            alertify.confirm('Estas segurdo?', 'De querer registrar este ingrediente',
+            alertify.confirm('Estás seguro?', 'De querer registrar este ingrediente',
                 function(){
                     ingredientes.lista={
                         "ingrediente"               : document.getElementById("ingrediente").value,
@@ -133,11 +133,11 @@ $(document).ready(function() {
                         content += '</div><br>';
                         content += '<div class="">';
                         content += '<label class="h6">Costo</label><br>';
-                        content += '<input type="text" class="" id="costo" value="'+val.costoIngrediente+'">';
+                        content += '<input type="number" class="" id="costo" value="'+val.costoIngrediente+'">';
                         content += '</div><br>';
                         content += '<div class="">';
                         content += '<label class="h6">Cantidad</label><br>';
-                        content += '<input type="text" class="" id="cantidad" value="'+val.cantIngrediente+'">';
+                        content += '<input type="number" class="" id="cantidad" value="'+val.cantIngrediente+'">';
                         content += '</div><br>';
 
                         content += '<div class="md-form">';
@@ -162,10 +162,6 @@ $(document).ready(function() {
                         content += '</form>';
                         $(".contenedor_editar_ingrediente").append(content);
                     });
-                }else{
-                    //var content_ingrediente = "";
-                    //content_ingrediente += '<p class="alimento'+idalimento+'">No contiene descripción</p>';
-                    //$("#contenedor_des_producto").append(content_ingrediente);
                 }
 
             });
@@ -174,7 +170,7 @@ $(document).ready(function() {
         $(document).on("click", "#btnEditIngrediente",function(e){
             //detectamos los radio button presionados
             var medida = $('input:radio[name=rmedida]:checked').val();
-            alertify.confirm('Estas segurdo?', 'De querer editar el ingrediente',
+            alertify.confirm('Estás seguro?', 'De querer editar el ingrediente',
                 function(){
                     ingredientes.lista={
                         "ingrediente"               : document.getElementById("ingrediente").value,

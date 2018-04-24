@@ -87,7 +87,7 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>ingredientes/display">Ingredientes</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Productos</a>
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>Categorias/listarCategorias">Categorias</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>Categorias/listarCategorias">Subcategorías</a>
                         </div>
                     </li>
                     <li class="nav-item btn-group">

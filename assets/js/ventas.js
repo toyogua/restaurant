@@ -13,7 +13,7 @@ var controlinsertados = 0;
 $(document).ready(function() {
 
     $(document).on("click", ".btnmesacobrar", function () {
-        
+        total = 0;
         
         $(".dvmesacobrar").empty();
 

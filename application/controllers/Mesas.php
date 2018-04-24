@@ -64,9 +64,7 @@ class Mesas extends CI_Controller
         $data = array(
                 'noMesa'            => $this->input->post('iptNumeroMesa'),
                 'ubicacionMesa'     => $this->input->post('txtUbicacionMesa'),
-                'descripcionMesa'   => $this->input->post('txtDescripcionMesa'),
-                'ocupada'           => 0,
-                'estado'            => 1
+                'descripcionMesa'   => $this->input->post('txtDescripcionMesa')
         );
 
         $res = $this->Mesa_model->crearMesa( $data );

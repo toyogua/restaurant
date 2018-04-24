@@ -1,8 +1,6 @@
 <h2 align="center">INGREDIENTES </h2>
 <hr>
 
-<?php $attributes = array('id' => 'display_form', 'class' => 'form_horizontal');?>
-<?php echo form_open('ingredientes/display', $attributes);?>
 
 <!-- Button trigger modal -->
 <button style="cursor: pointer;" type="button" class="btn btn-success btnNuevoIngrediente" data-toggle="modal" data-target="#modaIngrediente">
@@ -48,7 +46,7 @@
 
 
 
-<?php if(isset($ingredientes_data)): ?>
+<?php if($ingredientes_data!=FALSE): ?>
  <?php $contador = 0; ?>
 
 <table class="table table-bordered table-striped table-responsive">
@@ -74,14 +72,14 @@
         <tr id="fila<?php echo $ingrediente->idIngrediente;?>">
             <?php  echo "<td>" . $contador ."</td>"; ?>
             <?php  echo "<td style='width: 25%;'>" . $ingrediente->ingrediente ."</td>"; ?>
-            <?php  echo "<td style='width: 30%;'>" . $ingrediente->descripcionIngrediente ."</td>"; ?>
-            <?php  echo "<td style='width: 15%' align='right'>" . $ingrediente->fechaIngreso ."</td>"; ?>
-            <?php  echo "<td style='width: 10%' align='right'>Q " . $ingrediente->costoIngrediente ."</td>"; ?>
-            <?php  echo "<td style='width: 10%' align='right'>" . $ingrediente->cantIngrediente ."</td>"; ?>
-            <?php  echo "<td style='width: 10%' align='right'>" . $ingrediente->medida ."</td>"; ?>
+            <?php  echo "<td style='width: 10%;'>" . $ingrediente->descripcionIngrediente ."</td>"; ?>
+            <?php  echo "<td style='width: 15%' align='center'>" . $ingrediente->fechaIngreso ."</td>"; ?>
+            <?php  echo "<td style='width: 10%' align='center'>Q " . $ingrediente->costoIngrediente ."</td>"; ?>
+            <?php  echo "<td style='width: 10%' align='center'>" . $ingrediente->cantIngrediente ."</td>"; ?>
+            <?php  echo "<td style='width: 10%' align='center'>" . $ingrediente->medida ."</td>"; ?>
 
-            <td align="center" style='width: 5%'><a class="btnEliminarIngrediente" title="Borrar" href="" data-nombre="<?php echo $ingrediente->ingrediente;?>" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-            <td align="center" style='width: 5%'><a data-toggle="modal" data-target="#modalIngrediente" class="btnEditarIngrediente" title="Editar" href="" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+            <td align="center" style='width: 5%'><a class="btnEliminarIngrediente" title="Borrar" href="" data-nombre="<?php echo $ingrediente->ingrediente;?>" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
+            <td align="center" style='width: 5%'><a data-toggle="modal" data-target="#modalIngrediente" class="btnEditarIngrediente" title="Editar" href="" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-edit fa-3x" aria-hidden="true"></i></a></td>
 
         </tr>
     <?php endforeach; ?>
@@ -93,6 +91,6 @@
     <br><br><p class="bg-danger">No se encontraron Ingredientes</p>
 <?php endif; ?>
 
-<?php form_close();?>
+
 
 

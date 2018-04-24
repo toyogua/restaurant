@@ -13,7 +13,6 @@ class Orden_model extends CI_Model{
                 'idMesa'         => $listaOrden->idMesa,
                 'totalOrden'     => $listaOrden->totalOrden,
                 'idEmpleado'     => $listaOrden->idEmpleado,
-                'estadoOrden'    => $listaOrden->estadoOrden,
                 'fechaOrden'     => $listaOrden->fechaOrden,
                 'horaOrden'      => $listaOrden->horaOrden,
                 'aliasMesa'      => $listaOrden->aliasMesa

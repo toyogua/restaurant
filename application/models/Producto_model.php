@@ -24,6 +24,7 @@ class Producto_model extends CI_Model{
            producto.cantProducto,
            producto.idSubCategoria,
            producto.imagen as imghx,
+           producto.servicio,
         
            categoria.idCategoria,
            categoria.categoria,
@@ -44,8 +45,9 @@ class Producto_model extends CI_Model{
         if ($query->num_rows() < 1) {
             return FALSE;
         }
-
-        return $query->result();
+        else{
+            return $query->result();
+        }
     }
 
     //devuelve todos los productos que esten relacionados a una categoria
@@ -152,7 +154,6 @@ class Producto_model extends CI_Model{
         $last_id = $this->db->insert_id();
 
         return $last_id;
-        //return $insert_query;
 
     }
 

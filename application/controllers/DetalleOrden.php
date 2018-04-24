@@ -11,12 +11,7 @@ class DetalleOrden extends CI_Controller
 
     public  function index()
     {
-        //devuelve las categorias
         $data['categoria_data'] = $this->Categoria_model->get_categorias_info();
-
-//        echo $this->Producto_model->get_productos_categoria(1);
-
-
         $data['main_view'] = "orders/register_view";
 
         $this->load->view('layouts/main', $data);
@@ -31,11 +26,11 @@ class DetalleOrden extends CI_Controller
             echo json_encode($data);
         }
 
-        $data2 = array(
-            'ocupada'   => 0
-        );
+//        $data2 = array(
+//            'ocupada'   => 0
+//        );
 
-        $this->Mesa_model->actualizarMesa( $data2, $mesa);
+        //$this->Mesa_model->actualizarMesa( $data2, $mesa);
     }
 
 }

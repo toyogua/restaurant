@@ -20,7 +20,7 @@ class Ventas extends CI_Controller
     public function index()
     {
 
-        $data['ordenes']    = $this->Venta_model->obtenerOrdenesApagar();
+        //$data['ordenes']    = $this->Venta_model->obtenerOrdenesApagar();
         $data['mesas']      = $this->Venta_model->obtenesMesasOcupadas();
 
         $data['main_view'] = "ventas/registrar_venta_view";
@@ -73,7 +73,8 @@ class Ventas extends CI_Controller
         $idmesa = $this->input->post('idmesa');
 
         $data = array(
-            'pagada'    => 1
+            'estadoOrden'   => 1,
+            'pagada'        => 1
         );
 
         $this->Venta_model->marcarOrden($data, $idmesa);
