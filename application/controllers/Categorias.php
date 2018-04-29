@@ -9,6 +9,12 @@
 class Categorias extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('permisos_helper');
+    }
+
 
     public  function buscarCategorias()
     {

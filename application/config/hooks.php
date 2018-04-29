@@ -12,18 +12,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-//$hook['post_controller'] = array(
-//    'class'    => 'Acl',
-//    'function' => 'auth',
-//    'filename' => 'Acl.php',
-//    'filepath' => 'hooks'
-//);
+// $hook['post_controller'] = array(
+//     'class'    => 'Acl',
+//     'function' => 'auth',
+//     'filename' => 'Acl.php',
+//     'filepath' => 'hooks'
+// );
 
-//$hook = false;
-//if(strpos($_SERVER['REQUEST_URI'],"categorias/") || strpos($_SERVER['REQUEST_URI'],"empleados/")
-//    || strpos($_SERVER['REQUEST_URI'],"orders/") || strpos($_SERVER['REQUEST_URI'],"products/"))
-//
-//    $hook = FALSE;
+// $hook = TRUE;
+// if(strpos($_SERVER['REQUEST_URI'],"categorias/") || strpos($_SERVER['REQUEST_URI'],"empleados/")
+//     || strpos($_SERVER['REQUEST_URI'],"orders/") || strpos($_SERVER['REQUEST_URI'],"products/"))
+
+//     $hook = FALSE;
 //if($hook) {
 //
 //}

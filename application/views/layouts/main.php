@@ -19,6 +19,7 @@
     <script src="<?php echo base_url();?>assets/js/formAnimado.js"></script>
     <script src="<?php echo base_url();?>assets/js/TweenLite.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/TweenMax.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/permisos.js"></script>
 
 
     <!-- Bootstrap tooltips -->
@@ -60,9 +61,9 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mdb.min.js"></script>
 <div class="container col-lg-12">
 
-    <?php if ($this->session->userdata("role", "Administrador")):?>
+    <?php  if ($this->session->userdata("role", "Administrador")):?>
 
-    <nav class="navbar navbar-toggleable-md  navbar-dark brown darken-2">
+        <nav class="navbar navbar-toggleable-md  navbar-dark brown darken-2">
         <div class="container">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#collapseEx12" aria-controls="collapseEx2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -70,18 +71,27 @@
             <a class="navbar-brand" href="#">CAFÉ Y RESTAURANTE</a>
             <div class="collapse navbar-collapse" id="collapseEx12">
                 <ul class="navbar-nav mr-auto">
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Ordenar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>orders">Ordenar</a>
                     </li>
+                    <?php endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Actualizar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>orders/display">Ordenes</a>
                     </li>
+                    <?php endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Empleados", "Agregar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url(); ?>users/display">Empleados</a>
                     </li>
+                    <?php endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Mesas", "Agregar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>mesas/listar">Mesas</a>
                     </li>
+                    <?php endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Productos", "Agregar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
@@ -90,8 +100,12 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Categorias/listarCategorias">Subcategorías</a>
                         </div>
                     </li>
+                    <?php endif;?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>ventas">Caja</a>
+                    </li>
+                    <li class="nav-item btn-group">
+                        <a class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
                     </li>
 
                     <li class="nav-item btn-group navbar-toggler-right">

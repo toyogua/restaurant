@@ -31,7 +31,7 @@ class Acl
     {
         return array(
             //rutas para el admin
-            "Administrador" => array("home", "Products", "orders", "users","Categorias", "Categorias/edit", "bills","login","register", "dashboard"),
+            "Administrador" => array("home", "ventas", "Products", "orders", "users","Categorias", "Categorias/edit", "bills","login","register", "dashboard"),
             //rutas para el bartender
             "Bartender" => array("dashboard","control_panel","my_providers"),
             //rutas para mesero

@@ -10,7 +10,13 @@ class Products extends CI_Controller
 {
 
 
-   public function getCategoriaJson(){
+   function __construct()
+   {
+       parent::__construct();
+       $this->load->helper('permisos_helper');
+   }
+
+    public function getCategoriaJson(){
 
        $categoria = $this->input->post('categoria');
 

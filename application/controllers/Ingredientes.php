@@ -9,6 +9,12 @@
 class Ingredientes extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('permisos_helper');
+    }
+
     public function display(){
         $data['ingredientes_data'] = $this->Ingrediente_model->get_ingredientes_info();
 

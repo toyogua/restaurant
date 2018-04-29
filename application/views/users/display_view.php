@@ -104,7 +104,7 @@
 </table>
 
 <?php else: ?>
-    <br><br><p class="bg-danger">No se encontraron Productos</p>
+    <br><br><p class="bg-danger">No se encontraron Empleados</p>
 
 <?php endif; ?>
 

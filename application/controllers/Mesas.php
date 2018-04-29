@@ -9,6 +9,12 @@
 class Mesas extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('permisos_helper');
+    }
+
     public  function buscarMesas()
     {
         $noMesa = $this->input->post('nombre');

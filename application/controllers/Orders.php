@@ -9,6 +9,12 @@
 class Orders extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('permisos_helper');
+    }
+
     public  function index()
     {
         $data['subcategorias_bebida'] = $this->Categoria_model->getSubCategoriaBebida();

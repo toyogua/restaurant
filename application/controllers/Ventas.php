@@ -14,6 +14,7 @@ class Ventas extends CI_Controller
 
         parent::__construct();
         $this->load->model('Venta_model');
+        $this->load->helper('permisos_helper');
 
     }
 

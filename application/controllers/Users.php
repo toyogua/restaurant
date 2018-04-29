@@ -3,22 +3,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Users extends CI_Controller {
 
-
     function __construct() {
 
         parent::__construct();
 
         $this->load->model('User_model');
+        $this->load->helper('permisos_helper');
+
 
     }
 
 
     public function display(){
 
-
-        if($this->User_model->get_users_info()){
-            $data['users_data'] = $this->User_model->get_users_info();
-        }
+        $data['users_data'] = $this->User_model->get_users_info();
+        
         $data['main_view'] = "users/display_view";
         $this->load->view('layouts/main', $data);
     }
@@ -115,16 +114,17 @@ class Users extends CI_Controller {
                 $usuario = $this->User_model->login_user($username, $password);
 
                 if ($usuario) {
-                    $user_data = array(
-                        'user_id'       => $usuario->idUser,
-                        'username'      => $username,
-                        'logged_admin'  => true,
-                        'tipoempleado'  => $usuario->idTipoEmpleado,
-                        'role'          => $usuario->tipoEmpleado,
-                        'idempleado'    => $usuario->idEmpleado
-                    );
 
-                    //var_dump($user_data);
+                        $user_data = array(
+                            'user_id' => $usuario->idUser,
+                            'username' => $username,
+                            'logged_admin' => true,
+                            'tipoempleado' => $usuario->idTipoEmpleado,
+                            'role' => $usuario->tipoEmpleado,
+                            'idempleado' => $usuario->idEmpleado,
+
+
+                        );
 
                     $this->session->set_userdata($user_data);
                     $this->session->set_flashdata('login_success', 'Bienvenido al sistema');

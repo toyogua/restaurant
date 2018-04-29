@@ -9,6 +9,12 @@
 class DetalleOrden extends CI_Controller
 {
 
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->helper('permisos_helper');
+    }
+
     public  function index()
     {
         $data['categoria_data'] = $this->Categoria_model->get_categorias_info();
