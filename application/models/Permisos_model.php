@@ -79,4 +79,15 @@ class Permisos_model extends CI_Model
         $this->db->insert('permisos_acciones', $data);
         return TRUE;
     }
+
+    public function permisosExistentes( $idempleado )
+    {
+        $this->db->where('id_empleado', $idempleado );
+        $res = $this->db->get('permisos_acciones');
+        if ( $res->num_rows() < 1){
+            return FALSE;
+        }
+
+        return $res->result();
+    }
 }

@@ -21,12 +21,15 @@ class Permisos extends CI_Controller
 
     public function asignar($idempleado)
     {
+
+
         $data['acciones_ordenes']   = $this->Permisos_model->accionesOrdenes();
         $data['acciones_empleados'] = $this->Permisos_model->accionesEmpleados();
         $data['acciones_mesas']     = $this->Permisos_model->accionesMesas();
         $data['acciones_ventas']    = $this->Permisos_model->accionesVentas();
 
         $data['idempleado']         = $idempleado;
+
 
         $data['main_view'] = "permisos/asignar";
         $this->load->view('layouts/main', $data);

@@ -13,38 +13,49 @@ $(document).ready(function () {
     $("#btnAsignarPermisos").click( function () {
         let idempleado = $("#idempleado").val();
 
-        $("input:checkbox:checked").each(
-            function() {
-                if ($(this).data("modulo") !== undefined)
-                permisos.listos.push({
-                    "id_empleado":  idempleado,
-                    "id_modulo":     $(this).data("modulo"),
-                    "accion":       $(this).val()
+        alertify.confirm('Estás seguro?', 'De querer realizar esta acción?',
 
+            function(){
+                $("input:checkbox:checked").each(
+                    function() {
+                        if ($(this).data("modulo") !== undefined)
+                            permisos.listos.push({
+                                "id_empleado":  idempleado,
+                                "id_modulo":     $(this).data("modulo"),
+                                "accion":       $(this).val()
+
+                            });
+                    }
+                );
+
+                let permisosJSON= JSON.stringify(permisos.listos);
+
+                $.ajax({
+                    type: "POST",
+                    url: baseurl + 'Permisos/insertarPermisos',
+                    dataType: 'json',
+                    data: {permisos: permisosJSON},
+                    success: function (res) {
+                        if (res) {
+
+                            alertify.success('Permisos Actualizados!');
+                        }
+
+                    }
                 });
-            }
-        );
+                setInterval(function() {
+                    recargar();
+                }, 1000);
 
-        let permisosJSON= JSON.stringify(permisos.listos);
-
-        $.ajax({
-            type: "POST",
-            url: baseurl + 'Permisos/insertarPermisos',
-            dataType: 'json',
-            data: {permisos: permisosJSON},
-            success: function (res) {
-                if (res) {
-
-                    //alertify.success('Venta Procesada');
-                }
-
-            }
-        });
-        setInterval(function() {
-            //cache_clear()
-        }, 1000);
-
-        console.log(permisosJSON);
+            },
+            function(){
+                alertify.error('Cancelado')
+            });
 
     });
+
 });
+
+function recargar() {
+    window.location.href = baseurl+"Permisos/";
+}

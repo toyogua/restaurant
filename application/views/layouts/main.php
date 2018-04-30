@@ -61,7 +61,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mdb.min.js"></script>
 <div class="container col-lg-12">
 
-    <?php  if ($this->session->userdata("role", "Administrador")):?>
+    <?php  if ($this->session->userdata("idempleado")):?>
 
         <nav class="navbar navbar-toggleable-md  navbar-dark brown darken-2">
         <div class="container">
@@ -76,38 +76,48 @@
                         <a class="nav-link" href="<?php echo base_url();?>orders">Ordenar</a>
                     </li>
                     <?php endif;?>
-                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Actualizar")): ?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>orders/display">Ordenes</a>
                     </li>
                     <?php endif;?>
-                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Empleados", "Agregar")): ?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Empleados", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url(); ?>users/display">Empleados</a>
                     </li>
                     <?php endif;?>
-                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Mesas", "Agregar")): ?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Mesas", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>mesas/listar">Mesas</a>
                     </li>
                     <?php endif;?>
-                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Productos", "Agregar")): ?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Menu", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
+                            <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ingredientes", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>ingredientes/display">Ingredientes</a>
+                            <?endif; ?>
+                            <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Productos", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Productos</a>
+                            <?endif;?>
+                            <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Categorias", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Categorias/listarCategorias">Subcategorías</a>
+                            <?endif;?>
                         </div>
                     </li>
                     <?php endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ventas", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>ventas">Caja</a>
                     </li>
+                    <?endif;?>
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Permisos", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
                     </li>
-
+                    <?endif;?>
+                    <?php  if ($this->session->userdata("idempleado")):?>
                     <li class="nav-item btn-group navbar-toggler-right">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
@@ -116,6 +126,7 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>users/logout">Salir</a>
                         </div>
                     </li>
+                    <?php endif;?>
                 </ul>
 
            </div>
