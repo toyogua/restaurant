@@ -13,6 +13,10 @@ class Categorias extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('permisos_helper');
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
     }
 
 

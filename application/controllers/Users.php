@@ -16,6 +16,11 @@ class Users extends CI_Controller {
 
     public function display(){
 
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
+
         $data['users_data'] = $this->User_model->get_users_info();
         
         $data['main_view'] = "users/display_view";
@@ -24,6 +29,10 @@ class Users extends CI_Controller {
 
     public function register(){
 
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
         $this->form_validation->set_rules('nombres', 'Nombres', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required|min_length[3]');
         $this->form_validation->set_rules('username', 'Nombre de Usuario', 'trim|required|min_length[3]');
@@ -46,6 +55,11 @@ class Users extends CI_Controller {
 
     public function delete($idUser){
 
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
+
         if (!$this->session->userdata('logged_admin')){
             $this->session->set_flashdata('no_access', 'No estas autorizado para ingresar a esta dirección!');
             redirect('home');
@@ -58,6 +72,11 @@ class Users extends CI_Controller {
     }
 
     public function edit($id){
+
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
 
         if (!$this->session->userdata('logged_admin')){
             $this->session->set_flashdata('no_access', 'No estas autorizado para ingresar a esta dirección!');
@@ -94,6 +113,7 @@ class Users extends CI_Controller {
     public function login()
     {
 
+
         $this->form_validation->set_rules('username', 'Nombre de Usuario', 'trim|required|min_length[3]');
 
         $this->form_validation->set_rules('password', 'Contraseña', 'trim|required|min_length[3]');
@@ -104,7 +124,7 @@ class Users extends CI_Controller {
                 'errors' => validation_errors()
             );
             $this->session->set_flashdata($data);
-            //redirect('home');
+            redirect('home');
 
 
         } else {
@@ -116,26 +136,27 @@ class Users extends CI_Controller {
                 if ($usuario) {
 
                         $user_data = array(
-                            'user_id' => $usuario->idUser,
-                            'username' => $username,
-                            'logged_admin' => true,
-                            'tipoempleado' => $usuario->idTipoEmpleado,
-                            'role' => $usuario->tipoEmpleado,
-                            'idempleado' => $usuario->idEmpleado,
+                            'user_id'       => $usuario->idUser,
+                            'username'      => $username,
+                            'nombre'        => $usuario->nombresEmpleado.' '.$usuario->apellidosEmpleado,
+                            'logueado'      => true,
+                            'tipoempleado'  => $usuario->idTipoEmpleado,
+                            'role'          => $usuario->tipoEmpleado,
+                            'idempleado'    => $usuario->idEmpleado,
 
 
                         );
 
                     $this->session->set_userdata($user_data);
-                    $this->session->set_flashdata('login_success', 'Bienvenido al sistema');
+                    $this->session->set_flashdata('login_success', 'Bienvenido al sistema '. $usuario->nombresEmpleado.' '.$usuario->apellidosEmpleado);
 
                     $data['main_view'] = "home_view";
                     $this->load->view('layouts/main', $data);
 
-                    //redirect('home');
+                    redirect('home');
                 } else {
                     $this->session->set_flashdata('login_failed', 'Lo sentimos, no lograste ingresar al sistema');
-                    //redirect('home');
+                    redirect('home');
 
                 }
 
@@ -148,6 +169,10 @@ class Users extends CI_Controller {
     public function update_pass()
     {
 
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
         $this->form_validation->set_rules('nuevapass', 'Nueva clave', 'trim|required|min_length[5]');
 
         if ($this->form_validation->run() == FALSE) {

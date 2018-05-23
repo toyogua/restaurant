@@ -7,6 +7,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('permisos_helper');
+
     }
 
     public  function index()

@@ -61,7 +61,7 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/js/mdb.min.js"></script>
 <div class="container col-lg-12">
 
-    <?php  if ($this->session->userdata("idempleado")):?>
+    <?php  if ($this->session->userdata("logueado")):?>
 
         <nav class="navbar navbar-toggleable-md  navbar-dark brown darken-2">
         <div class="container">
@@ -97,13 +97,13 @@
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
                             <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ingredientes", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>ingredientes/display">Ingredientes</a>
-                            <?endif; ?>
+                            <?php endif; ?>
                             <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Productos", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Productos</a>
-                            <?endif;?>
+                            <?php endif;?>
                             <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Categorias", "Mostrar")): ?>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>Categorias/listarCategorias">Subcategorías</a>
-                            <?endif;?>
+                            <?php endif;?>
                         </div>
                     </li>
                     <?php endif;?>
@@ -111,15 +111,20 @@
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>ventas">Caja</a>
                     </li>
-                    <?endif;?>
+                    <?php endif;?>
                     <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Permisos", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
                     </li>
-                    <?endif;?>
+                    <?php endif;?>
+                   
+                    <li class="nav-item btn-group">
+                        <a class="nav-link" href="<?php echo base_url();?>reportes">Reportes</a>
+                    </li>
+                   
                     <?php  if ($this->session->userdata("idempleado")):?>
                     <li class="nav-item btn-group navbar-toggler-right">
-                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
+                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nombre');?></a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Perfil</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>">Cambiar clave</a>
@@ -134,24 +139,25 @@
     </nav>
     <br><div class="col col-lg-12">
         <?php $this->load->view($main_view); ?>
+        
     </div>
 
-
-    <?php else: ?>
+     <?php else: ?>
+  
         <br>
         <br>
         <br><div  class="col-md-12">
             <?php $this->load->view($main_view); ?>
+            
         </div>
 
 
         <div class="col-md-12">
             <?php $this->load->view('users/login_view'); ?>
+           
         </div>
 
     <?php endif; ?>
 </div>
 
-
-</body>
 </html>

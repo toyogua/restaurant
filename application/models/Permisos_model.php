@@ -90,4 +90,14 @@ class Permisos_model extends CI_Model
 
         return $res->result();
     }
+
+    public function eliminar( $idempleado, $idmodulo, $idaccion)
+    {
+        $this->db->where('id_empleado', $idempleado);
+        $this->db->where('id_modulo', $idmodulo);
+        $this->db->where('accion', $idaccion);
+        $this->db->delete('permisos_acciones');
+
+        return TRUE;
+    }
 }

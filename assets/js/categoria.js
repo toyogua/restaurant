@@ -1,5 +1,6 @@
 
 var baseurl = 'http://localhost/restaurant/';
+//var baseurl = 'http://192.168.5.109/restaurant/';
 
 var fecha = new Date;
 var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();

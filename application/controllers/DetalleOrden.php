@@ -13,6 +13,11 @@ class DetalleOrden extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('permisos_helper');
+
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
     }
 
     public  function index()
@@ -32,11 +37,6 @@ class DetalleOrden extends CI_Controller
             echo json_encode($data);
         }
 
-//        $data2 = array(
-//            'ocupada'   => 0
-//        );
-
-        //$this->Mesa_model->actualizarMesa( $data2, $mesa);
     }
 
 }

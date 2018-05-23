@@ -20,6 +20,8 @@ $(document).ready(function() {
         var idmesa = $(this).data('idmesa');
         mesaorden = idmesa;
 
+        $("#lbltotalmesa"+idmesa).remove();
+
         $.ajax({
             type: "POST",
             url: baseurl + 'ventas/obtenerOrdenMesa',
@@ -42,9 +44,9 @@ $(document).ready(function() {
 
                     $("#dvmesa"+idmesa).append('<div id="dv'+val.idProducto+'" class="col-md-11">'+
 
-                        '<label id="lbl'+ val.idProducto +'"  style="font-size: 15px;" class="input-group">'+
+                        '<label id="lbl'+ val.idProducto +'"  style="font-size: 15px; cursor: pointer" class="input-group">'+
 
-                        '<input style="transform: scale(2.0); margin-right: 10px;" id="producto" data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="form-check checkproducto" value="'+val.idProducto+'" type="checkbox"'+
+                        '<input style="transform: scale(2.0); margin-right: 10px; cursor: pointer;" id="producto" data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="form-check checkproducto" value="'+val.idProducto+'" type="checkbox"'+
                         'aria-label="Radio button for following text input">'  + val.producto +'  - Cantidad: '+val.cantDetalleOrden+' - Subtotal: '+subtotal+''+
                         
                         '</label>'+
@@ -65,6 +67,7 @@ $(document).ready(function() {
         enordenhay = cuentaproductos;
         console.log(enordenhay);
     }
+
 
     function suma(subtotal)
     {

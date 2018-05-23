@@ -8,6 +8,11 @@ class Permisos extends CI_Controller
         $this->load->model('Permisos_model');
         $this->load->model('User_model');
         $this->load->helper('permisos_helper');
+
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
     }
 
     public function index()
@@ -37,7 +42,19 @@ class Permisos extends CI_Controller
 
     public function insertarPermisos()
     {
-        $listpermisos = json_decode($_POST['permisos']);
+        $listpermisos   = json_decode($_POST['permisos']);
+        $borrar         = json_decode( $_POST['borrar']);
+
+        if ( $borrar != FALSE){
+            foreach ( $borrar as $item )
+            {
+
+                if ( obtenerPermisos( $item->id_empleado, $item->id_modulo, $item->accion)){
+                    $this->Permisos_model->eliminar( $item->id_empleado, $item->id_modulo, $item->accion);
+                }
+            }
+        }
+
 
         foreach ( $listpermisos as $permiso)
         {
@@ -47,7 +64,12 @@ class Permisos extends CI_Controller
                 'accion'        => $permiso->accion
             );
 
-            $this->Permisos_model->crear($data);
+            if (!obtenerPermisos($permiso->id_empleado, $permiso->id_modulo, $permiso->accion )){
+                $this->Permisos_model->crear($data);
+            }
+
         }
+
+        echo json_encode( $res = TRUE);
     }
 }

@@ -14,7 +14,13 @@ class Ventas extends CI_Controller
 
         parent::__construct();
         $this->load->model('Venta_model');
-        $this->load->helper('permisos_helper');
+        $this->load->helper('permisos');
+        $this->load->helper('totales');
+
+        if (!$this->session->userdata('logueado')){
+            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
+            redirect('home');
+        }
 
     }
 
@@ -23,10 +29,16 @@ class Ventas extends CI_Controller
 
         //$data['ordenes']    = $this->Venta_model->obtenerOrdenesApagar();
         $data['mesas']      = $this->Venta_model->obtenesMesasOcupadas();
-
         $data['main_view'] = "ventas/registrar_venta_view";
 
         $this->load->view('layouts/main', $data);
+    }
+
+    public  function  mesasOcupadas()
+    {
+        $res = $this->Venta_model->obtenesMesasOcupadas();
+
+        echo json_encode( $res );
     }
 
 

@@ -10,13 +10,13 @@
                 <?php if ($categoria->categoria == "Comida"): ?>
                     <button type="button" style="cursor: pointer;" class="btn btn-amber btn-lg btn-block btnCategoriaOrden" data-id="<?php echo $categoria->idCategoria;?>" data-categoria="<?php echo $categoria->categoria;?>"> <?php echo $categoria->categoria ?></button>
                 <?php endif;?>
-                <?endif; ?>
+                <?php endif; ?>
 
             <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Bebida")): ?>
                 <?php if ( $categoria->categoria == "Bebida"): ?>
                         <button type="button" style="cursor: pointer;" class="btn btn-amber btn-lg btn-block btnCategoriaOrden" data-id="<?php echo $categoria->idCategoria;?>" data-categoria="<?php echo $categoria->categoria;?>"> <?php echo $categoria->categoria ?></button>
                 <?php endif;?>
-                <?endif; ?>
+                <?php endif; ?>
 
 
             <?php endforeach; ?>

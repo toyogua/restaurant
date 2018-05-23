@@ -38,6 +38,8 @@ class User_model extends CI_Model{
     {
         $this->db->select('
            empleado.idEmpleado,
+           empleado.nombresEmpleado,
+           empleado.apellidosEmpleado,
            
            tipoempleado.idTipoEmpleado,
            tipoempleado.tipoEmpleado,

@@ -1,6 +1,11 @@
 var permisos = {
     listos: []
 };
+
+var aborrar = {
+    listos: []
+};
+
 $(document).ready(function () {
 
     $(".acctodos").change(function () {
@@ -10,31 +15,49 @@ $(document).ready(function () {
         $("input:checkbox."+idmodulo).prop('checked', $(this).prop("checked"));
     });
 
+    $(document).on("change", "input:checkbox", function () {
+
+        let idempleado = $("#idempleado").val();
+
+        if( !$(this).is(':checked') ) {
+           aborrar.listos.push({
+               "id_empleado": idempleado,
+               "id_modulo": $(this).data("modulo"),
+               "accion": $(this).val()
+               });
+        }
+    });
+
     $("#btnAsignarPermisos").click( function () {
         let idempleado = $("#idempleado").val();
+
 
         alertify.confirm('Estás seguro?', 'De querer realizar esta acción?',
 
             function(){
-                $("input:checkbox:checked").each(
-                    function() {
-                        if ($(this).data("modulo") !== undefined)
-                            permisos.listos.push({
-                                "id_empleado":  idempleado,
-                                "id_modulo":     $(this).data("modulo"),
-                                "accion":       $(this).val()
 
-                            });
-                    }
-                );
+                    $("input:checkbox:checked").each(
+                        function () {
+                            if ($(this).data("modulo") !== undefined)
+                                permisos.listos.push({
+                                    "id_empleado": idempleado,
+                                    "id_modulo": $(this).data("modulo"),
+                                    "accion": $(this).val()
 
-                let permisosJSON= JSON.stringify(permisos.listos);
+                                });
+                        }
+                    );
+
+
+
+                let borrarJSON      = JSON.stringify( aborrar.listos );
+                let permisosJSON    = JSON.stringify( permisos.listos );
 
                 $.ajax({
                     type: "POST",
                     url: baseurl + 'Permisos/insertarPermisos',
                     dataType: 'json',
-                    data: {permisos: permisosJSON},
+                    data: {permisos: permisosJSON, borrar: borrarJSON},
                     success: function (res) {
                         if (res) {
 
