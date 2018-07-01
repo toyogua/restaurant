@@ -10,17 +10,21 @@
 
         </div>
         <div id="contenedorBebida">
+            <?php if ( $subcategorias_bebida != FALSE): ?>
             <?php foreach($subcategorias_bebida as $bebida): ?>
                 <button style="cursor: pointer;" type="button" class="btn orange accent-2 btn-lg btn-block btnCategorias" data-id="<?php echo $bebida->idSubcategoria;?>" data-categoria="<?php echo $bebida->nombre;?>"><?php echo $bebida->nombre ?></button>
             <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         <div>
             <button  id="btnComida" style="cursor: pointer; margin-top: 10px; margin-bottom: 10px;" type="button" class="btn success-color accent-2 btn-lg btn-block"> Comida </button>
         </div>
         <div id="contenedorComida">
+            <?php if ( $subcategorias_comida != FALSE): ?>
             <?php foreach($subcategorias_comida as $comida): ?>
                 <button style="cursor: pointer;" type="button" class="btn orange accent-2 btn-lg btn-block btnCategorias" data-id="<?php echo $comida->idSubcategoria;?>" data-categoria="<?php echo $comida->nombre;?>"><?php echo $comida->nombre ?></button>
             <?php endforeach; ?>
+            <?php endif; ?>
         </div>
         <div>
 
@@ -140,6 +144,36 @@
 <!--                    fin row-->
                 </div>
 
+                <div>
+                    Editar Orden de la mesa
+                    <div class="col-md-4 md-form form-sm">
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-danger">Mesas</button>
+                            <button style="cursor: pointer;" type="button" class="btn btn-danger dropdown-toggle px-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <?php if($mesas_ocupadas != FALSE): ?>
+                                    <?php foreach($mesas_ocupadas as $mesa): ?>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <a class="dropdown-item mesasocupadas" data-id="<?php echo $mesa->idMesa; ?>" data-nombre="<?php echo $mesa->noMesa; ?>" href="#"> <?php echo $mesa->noMesa;?></a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input class="txtAliasMesa" type="text">
+                                            </div>
+                                        </div>
+
+                                    <?php endforeach; ?>
+
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
+                        <div class="md-form"><label id="divInformaMesaSeleccionada" ></label></div>
+                    </div>
+                </div>
 
                 <div class="text-center mt-4 mb-2">
                     <button style="cursor: pointer;" id="btnEntrarEmpleado" class="btn success-color accent-2" >Listo

@@ -34,6 +34,8 @@ var hoy = fecha.getFullYear()+'-'+(fecha.getMonth()+1)+'-'+fecha.getDate();
 var hora = fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds();
 var total = 0.00;
 
+var idorden = 0;
+
 respuesta = false;
 
 $(document).ready(function() {
@@ -79,7 +81,7 @@ $(document).ready(function() {
 
         desde = 0;
 
-        if (idMesaActual == 0 || idMeseroActual == 0) {
+        if (idMesaActual == 0 || idMeseroActual == 0 ) {
             swal("No Identificado!", "Selecciona la mesa y mesero, para continuar con la orden", "error")
         } else {
             e.preventDefault();
@@ -396,7 +398,7 @@ $(document).ready(function() {
                             console.log(res);
                             if (res) {
 
-                                alertify.success('Actualizada');
+                                alertify.success('Orden Creada');
                             }
 
                         }
@@ -483,14 +485,12 @@ $(document).ready(function() {
     //Fin de la asginacion de mesero================================================================================
 
     //Asigna el mesa seleccionado a la orden
-    $(document).on("click", ".mesa", function (e) {
+    $(".mesa").click( function (e) {
         e.preventDefault();
-
 
         //capturamos el id del mesero
         var idMesa = $(this).data("id");
         var noMesa = $(this).data("nombre");
-
         var alias = $(".txtAliasMesa").val();
         aliasMesa = alias;
 
@@ -501,9 +501,28 @@ $(document).ready(function() {
         //asignamos a la variable global el valor de la variable local
         noMesaActual = noMesa;
 
-        console.log(idMesaActual);
+    });
+
+    $(".mesasocupadas").click( function (e) {
+        e.preventDefault();
+
+        //capturamos el id del mesero
+        var idMesa = $(this).data("id");
+        var noMesa = $(this).data("nombre");
+        var alias = $(".txtAliasMesa").val();
+        aliasMesa = alias;
+
+        $("#divInformaMesaSeleccionada").text('Seleccionó: '+ noMesa +'');
+
+        //asignamos a la variable global el valor de la variable local
+        idMesaActual = idMesa;
+        //asignamos a la variable global el valor de la variable local
+        noMesaActual = noMesa;
+        idMeseroActual = null;
 
     });
+
+
     //Fin de la asginacion de mesero================================================================================
 
     $(document).on("click", "#btnBebida", function () {

@@ -7,7 +7,8 @@ class Permisos extends CI_Controller
         parent::__construct();
         $this->load->model('Permisos_model');
         $this->load->model('User_model');
-        $this->load->helper('permisos_helper');
+        $this->load->helper('utilidades_helper');
+
 
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
@@ -15,9 +16,15 @@ class Permisos extends CI_Controller
         }
     }
 
-    public function index()
+    public function index( $porpagina = 5, $desde = 0, $id = null )
     {
-        $data['users_data'] = $this->User_model->get_users_info();
+        //paginacion
+        $elementos =  5;
+        $data['porpagina'] = $elementos;
+        $data['miurl'] = "permisos/index/";
+        $data['paginas'] =  cuenta("Permisos", $elementos);
+
+        $data['users_data'] = $this->User_model->get_users_info( $porpagina, $desde, $id );
         
         $data['main_view'] = "permisos/index";
         $this->load->view('layouts/main', $data);

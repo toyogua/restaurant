@@ -5,6 +5,7 @@
         <h2>Categorias</h2>
         <hr>
         <div>
+            <?php if ( $categoria_data != FALSE ): ?>
             <?php foreach($categoria_data as $categoria): ?>
                 <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Ordenes", "Cocina")): ?>
                 <?php if ($categoria->categoria == "Comida"): ?>
@@ -20,6 +21,7 @@
 
 
             <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
 

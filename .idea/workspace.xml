@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c0b285-02ee-4225-ac1f-8b6d1c9e87eb" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/img/productos/9311516164126.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/img/productos/hamburguesapapas.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/img/productos/img_pollo_con_champinones_6504_600.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/img/productos/pollo-asado-2-e1457819241952.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/dieta.7XKyBQ.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/ecommerce.QLYXWw.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/masventa.TUgIEQ.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pagoscole.35LRRg.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pruebausuarios.1gVhBg.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/restful_db.VMPfng.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/sitio.hAqGBg.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/tareas_db.S8bAyw.meta" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/helpers/totales_helper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/dev/config.php" afterPath="$PROJECT_DIR$/application/config/dev/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Categorias.php" afterPath="$PROJECT_DIR$/application/controllers/Categorias.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" afterPath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" afterPath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Empleados.php" afterPath="$PROJECT_DIR$/application/controllers/Empleados.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Ingredientes.php" afterPath="$PROJECT_DIR$/application/controllers/Ingredientes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Mesas.php" afterPath="$PROJECT_DIR$/application/controllers/Mesas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Orders.php" afterPath="$PROJECT_DIR$/application/controllers/Orders.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Permisos.php" afterPath="$PROJECT_DIR$/application/controllers/Permisos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Products.php" afterPath="$PROJECT_DIR$/application/controllers/Products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Users.php" afterPath="$PROJECT_DIR$/application/controllers/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Ventas.php" afterPath="$PROJECT_DIR$/application/controllers/Ventas.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Permisos_model.php" afterPath="$PROJECT_DIR$/application/models/Permisos_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/User_model.php" afterPath="$PROJECT_DIR$/application/models/User_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/layouts/main.php" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/orders/display_view.php" afterPath="$PROJECT_DIR$/application/views/orders/display_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" afterPath="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/categoria.js" afterPath="$PROJECT_DIR$/assets/js/categoria.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/permisos.js" afterPath="$PROJECT_DIR$/assets/js/permisos.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/js/ventas.js" afterPath="$PROJECT_DIR$/assets/js/ventas.js" />
+    <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/application/helpers/utilidades_helper.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/layouts/form_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/layouts/paginacion_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/buscadores.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/dieta.7XKyBQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/ecommerce.QLYXWw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/masventa.TUgIEQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pagoscole.35LRRg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pruebausuarios.1gVhBg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/restful_db.VMPfng.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/sitio.hAqGBg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/tareas_db.S8bAyw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/pre/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/pre/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/pre/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/pre/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Categorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Categorias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Empleados.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Empleados.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Ingredientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ingredientes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Mesas.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Mesas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Permisos.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Permisos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Ventas.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ventas.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/paginacion_helper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/permisos_helper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/totales_helper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Categoria_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Categoria_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Ingrediente_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Ingrediente_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Mesa_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Mesa_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Orden_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Orden_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Producto_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Producto_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/User_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/User_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/display_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/register_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/register_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/permisos/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/permisos/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/productos/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/productos/display_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/users/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/users/display_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/ingrediente.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ingrediente.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/orden.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/orden.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/producto.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/producto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,57 +64,49 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="habitat@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Ventas.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Orders.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Permisos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Permisos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Products.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="867">
+              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ventas.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registrar_venta_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ventas.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/ventas.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="48" column="98" lean-forward="false" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="98" />
-              <folding>
-                <marker date="1527116067990" expanded="true" signature="1397:1413" ph="..." />
-                <marker date="1527116067990" expanded="true" signature="1397:1429" ph="..." />
-                <marker date="1527116067990" expanded="true" signature="1494:1553" ph="..." />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -108,9 +116,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="Ci_Controller" />
-        <option value="Ci_models" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -121,73 +126,44 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/system/database/DB_active_rec.php" />
-        <option value="$PROJECT_DIR$/system/core/my_models.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
-        <option value="$PROJECT_DIR$/application/views/home_view.php" />
-        <option value="$PROJECT_DIR$/assets/js/crudEmpleados.js" />
-        <option value="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" />
-        <option value="$PROJECT_DIR$/application/hooks/Acl.php" />
-        <option value="$PROJECT_DIR$/application/models/Categoria_model.php" />
-        <option value="$PROJECT_DIR$/application/config/hooks.php" />
-        <option value="$PROJECT_DIR$/application/views/users/display_view.php" />
-        <option value="$PROJECT_DIR$/assets/js/orden.js" />
-        <option value="$PROJECT_DIR$/application/models/Ventas.php" />
-        <option value="$PROJECT_DIR$/assets/css/stilosFormAnimado.css" />
-        <option value="$PROJECT_DIR$/application/models/Orden_model.php" />
-        <option value="$PROJECT_DIR$/application/models/DetalleOrden_model.php" />
-        <option value="$PROJECT_DIR$/application/models/Mesa_model.php" />
-        <option value="$PROJECT_DIR$/application/models/Empleado_model.php" />
-        <option value="$PROJECT_DIR$/application/views/orders/register_view.php" />
-        <option value="$PROJECT_DIR$/assets/js/ingrediente.js" />
-        <option value="$PROJECT_DIR$/application/views/ingredientes/display_view.php" />
-        <option value="$PROJECT_DIR$/assets/js/crudCategorias.js" />
-        <option value="$PROJECT_DIR$/application/models/Producto_model.php" />
-        <option value="$PROJECT_DIR$/assets/js/producto.js" />
-        <option value="$PROJECT_DIR$/application/views/productos/display_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Venta_model.php" />
-        <option value="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" />
-        <option value="$PROJECT_DIR$/application/config/permisos_usuario.php" />
-        <option value="$PROJECT_DIR$/application/views/orders/display_view.php" />
-        <option value="$PROJECT_DIR$/application/views/permisos/asignar.php" />
-        <option value="$PROJECT_DIR$/application/models/Permisos_model.php" />
-        <option value="$PROJECT_DIR$/assets/js/permisos.js" />
-        <option value="$PROJECT_DIR$/application/models/User_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Categorias.php" />
-        <option value="$PROJECT_DIR$/application/controllers/DetalleOrden.php" />
-        <option value="$PROJECT_DIR$/application/controllers/DetalleProducto.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Empleados.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Ingredientes.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Mesas.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Orders.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Permisos.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Products.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Home.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/application/config/pre/database.php" />
+        <option value="$PROJECT_DIR$/application/config/pre/config.php" />
         <option value="$PROJECT_DIR$/application/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/application/views/ingredientes/display_view.php" />
+        <option value="$PROJECT_DIR$/application/views/productos/display_view.php" />
+        <option value="$PROJECT_DIR$/application/models/Buscador_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Paginacion_model.php" />
+        <option value="$PROJECT_DIR$/application/helpers/buscador_helper.php" />
+        <option value="$PROJECT_DIR$/application/helpers/paginacion_helper.php" />
+        <option value="$PROJECT_DIR$/application/helpers/utilidades_helper.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Products.php" />
+        <option value="$PROJECT_DIR$/application/models/Ingrediente_model.php" />
+        <option value="$PROJECT_DIR$/application/models/Producto_model.php" />
+        <option value="$PROJECT_DIR$/assets/js/buscadores.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Ingredientes.php" />
+        <option value="$PROJECT_DIR$/application/views/layouts/form_view.php" />
+        <option value="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Categorias.php" />
+        <option value="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Mesas.php" />
+        <option value="$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php" />
+        <option value="$PROJECT_DIR$/application/models/Mesa_model.php" />
+        <option value="$PROJECT_DIR$/application/views/users/display_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Users.php" />
-        <option value="$PROJECT_DIR$/assets/js/categoria.js" />
-        <option value="$PROJECT_DIR$/application/config/dev/config.php" />
+        <option value="$PROJECT_DIR$/application/models/User_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Ventas.php" />
-        <option value="$PROJECT_DIR$/application/helpers/permisos_helper.php" />
-        <option value="$PROJECT_DIR$/application/helpers/totales_helper.php" />
-        <option value="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" />
-        <option value="$PROJECT_DIR$/assets/js/ventas.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Permisos.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Empleados.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Orders.php" />
+        <option value="$PROJECT_DIR$/application/controllers/DetalleProducto.php" />
+        <option value="$PROJECT_DIR$/application/controllers/DetalleOrden.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Home.php" />
       </list>
     </option>
   </component>
-  <component name="JsBowerSettings">
-    <node-interpreter value="project" />
-    <bower-package value="" />
-    <bower.json value="" />
-  </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -198,158 +174,121 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1386" />
-    <option name="height" value="788" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="726" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="helpers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="categorias" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="categorias" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ingredientes" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ingredientes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="layouts" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="mesas" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="mesas" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="orders" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="productos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="permisos" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="productos" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="users" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ventas" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="database.main" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\restaurant\application\views\categorias" />
-    </key>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mycole" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -363,687 +302,372 @@
       </list>
     </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="11c0b285-02ee-4225-ac1f-8b6d1c9e87eb" name="Default" comment="" />
-      <created>1510887219551</created>
+      <changelist id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="" />
+      <created>1527353931324</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1510887219551</updated>
-      <workItem from="1510887221465" duration="4799000" />
-      <workItem from="1510972174904" duration="3254000" />
-      <workItem from="1511062676865" duration="596000" />
-      <workItem from="1511141302971" duration="598000" />
-      <workItem from="1511196943936" duration="117000" />
-      <workItem from="1513870926994" duration="499000" />
-      <workItem from="1515898111117" duration="5501000" />
-      <workItem from="1515904058814" duration="1412000" />
-      <workItem from="1515943224173" duration="34148000" />
-      <workItem from="1516113388317" duration="43888000" />
-      <workItem from="1517242401901" duration="1642000" />
-      <workItem from="1517254528085" duration="25289000" />
-      <workItem from="1517502123840" duration="641000" />
-      <workItem from="1517503904514" duration="651000" />
-      <workItem from="1517596045996" duration="112000" />
-      <workItem from="1517871549162" duration="639000" />
-      <workItem from="1517929806080" duration="620000" />
-      <workItem from="1517952452726" duration="6826000" />
-      <workItem from="1518028070106" duration="767000" />
-      <workItem from="1518057322887" duration="596000" />
-      <workItem from="1518102917681" duration="8025000" />
-      <workItem from="1518126194293" duration="6489000" />
-      <workItem from="1518141553717" duration="2544000" />
-      <workItem from="1518147504920" duration="2412000" />
-      <workItem from="1518311864930" duration="12028000" />
-      <workItem from="1518372101684" duration="1109000" />
-      <workItem from="1518452481620" duration="8481000" />
-      <workItem from="1518487003778" duration="25654000" />
-      <workItem from="1518541649462" duration="3839000" />
-      <workItem from="1518557356346" duration="2251000" />
-      <workItem from="1518630524796" duration="2570000" />
-      <workItem from="1518808650310" duration="831000" />
-      <workItem from="1518827107819" duration="49000" />
-      <workItem from="1519947142105" duration="1690000" />
-      <workItem from="1519958199224" duration="332000" />
-      <workItem from="1520354484075" duration="6883000" />
-      <workItem from="1520465222015" duration="1480000" />
-      <workItem from="1520480552812" duration="3908000" />
-      <workItem from="1520485568816" duration="5689000" />
-      <workItem from="1520526297310" duration="8618000" />
-      <workItem from="1520547489862" duration="1189000" />
-      <workItem from="1520819136633" duration="1659000" />
-      <workItem from="1520891571244" duration="4330000" />
-      <workItem from="1520947933478" duration="87000" />
-      <workItem from="1520953419142" duration="599000" />
-      <workItem from="1520972458951" duration="4188000" />
-      <workItem from="1521048074248" duration="219000" />
-      <workItem from="1521049955835" duration="595000" />
-      <workItem from="1521069631431" duration="296000" />
-      <workItem from="1521340351580" duration="4363000" />
-      <workItem from="1521422521117" duration="5646000" />
-      <workItem from="1521465211849" duration="23455000" />
-      <workItem from="1521493545754" duration="16830000" />
-      <workItem from="1521555243210" duration="25458000" />
-      <workItem from="1521602800765" duration="9490000" />
-      <workItem from="1521642408140" duration="546000" />
-      <workItem from="1521643071861" duration="20632000" />
-      <workItem from="1521669294504" duration="17941000" />
-      <workItem from="1521726509007" duration="19553000" />
-      <workItem from="1521910339296" duration="601000" />
-      <workItem from="1522037265495" duration="3422000" />
-      <workItem from="1522130490033" duration="596000" />
-      <workItem from="1522266510563" duration="1196000" />
-      <workItem from="1522333754804" duration="850000" />
-      <workItem from="1522422570585" duration="199000" />
-      <workItem from="1522433385858" duration="598000" />
-      <workItem from="1522512872142" duration="2101000" />
-      <workItem from="1522515205606" duration="40878000" />
-      <workItem from="1522595480680" duration="4885000" />
-      <workItem from="1522629078684" duration="12652000" />
-      <workItem from="1522676495466" duration="7589000" />
-      <workItem from="1522728487840" duration="593000" />
-      <workItem from="1522772996293" duration="966000" />
-      <workItem from="1522856081427" duration="7976000" />
-      <workItem from="1522880756896" duration="5353000" />
-      <workItem from="1523035403833" duration="591000" />
-      <workItem from="1523045713873" duration="4299000" />
-      <workItem from="1523201187502" duration="12130000" />
-      <workItem from="1523305307959" duration="2633000" />
-      <workItem from="1523377638848" duration="596000" />
-      <workItem from="1523391430040" duration="2757000" />
-      <workItem from="1523405545830" duration="1123000" />
-      <workItem from="1523410973886" duration="7782000" />
-      <workItem from="1523458630328" duration="721000" />
-      <workItem from="1523464620633" duration="5813000" />
-      <workItem from="1523482773121" duration="5238000" />
-      <workItem from="1523656179828" duration="8884000" />
-      <workItem from="1523719903953" duration="3237000" />
-      <workItem from="1523809757426" duration="589000" />
-      <workItem from="1523839174004" duration="3078000" />
-      <workItem from="1523892588469" duration="3204000" />
-      <workItem from="1523981718067" duration="1422000" />
-      <workItem from="1524015318989" duration="303000" />
-      <workItem from="1524015705715" duration="374000" />
-      <workItem from="1524022578075" duration="95000" />
-      <workItem from="1524460156062" duration="37931000" />
-      <workItem from="1524837342026" duration="29005000" />
-      <workItem from="1524937288843" duration="45422000" />
-      <workItem from="1525215160532" duration="1442000" />
-      <workItem from="1525385116630" duration="1438000" />
-      <workItem from="1527105682849" duration="6038000" />
-      <workItem from="1527114761120" duration="1324000" />
+      <updated>1527353931324</updated>
+      <workItem from="1527353937653" duration="7155000" />
+      <workItem from="1527371532811" duration="46000" />
+      <workItem from="1527371678988" duration="643000" />
+      <workItem from="1527373623052" duration="1528000" />
+      <workItem from="1527439347754" duration="8979000" />
+      <workItem from="1527457696655" duration="19263000" />
+      <workItem from="1527557391979" duration="5956000" />
+      <workItem from="1530418102110" duration="1176000" />
     </task>
-    <task id="LOCAL-00001" summary="Primer deploy para la Nube">
-      <created>1510888946264</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1510888946264</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Primer deploy para la Nube">
-      <created>1510891773754</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1510891773754</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Cambios interfaz">
-      <created>1517242532536</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1517242532536</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Cambios interfaz">
-      <created>1517242539634</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1517242539634</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Cambios interfaz">
-      <created>1517242614764</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1517242614764</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Cambios interfaz">
-      <created>1517243086844</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1517243086844</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Cambios interfaz">
-      <created>1517243321787</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1517243321787</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Cambios interfaz">
-      <created>1517243450810</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1517243450810</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Cambios interfaz">
-      <created>1517267803683</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1517267803683</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Cambios interfaz">
-      <created>1517267809542</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1517267809542</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Cambios interfaz">
-      <created>1517267815008</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1517267815008</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Cambios interfaz">
-      <created>1517267927119</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1517267927119</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Cambios interfaz">
-      <created>1517268441252</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1517268441252</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Cambio ordenes..">
-      <created>1518633289965</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1518633289965</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Merge branch 'master' of https://github.com/toyogua/restaurant&#10;&#10;# Conflicts:&#10;#&#9;assets/img/productos/s-l1600.jpg">
-      <created>1518633836164</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1518633836164</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Merge branch 'master' of https://github.com/toyogua/restaurant&#10;&#10;# Conflicts:&#10;#&#9;assets/img/productos/s-l1600.jpg">
-      <created>1518634118416</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1518634118416</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Agregado campo de descripcion en orden y campo nota en el despliegue de las ordenes pendientes">
-      <created>1521428551143</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1521428551143</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Mejoras en UX">
-      <created>1521743877675</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1521743877675</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Mejoras en UX">
-      <created>1521744026842</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1521744026842</updated>
-    </task>
-    <task id="LOCAL-00020" summary="ACL'S">
-      <created>1522333897899</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1522333897899</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Corregido bug en CRUD productos">
-      <created>1522883959004</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1522883959004</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Modulo Ventas">
-      <created>1523413534145</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1523413534145</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Completado modulo ventas.">
-      <created>1524508046431</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1524508046431</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Correccion bug ordenes y ventas.">
-      <created>1524591508370</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1524591508370</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Acl basada en BD corregida">
-      <created>1525037880926</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1525037880926</updated>
-    </task>
-    <task id="LOCAL-00026" summary="UX ACL bug corredigo">
-      <created>1525057821359</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1525057821359</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="672477000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="44746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Primer deploy para la Nube" />
-    <MESSAGE value="Cambios interfaz" />
-    <MESSAGE value="Cambio ordenes.." />
-    <MESSAGE value="Merge branch 'master' of https://github.com/toyogua/restaurant&#10;&#10;# Conflicts:&#10;#&#9;assets/img/productos/s-l1600.jpg" />
-    <MESSAGE value="Agregado campo de descripcion en orden y campo nota en el despliegue de las ordenes pendientes" />
-    <MESSAGE value="Mejoras en UX" />
-    <MESSAGE value="ACL'S" />
-    <MESSAGE value="Corregido bug en CRUD productos" />
-    <MESSAGE value="Modulo Ventas" />
-    <MESSAGE value="Completado modulo ventas." />
-    <MESSAGE value="Correccion bug ordenes y ventas." />
-    <MESSAGE value="Acl basada en BD corregida" />
-    <MESSAGE value="UX ACL bug corredigo" />
-    <option name="LAST_COMMIT_MESSAGE" value="UX ACL bug corredigo" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
-    <watches-manager />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/orden" />
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/producto" />
-    <entry file="file://$PROJECT_DIR$/application/views/productos/display_view.php">
+    <entry file="file://$PROJECT_DIR$/application/views/permisos/asignar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="106" column="17" lean-forward="true" selection-start-line="100" selection-start-column="12" selection-end-line="106" selection-end-column="17" />
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/dev/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8313" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/dev/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="77" column="24" lean-forward="true" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users/register_view.php">
+    <entry file="file://$PROJECT_DIR$/application/config/pre/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-556">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/orders/register_view.php">
+    <entry file="file://$PROJECT_DIR$/application/config/pre/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="101" column="36" lean-forward="false" selection-start-line="101" selection-start-column="36" selection-end-line="101" selection-end-column="36" />
+        <state relative-caret-position="255">
+          <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/mesa" />
-    <entry file="uml://DATABASE/8f7802e9-bc8c-4094-b786-3cb01c965926.TABLE:habitat.acciones_modulos">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>8f7802e9-bc8c-4094-b786-3cb01c965926.TABLE:habitat.acciones_modulos</OriginalElement>
-          <nodes>
-            <node x="" y="">8f7802e9-bc8c-4094-b786-3cb01c965926.TABLE:habitat.acciones_modulos</node>
-            <node x="" y="">8f7802e9-bc8c-4094-b786-3cb01c965926.TABLE:habitat.modulos</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="120.0" y="99.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Columns</Category>
-            <Category>Key columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
+    <entry file="file://$PROJECT_DIR$/application/config/prod/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020" />
       </provider>
     </entry>
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/users" />
-    <entry file="file://$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php">
+    <entry file="file://$PROJECT_DIR$/application/config/prod/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Orden_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="60" lean-forward="false" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Mesa_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="44" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Producto_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1678">
-          <caret line="26" column="29" lean-forward="false" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/permisos" />
-    <entry file="file://$PROJECT_DIR$/application/helpers/paginacion_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
-        </state>
+        <state relative-caret-position="-153" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/hooks/Acl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-601">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/migration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="55" column="79" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+    <entry file="file://$PROJECT_DIR$/system/libraries/Table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1330">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/permisos_usuario.php" />
-    <entry file="file://$PROJECT_DIR$/application/models/Empleado_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="132" column="9" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="132" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/orders/display_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/categoria" />
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/modulos" />
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/acciones_modulos" />
-    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="604" column="0" lean-forward="false" selection-start-line="604" selection-start-column="0" selection-end-line="606" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/permisos/asignar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="66" column="75" lean-forward="false" selection-start-line="66" selection-start-column="75" selection-end-line="66" selection-end-column="75" />
+        <state relative-caret-position="-1632">
+          <caret line="276" column="27" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/orden.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="359" column="53" lean-forward="true" selection-start-line="359" selection-start-column="8" selection-end-line="359" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/permisos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="67" column="19" lean-forward="true" selection-start-line="67" selection-start-column="19" selection-end-line="67" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Permisos_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="100" column="20" lean-forward="false" selection-start-line="100" selection-start-column="20" selection-end-line="100" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/permisos_acciones" />
-    <entry file="das://8f7802e9-bc8c-4094-b786-3cb01c965926/schema/habitat/table/empleado" />
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="41" column="38" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/DetalleOrden.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Categorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/DetalleProducto.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="9" lean-forward="false" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Empleados.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Ingredientes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Mesas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Permisos.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="9" lean-forward="false" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="20" column="8" lean-forward="false" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="174" column="9" lean-forward="false" selection-start-line="174" selection-start-column="9" selection-end-line="174" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/main.php" />
-    <entry file="file://$PROJECT_DIR$/application/config/dev/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-550">
-          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
+        <state relative-caret-position="7786">
+          <caret line="458" column="71" lean-forward="true" selection-start-line="458" selection-start-column="71" selection-end-line="458" selection-end-column="71" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/categoria.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="82" column="50" lean-forward="true" selection-start-line="79" selection-start-column="6" selection-end-line="82" selection-end-column="50" />
+        <state relative-caret-position="2567">
+          <caret line="151" column="61" lean-forward="true" selection-start-line="151" selection-start-column="61" selection-end-line="151" selection-end-column="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/helpers/permisos_helper.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/ingrediente.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-1632">
+          <caret line="120" column="27" lean-forward="true" selection-start-line="118" selection-start-column="16" selection-end-line="120" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Venta_model.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="20" selection-end-line="51" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="437">
+          <caret line="604" column="54" lean-forward="true" selection-start-line="604" selection-start-column="4" selection-end-line="604" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/productos/display_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Paginacion_model.php" />
+    <entry file="file://$PROJECT_DIR$/assets/js/crudCategorias.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="224" column="36" lean-forward="true" selection-start-line="224" selection-start-column="36" selection-end-line="224" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layouts/paginacion_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/buscador_helper.php" />
+    <entry file="file://$PROJECT_DIR$/application/helpers/paginacion_helper.php" />
+    <entry file="file://$PROJECT_DIR$/application/helpers/permisos_helper.php" />
+    <entry file="file://$PROJECT_DIR$/application/helpers/totales_helper.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/Buscador_model.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/Producto_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="67" column="4" selection-start-line="67" selection-start-column="4" selection-end-line="67" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layouts/form_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/buscadores.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="62" selection-start-line="21" selection-start-column="62" selection-end-line="21" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Mesa_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/users/display_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Empleado_model.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="121" column="8" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/crudEmpleados.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/ingredientes/display_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Ingrediente_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="66" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/DetalleOrden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/DetalleProducto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="49" lean-forward="true" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Categorias.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2958">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/utilidades_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1513">
+          <caret line="89" column="20" lean-forward="true" selection-start-line="89" selection-start-column="20" selection-end-line="89" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Mesas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="98" column="56" selection-start-line="98" selection-start-column="56" selection-end-line="98" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Ingredientes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1853">
+          <caret line="114" column="56" selection-start-line="114" selection-start-column="56" selection-end-line="114" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Empleados.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Permisos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="17" column="39" lean-forward="false" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/helpers/totales_helper.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="14" lean-forward="true" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/ventas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="48" column="98" lean-forward="false" selection-start-line="48" selection-start-column="82" selection-end-line="48" selection-end-column="98" />
-          <folding>
-            <marker date="1527116067990" expanded="true" signature="1397:1413" ph="..." />
-            <marker date="1527116067990" expanded="true" signature="1397:1429" ph="..." />
-            <marker date="1527116067990" expanded="true" signature="1494:1553" ph="..." />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>

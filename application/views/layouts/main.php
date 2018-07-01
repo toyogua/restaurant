@@ -20,6 +20,7 @@
     <script src="<?php echo base_url();?>assets/js/TweenLite.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/TweenMax.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/permisos.js"></script>
+    <script src="<?php echo base_url();?>assets/js/buscadores.js"></script>
 
 
     <!-- Bootstrap tooltips -->

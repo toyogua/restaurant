@@ -12,7 +12,7 @@ class DetalleOrden extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('permisos_helper');
+        $this->load->helper('utilidades_helper');
 
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');

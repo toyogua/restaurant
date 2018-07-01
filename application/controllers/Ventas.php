@@ -14,8 +14,8 @@ class Ventas extends CI_Controller
 
         parent::__construct();
         $this->load->model('Venta_model');
-        $this->load->helper('permisos');
-        $this->load->helper('totales');
+        $this->load->helper('utilidades');
+
 
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');

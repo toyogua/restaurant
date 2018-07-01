@@ -3,7 +3,60 @@
 class Categoria_model extends CI_Model{
 
 
-    public function get_subcategorias_info()
+    public function get_subcategorias_info( $porpagina, $desde)
+    {
+        $this->db->select('
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria,
+         
+           categoria.idCategoria,
+           categoria.categoria
+           
+          ');
+        $this->db->from('subcategorias');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
+        $this->db->where('subcategorias.estado', 1 );
+        $this->db->limit($porpagina, $desde);
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return FALSE;
+        }
+        else{
+            return $query->result();
+        }
+    }
+
+
+    public function get_subcategoriasJSON( )
+    {
+        $this->db->select('
+           
+           subcategorias.idSubcategoria,
+           subcategorias.nombre,
+           subcategorias.idCategoria,
+         
+           categoria.idCategoria,
+           categoria.categoria
+           
+          ');
+        $this->db->from('subcategorias');
+        $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
+        $this->db->where('subcategorias.estado', 1 );
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1){
+            return FALSE;
+        }
+        else{
+            return $query->result();
+        }
+    }
+
+    public function get_subcategorias_info_Cuantos()
     {
         $this->db->select('
            
@@ -24,9 +77,10 @@ class Categoria_model extends CI_Model{
             return FALSE;
         }
         else{
-            return $query->result();
+            return $query->num_rows();
         }
     }
+
 
     public function categorias()
     {

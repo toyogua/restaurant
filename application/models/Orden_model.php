@@ -2,39 +2,57 @@
 
 class Orden_model extends CI_Model{
 
-
     public function insertarOrden($listaOrden, $listaProducto)
     {
+        $iorden = 0;
+        //SIGNIFICA QUE ES UNA ORDEN YA EXISTENTE QUE SE VAN AGREGAR NUEVOS PRODUCTOS
+        if( $listaOrden->idEmpleado == null )
+        {
+           $r = $this->Mesa_model->mesaConOrden( $listaOrden->idMesa );
+            foreach ( $r as $i)
+            {
+                $idempleado = $i->idEmpleado;
+                $orden = $i->idOrden;
+                $total = $i->totalOrden;
 
-        $this->db->trans_begin();
+            }
+            $iorden = $orden;
+            $nuevomonto = $total + $listaOrden->totalOrden;
+            $this->actualizarMontoOrden( $orden, $nuevomonto );
+        }else{
 
-        $this->db->set(
-            array(
-                'idMesa'         => $listaOrden->idMesa,
-                'totalOrden'     => $listaOrden->totalOrden,
-                'idEmpleado'     => $listaOrden->idEmpleado,
-                'fechaOrden'     => $listaOrden->fechaOrden,
-                'horaOrden'      => $listaOrden->horaOrden,
-                'aliasMesa'      => $listaOrden->aliasMesa
+            $this->db->trans_begin();
+            $this->db->set(
+                array(
+                    'idMesa'         => $listaOrden->idMesa,
+                    'totalOrden'     => $listaOrden->totalOrden,
+                    'idEmpleado'     => $listaOrden->idEmpleado,
+                    'fechaOrden'     => $listaOrden->fechaOrden,
+                    'horaOrden'      => $listaOrden->horaOrden,
+                    'aliasMesa'      => $listaOrden->aliasMesa
+                )
             )
-        )
-        ->insert("orden");//inserta la orden
+                ->insert("orden");//inserta la orden
 
-        //recuperamos el id insertado
-        $idOrden = $this->db->insert_id();
+            //recuperamos el id insertado
+            $idOrden = $this->db->insert_id();
+            $iorden = $idOrden;
 
-        $this->db->set(
-            array(
-                "ocupada"     => 1
+            $this->db->set(
+                array(
+                    "ocupada"     => 1
+                )
             )
-        )
-            ->where("idMesa", $listaOrden->idMesa)
-            ->update("mesa");//edita el estado de la mesa
+                ->where("idMesa", $listaOrden->idMesa)
+                ->update("mesa");//edita el estado de la mesa
+
+
+        }
 
         //deberia insertar los producto
         foreach($listaProducto as $producto){
             $data[]=array(
-                'idOrden'           => $idOrden,
+                'idOrden'           => $iorden,
                 'idProducto'        => $producto->idProducto,
                 'cantDetalleOrden'  => $producto->cantDetalleOrden,
                 'notaDetalleOrden'  => $producto->notaDetalleOrden
@@ -44,7 +62,7 @@ class Orden_model extends CI_Model{
             $res = $this->descuentaStockIngrediente($producto->idProducto);
 
             foreach ( $res as $item){
-               //obtenemos la cantidad en existencia de ingredientes que tenemos
+                //obtenemos la cantidad en existencia de ingredientes que tenemos
                 $totaladescontar = $producto->cantDetalleOrden * $item->cantidad;
 
                 $quedan = $item->stockingrediente - $totaladescontar;
@@ -76,7 +94,7 @@ class Orden_model extends CI_Model{
             $result = [
                 "status"        =>      "error",
             ];
-//            print_r($result); die();
+
             $this->db->trans_rollback();
             return $result;
         }
@@ -154,6 +172,18 @@ class Orden_model extends CI_Model{
         else{
             return $query->result();
         }
+
+    }
+
+    public  function actualizarMontoOrden( $idorden, $monto )
+    {
+        $this->db->set(
+            array(
+                "totalOrden"     => $monto
+            )
+        )
+            ->where("idOrden",$idorden)
+            ->update("orden");//edita el estado de la mesa
 
     }
 }

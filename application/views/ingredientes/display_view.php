@@ -1,11 +1,21 @@
 <h2 align="center">INGREDIENTES </h2>
 <hr>
 
+<div class="row">
+    <div class="col-md-2">
+        <!-- Button trigger modal -->
+        <button style="cursor: pointer;"  type="button" class="btn btn-success btnNuevoIngrediente" data-toggle="modal" data-target="#modaIngrediente">
+            <i class="fa fa-plus"></i>Nuevo Ingrediente
+        </button>
+    </div>
+    <div>
+        <?php $this->load->view('layouts/paginacion_view'); ?>
+    </div>
 
-<!-- Button trigger modal -->
-<button style="cursor: pointer;" type="button" class="btn btn-success btnNuevoIngrediente" data-toggle="modal" data-target="#modaIngrediente">
-    <i class="fa fa-plus"></i>Nuevo Ingrediente
-</button>
+        <?php $this->load->view('layouts/form_view'); ?>
+
+</div>
+
 <div class="modal fade  myModal" id="modaIngrediente" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="ingredienteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -21,7 +21,6 @@ var idProducto = 0;
 
 $(document).ready(function() {
 
-    if( window.location.href === baseurl + 'Products/display'){
 
         $(document).on("click", ".btnNuevoProducto", function () {
 
@@ -570,7 +569,7 @@ $(document).ready(function() {
         //Fin de la busqueda del categorias=============================================================================
 
 
-    }
+
 
     $(document).on("click", ".closeingre", function () {
 

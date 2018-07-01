@@ -38,9 +38,79 @@ class Mesa_model extends CI_Model{
     }
 
     //devuelven la informacion de todas las mesas registradas
-    public function get_mesas_info()
+    public function get_mesas_info($porpagina, $desde, $id )
     {
         $this->db->from('mesa');
+        $this->db->limit($porpagina, $desde);
+        if ( $id != null )
+        {
+            $this->db->where('idMesa', $id );
+        }
+        $this->db->where('estado', 1);
+        $this->db->order_by('noMesa','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+    public function get_mesas_info_Cuantos( )
+    {
+        $this->db->from('mesa');
+        $this->db->where('estado', 1);
+        $this->db->order_by('noMesa','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->num_rows();
+    }
+
+    public function getMesasConOrdenes( $porpagina, $desde )
+    {
+        $this->db->from('mesa');
+        $this->db->join('orden', 'orden.idMesa = mesa.idMesa');
+        $this->db->limit($porpagina, $desde);
+        $this->db->where('estado', 1);
+        $this->db->where('ocupada', 1);
+        $this->db->order_by('noMesa','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
+    }
+
+    public function getMesasConOrdenesCuantos()
+    {
+        $this->db->from('mesa');
+        $this->db->join('orden', 'orden.idMesa = mesa.idMesa');
+        $this->db->where('estado', 1);
+        $this->db->order_by('noMesa','asc');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->num_rows();
+    }
+
+
+    public function mesasdesocupadas()
+    {
+        $this->db->from('mesa');
+        $this->db->where('ocupada', 0);
         $this->db->where('estado', 1);
         $this->db->order_by('noMesa','asc');
 
@@ -53,10 +123,10 @@ class Mesa_model extends CI_Model{
         return $query->result();
     }
 
-    public function mesasdesocupadas()
+    public function mesasOcupadas()
     {
         $this->db->from('mesa');
-        $this->db->where('ocupada', 0);
+        $this->db->where('ocupada', 1);
         $this->db->where('estado', 1);
         $this->db->order_by('noMesa','asc');
 
@@ -90,5 +160,20 @@ class Mesa_model extends CI_Model{
         $this->db->update('mesa', $data);
 
         return TRUE;
+    }
+
+    public function mesaConOrden( $idmesa )
+    {
+        $this->db->from('orden');
+        $this->db->where('estadoOrden', 0);
+        $this->db->where('idMesa', $idmesa);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() < 1) {
+            return FALSE;
+        }
+
+        return $query->result();
     }
 }

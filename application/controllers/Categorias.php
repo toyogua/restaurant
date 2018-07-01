@@ -12,7 +12,8 @@ class Categorias extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('permisos_helper');
+        $this->load->helper('utilidades_helper');
+
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
             redirect('home');
@@ -62,9 +63,29 @@ class Categorias extends CI_Controller
         }
     }
 
-    public function listarCategorias ()
+    public function listarCategorias ( $porpagina = 5 , $desde = 0 )
     {
-        $data['subcategorias_data'] = $this->Categoria_model->get_subcategorias_info();
+        //paginacion
+
+        $elementos =  5;
+        $data['porpagina'] = $elementos;
+        $data['miurl'] = "categorias/listarCategorias/";
+        $data['paginas'] =  cuenta("categoria", $elementos);
+
+        //datos necesarios para la vista de form
+        $data['placeholder'] = "Nombre Subategoria";
+        //variable que sera usara para redireccionar y tambien para completar la url para la busqueda
+        $data['controlador'] = "categorias/";
+        //metodo que devuelve la vista donde se muestra la tabla con el item encontrado
+        $data['metodo'] = "listarCategorias";
+        //campo de la tabla de la bd que se sera usado en el like de la funcion buscadorAjax del helper
+        $data['campo'] = "nombre";
+        //tabla que sera llamada  en la funcion buscadorAjax del helper
+        $data['tabla'] = "subcategorias";
+        //metodo del controlador que recibira la peticion ajax
+        $data['buscador'] = "buscarSubCategoria";
+
+        $data['subcategorias_data'] = $this->Categoria_model->get_subcategorias_info( $porpagina, $desde );
         $data['main_view'] = "categorias/listar_subcategorias";
         $this->load->view('layouts/main', $data);
     }
@@ -139,9 +160,39 @@ class Categorias extends CI_Controller
 
     public function todasSubCategoriasJSON()
     {
-        $res = $this->Categoria_model->get_subcategorias_info();
+        $res = $this->Categoria_model->get_subcategoriasJSON();
 
         echo json_encode( $res );
+    }
+
+    public function buscarSubCategoria()
+    {
+        $nombre = $this->input->post('nombre');
+        $campo = $this->input->post('campo');
+        $tabla = $this->input->post('tabla');
+
+        $data = buscadorAjax( $nombre, $campo, $tabla );
+        if($data !== FALSE)
+        {
+
+            foreach($data as $fila)
+            {
+
+                ?>
+
+                <li style="cursor: pointer; padding-bottom: 10px; padding-top: 10px;" class="respuesta list-group-item list-group-item-action " data-id="<?php echo $fila->idSubcategoria ?>"><?php echo $fila->nombre ?></li>
+
+                <?php
+            }
+
+            //en otro caso decimos que no hay resultados
+        }else{
+            ?>
+
+            <p><?php echo 'No hay resultados' ?></p>
+
+            <?php
+        }
     }
 
 }

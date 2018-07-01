@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'heroku';
+$active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -78,7 +78,7 @@ $db['default'] = array(
     'hostname' => 'localhost',
     'username' => 'root',
     'password' => '',
-    'database' => 'heroku_cb14babdf2b5fdd',
+    'database' => 'habitatreal',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,

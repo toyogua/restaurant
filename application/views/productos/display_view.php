@@ -1,11 +1,20 @@
 <h2 align="center">PRODUCTOS </h2>
 <hr>
+<div class="row">
+    <div class="col-md-2">
+        <!-- Button trigger modal -->
+        <button style="cursor: pointer;" type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
+            <i class="fa fa-plus"></i>Nuevo Producto
+        </button>
+    </div>
+    <div>
+        <?php $this->load->view('layouts/paginacion_view'); ?>
+    </div>
+
+    <?php $this->load->view('layouts/form_view'); ?>
+</div>
 
 
-<!-- Button trigger modal -->
-<button style="cursor: pointer;" type="button" class="btn btn-success btnNuevoProducto" data-toggle="modal" data-target="#modaProducto">
-    <i class="fa fa-plus"></i>Nuevo Producto
-</button>
 <div class="modal fade  myModal" data-backdrop="static" data-keyboard="false" id="modaProducto" tabindex="-1" role="dialog" aria-labelledby="productoModalLabel" aria-hidden="true">
     <div class="modal-dialog moda-sm" role="document">
         <div class="modal-content text-center">

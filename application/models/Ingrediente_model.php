@@ -3,8 +3,13 @@
 class Ingrediente_model extends CI_Model{
 
 
-    public function get_ingredientes_info(){
+    public function get_ingredientes_info( $porpagina, $desde, $id ){
         $this->db->from('ingrediente');
+
+        if ($id != null ){
+            $this->db->where('idIngrediente', $id);
+        }
+        $this->db->limit($porpagina, $desde);
         $this->db->order_by('ingrediente', 'ASC');
         $query = $this->db->get();
 
@@ -16,6 +21,8 @@ class Ingrediente_model extends CI_Model{
         }
 
     }
+
+
 
     public function get_ingrediente_info($idIngrediente){
         $this->db->from('ingrediente');
@@ -49,4 +56,17 @@ class Ingrediente_model extends CI_Model{
         $this->db->update('ingrediente', $data);
         return TRUE;
     }
+
+    public function obtenerPorNombre( $nombre, $campo, $tabla )
+    {
+        $this->db->like($campo, $nombre);
+        $get_data = $this->db->get($tabla, 3);
+
+        if ($get_data->num_rows() < 1){
+            return false ;
+        }
+        return $get_data->result();
+    }
+
+
 }

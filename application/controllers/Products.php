@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: DELEON
- * Date: 31-Oct-17
- * Time: 2:57 PM
- */
+
 
 class Products extends CI_Controller
 {
@@ -13,7 +8,9 @@ class Products extends CI_Controller
    function __construct()
    {
        parent::__construct();
-       $this->load->helper('permisos_helper');
+
+       $this->load->helper('utilidades_helper');
+
 
        if (!$this->session->userdata('logueado')){
            //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
@@ -69,11 +66,28 @@ class Products extends CI_Controller
         }
     }
 
-    public function display()
+    public function display( $porpagina = 10 , $desde = 0, $id = null  )
     {
+        //paginacion
+        $elementos =  10;
+        $data['porpagina'] = $elementos;
+        $data['miurl'] = "products/display/";
+        $data['paginas'] =  cuenta("producto", $elementos);
 
-       $data['productos_data'] = $this->Producto_model->get_productos_info();
+        //datos necesarios para la vista de form
+        $data['placeholder'] = "Nombre Producto";
+        //variable que sera usara para redireccionar y tambien para completar la url para la busqueda
+        $data['controlador'] = "Products/";
+        //metodo que devuelve la vista donde se muestra la tabla con el item encontrado
+        $data['metodo'] = "display";
+        //campo de la tabla de la bd que se sera usado en el like de la funcion buscadorAjax del helper
+        $data['campo'] = "producto";
+        //tabla que sera llamada  en la funcion buscadorAjax del helper
+        $data['tabla'] = "producto";
+        //metodo del controlador que recibira la peticion ajax
+        $data['buscador'] = "buscarProducto";
 
+       $data['productos_data'] = $this->Producto_model->get_productos_info( $porpagina, $desde, $id );
        $data['main_view'] = "productos/display_view";
        $this->load->view('layouts/main', $data);
     }
@@ -321,6 +335,38 @@ class Products extends CI_Controller
         $data = $this->Producto_model->countProductosCategoria( $idcategoria );
 
         echo json_encode($data);
+    }
+
+    public  function buscarProducto()
+    {
+        $nombre = $this->input->post('nombre');
+        $campo = $this->input->post('campo');
+        $tabla = $this->input->post('tabla');
+
+        $data = buscadorAjax( $nombre, $campo, $tabla );
+
+        if($data !== FALSE)
+        {
+
+            foreach($data as $fila)
+            {
+
+                ?>
+
+
+                <li style="cursor: pointer; padding-bottom: 10px; padding-top: 10px;" class="respuesta list-group-item list-group-item-action " data-id="<?php echo $fila->idProducto ?>"><?php echo $fila->producto ?></li>
+
+                <?php
+            }
+
+            //en otro caso decimos que no hay resultados
+        }else{
+            ?>
+
+            <p><?php echo 'No hay resultados' ?></p>
+
+            <?php
+        }
     }
 
 

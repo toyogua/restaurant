@@ -12,7 +12,7 @@ class Producto_model extends CI_Model{
     }
 
 
-    public function get_productos_info()
+    public function get_productos_info( $porpagina, $desde, $id )
     {
         $this->db->select('
            
@@ -38,6 +38,11 @@ class Producto_model extends CI_Model{
         $this->db->from('producto');
         $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
         $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
+        if ( $id != null )
+        {
+            $this->db->where('idProducto', $id );
+        }
+        $this->db->limit($porpagina, $desde);
         $this->db->order_by('producto','asc');
 
         $query = $this->db->get();
@@ -49,6 +54,18 @@ class Producto_model extends CI_Model{
             return $query->result();
         }
     }
+
+    public  function obtenerPorNombre( $nombre )
+    {
+        $this->db->like('producto', $nombre);
+        $get_data = $this->db->get('producto', 3);
+
+        if ($get_data->num_rows() < 1){
+            return false ;
+        }
+        return $get_data->result();
+    }
+
 
     //devuelve todos los productos que esten relacionados a una categoria
     public function get_productos_subcategoria($idSubcategoria, $porpagina, $desde)

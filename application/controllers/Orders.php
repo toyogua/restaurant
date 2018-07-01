@@ -12,7 +12,7 @@ class Orders extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->helper('permisos_helper');
+        $this->load->helper('utilidades');
 
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
@@ -28,6 +28,7 @@ class Orders extends CI_Controller
 
         $data['meseros_data'] = $this->Empleado_model->obtenerMeseros();
         $data['mesas_data'] = $this->Mesa_model->mesasdesocupadas();
+        $data['mesas_ocupadas'] = $this->Mesa_model->mesasOcupadas();
 
         $data['main_view'] = "orders/register_view";
 
@@ -40,8 +41,9 @@ class Orders extends CI_Controller
         $listaProducto = json_decode($_POST['detalle']);
 
 
-        $this->Orden_model->insertarOrden($listaOrden, $listaProducto);
+        $res = $this->Orden_model->insertarOrden($listaOrden, $listaProducto);
 
+        echo json_encode( $res );
     }
 
     public  function ordenes_categoria($fecha, $idCategoria)

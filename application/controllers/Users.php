@@ -8,20 +8,41 @@ class Users extends CI_Controller {
         parent::__construct();
 
         $this->load->model('User_model');
-        $this->load->helper('permisos_helper');
-
+        $this->load->helper('utilidades_helper');
 
     }
 
 
-    public function display(){
+    public function display( $porpagina = 5 , $desde = 0, $id = null ){
+
+        //paginacion
+        $elementos =  5;
+        $data['porpagina'] = $elementos;
+        $data['miurl'] = "users/display/";
+        $data['paginas'] =  cuenta("Empleado", $elementos);
+
+        //datos necesarios para la vista de form
+        $data['placeholder'] = "Nombre Empleado";
+        //variable que sera usara para redireccionar y tambien para completar la url para la busqueda
+        $data['controlador'] = "Users/";
+        //metodo que devuelve la vista donde se muestra la tabla con el item encontrado
+        $data['metodo'] = "display";
+        //campo de la tabla de la bd que se sera usado en el like de la funcion buscadorAjax del helper
+        $data['campo'] = "nombresEmpleado";
+        //tabla que sera llamada  en la funcion buscadorAjax del helper
+        $data['tabla'] = "empleado";
+        //metodo del controlador que recibira la peticion ajax
+        $data['buscador'] = "buscarEmpleado";
+
+        $data['users_data'] = $this->User_model->get_users_info( $porpagina, $desde, $id );
+
 
         if (!$this->session->userdata('logueado')){
             //$this->session->set_flashdata('no_access', 'Debes iniciar sesión para acceder a esta área.');
             redirect('home');
         }
 
-        $data['users_data'] = $this->User_model->get_users_info();
+
         
         $data['main_view'] = "users/display_view";
         $this->load->view('layouts/main', $data);
@@ -198,6 +219,35 @@ class Users extends CI_Controller {
 
         $this->session->sess_destroy();
         redirect('home');
+    }
+
+    public function buscarEmpleado()
+    {
+        $nombre = $this->input->post('nombre');
+        $campo = $this->input->post('campo');
+        $tabla = $this->input->post('tabla');
+
+        $data = buscadorAjax( $nombre, $campo, $tabla );
+        if($data !== FALSE)
+        {
+
+            foreach($data as $fila)
+            {
+                ?>
+
+                <li style="cursor: pointer; padding-bottom: 10px; padding-top: 10px;" class="respuesta list-group-item list-group-item-action " data-id="<?php echo $fila->idEmpleado ?>"><?php echo $fila->nombresEmpleado ?></li>
+
+                <?php
+            }
+
+            //en otro caso decimos que no hay resultados
+        }else{
+            ?>
+
+            <p><?php echo 'No hay resultados' ?></p>
+
+            <?php
+        }
     }
 
 }

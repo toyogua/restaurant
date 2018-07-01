@@ -7,8 +7,7 @@ var ingredientes = {
 var idIngrediente = 0;
 $(document).ready(function() {
 
-    //console.log(hora);
-    if( window.location.href === baseurl + 'ingredientes/display'){
+
 
         $(document).on("click", ".btnNuevoIngrediente", function (e) {
             var content = "";
@@ -240,7 +239,7 @@ $(document).ready(function() {
             alertify.success('Borrado')
         }
 
-    }
+
 
 
 

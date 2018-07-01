@@ -1,6 +1,10 @@
 <h2 align="center">SELECCIONE ALGÚN EMPLEADO </h2>
 <hr>
 
+<div class="row offset-4">
+    <?php $this->load->view('layouts/paginacion_view');?>
+</div>
+
 <table class="table table-bordered table-striped">
     <thead class="blue-grey lighten-4">
     <tr>

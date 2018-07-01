@@ -94,7 +94,7 @@ class User_model extends CI_Model{
 
     }
 
-    public function get_users_info()
+    public function get_users_info( $porpagina, $desde, $id)
     {
         $this->db->select('
            
@@ -116,8 +116,16 @@ class User_model extends CI_Model{
        
             ');
         $this->db->from('empleado');
+
         $this->db->join('tipoempleado', 'tipoempleado.idTipoEmpleado = empleado.idTipoEmpleado');
+
         $this->db->join('users', 'users.idEmpleado = empleado.idEmpleado');
+
+        $this->db->limit($porpagina, $desde);
+        if ( $id != null )
+        {
+            $this->db->where('empleado.idEmpleado', $id );
+        }
         $this->db->where('empleado.estado', 1);
         $query = $this->db->get();
 
@@ -128,6 +136,8 @@ class User_model extends CI_Model{
             return $query->result();
         }
     }
+
+
 
     public function get_user_info($id)
     {
