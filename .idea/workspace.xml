@@ -2,60 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/helpers/utilidades_helper.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/layouts/form_view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/layouts/paginacion_view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/js/buscadores.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/dieta.7XKyBQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/ecommerce.QLYXWw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/masventa.TUgIEQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pagoscole.35LRRg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/pruebausuarios.1gVhBg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/restful_db.VMPfng.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/sitio.hAqGBg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/8f7802e9-bc8c-4094-b786-3cb01c965926/storage_v2/_src_/schema/tareas_db.S8bAyw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/controllers/Reportes.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/reportes/index_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/pre/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/pre/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/pre/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/pre/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Categorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Categorias.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/DetalleOrden.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/DetalleProducto.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Empleados.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Empleados.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Ingredientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ingredientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Mesas.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Mesas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Permisos.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Permisos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Ventas.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ventas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/paginacion_helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/permisos_helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/totales_helper.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Categoria_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Categoria_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Ingrediente_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Ingrediente_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Mesa_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Mesa_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Orden_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Orden_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Producto_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Producto_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/User_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/User_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orders/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orders/register_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/register_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/permisos/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/permisos/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/productos/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/productos/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/users/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/users/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/ingrediente.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ingrediente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/orden.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/orden.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/producto.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/producto.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,47 +15,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Orders.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
+      <file leaf-file-name="Reportes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+            <state relative-caret-position="357">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Permisos.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Permisos.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="46" />
-            </state>
-          </provider>
+      <file leaf-file-name="index_view.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/index_view.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="Products.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ventas.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="119">
+              <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="18" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -159,6 +86,7 @@
         <option value="$PROJECT_DIR$/application/controllers/DetalleProducto.php" />
         <option value="$PROJECT_DIR$/application/controllers/DetalleOrden.php" />
         <option value="$PROJECT_DIR$/application/controllers/Home.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reportes.php" />
       </list>
     </option>
   </component>
@@ -175,10 +103,9 @@
     <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1364" />
-    <option name="height" value="726" />
+    <option name="x" value="683" />
+    <option name="width" value="683" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -224,48 +151,6 @@
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="categorias" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ingredientes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="mesas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="productos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="users" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -288,7 +173,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mycole" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../restaurant1" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,12 +204,22 @@
       <workItem from="1527439347754" duration="8979000" />
       <workItem from="1527457696655" duration="19263000" />
       <workItem from="1527557391979" duration="5956000" />
-      <workItem from="1530418102110" duration="1176000" />
+      <workItem from="1530418102110" duration="2222000" />
+      <workItem from="1530585364729" duration="91000" />
+      <workItem from="1531583075012" duration="865000" />
     </task>
+    <task id="LOCAL-00001" summary="Actualizacion helper...">
+      <created>1530419340365</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1530419340365</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44746000" />
+    <option name="totallyTimeSpent" value="46748000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -357,24 +252,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Actualizacion helper..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizacion helper..." />
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/permisos/asignar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/dev/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8313" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/dev/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="77" column="24" lean-forward="true" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/pre/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -562,14 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="52" lean-forward="true" selection-start-line="42" selection-start-column="52" selection-end-line="42" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -636,10 +510,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
+    <entry file="file://$PROJECT_DIR$/application/config/dev/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        <state relative-caret-position="162">
+          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
         </state>
       </provider>
     </entry>
@@ -650,26 +538,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="14" column="39" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="119">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="18" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="88" selection-start-line="36" selection-start-column="88" selection-end-line="36" selection-end-column="88" />
+        <state relative-caret-position="357">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/index_view.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
