@@ -39,6 +39,7 @@
 
         /**
          *muestra los resultados en base a lo seleccionado por el usuario
+         * param-name(tipointervalo) = 1 intervalo fijo || 2 rango dinamico (fechas)
          */
         public function listar()
         {
@@ -75,20 +76,7 @@
                         }
 
                         }
-                     //ayer
-                    if ( $tipoIntervalo == 2){
-                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( $intervalo );
 
-                        if ($data['ventas'] != FALSE){
-                            $datos = $data['ventas'];
-
-                            for($i=0; $i<count($datos); $i++){
-
-                                $total = $total + $datos[$i]->total;
-                            }
-                        }
-
-                    }
                 }
             }
 
