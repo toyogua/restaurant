@@ -1,6 +1,11 @@
 <h2 align="center">REPORTES HOY </h2>
 <hr>
 
+<?php if ( $total!= null || $total >0): ?>
+    <div class="col-md-4 offset-10">
+        <label class="btn btn-info">Totales: Q <?php print_r($total)?></label>
+    </div>
+<?php endif; ?>
 <table class="table table-bordered table-striped">
     <thead class="blue-grey lighten-4">
     <tr>
