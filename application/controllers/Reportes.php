@@ -50,6 +50,7 @@
             $total = 0;
             if ($tipoIntervalo != null || $tipoIntervalo != 0 )
             {
+
                 if ($tipoIntervalo < 3 )
                 {
                     //intervalo fijo
@@ -73,6 +74,19 @@
                 }
             }
 
+            switch ($intervalo) {
+                case 1:
+                    $titulo = "HOY";
+                    break;
+                case 2:
+                    $titulo = "AYER";
+                    break;
+                case 3:
+                    $titulo= "DE ESTA SEMANA";
+                    break;
+            }
+
+            $data['titulo'] = $titulo;
             $data['total'] =  $total;
             $data['main_view'] = "reportes/listar";
 

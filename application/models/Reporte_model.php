@@ -47,6 +47,15 @@ class Reporte_model extends CI_Model
 
             }
 
+            //esta semana
+            if ($intervalo == 3)
+            {
+                $query = $this->db->query('SELECT * FROM ventas WHERE YEARWEEK(fecha) = YEARWEEK(CURDATE());');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
 
         }
 
