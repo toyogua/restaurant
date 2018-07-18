@@ -46,6 +46,15 @@
             $intervalo = $this->input->post('intervalo');
             $tipoIntervalo = $this->input->post('radio');
 
+            if ($this->input->post('txtFInicial') != "" && $this->input->post('txtFFinal') != "")
+            {
+                $fInicial = $this->input->post('txtFInicial');
+                $fFinal = $this->input->post('txtFFinal');
+
+                $data['fInicial'] = $fInicial;
+                $data['fFinal'] = $fFinal;
+            }
+
 
             $total = 0;
             if ($tipoIntervalo != null || $tipoIntervalo != 0 )
@@ -58,7 +67,7 @@
                     {
 
 
-                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( $intervalo );
+                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( $intervalo, null, null );
 
                         if ($data['ventas'] != FALSE){
                             $datos = $data['ventas'];
@@ -68,8 +77,22 @@
                                 $total = $total + $datos[$i]->total;
                             }
                         }
+                    }
 
+                    //rango con fechas
+                    if ( $tipoIntervalo == 2 )
+                    {
+                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( null, $fInicial, $fFinal );
+
+                        if ($data['ventas'] != FALSE){
+                            $datos = $data['ventas'];
+
+                            for($i=0; $i<count($datos); $i++){
+
+                                $total = $total + $datos[$i]->total;
+                            }
                         }
+                    }
 
                 }
             }
@@ -86,16 +109,26 @@
                     break;
                 case  4 :
                     $titulo = "DE LA SEMANA PASADA";
-
+                    break;
                 case 5:
                     $titulo = "DE ESTE MES";
+                    break;
                 case 6:
                     $titulo = "DEL MES PASADO";
+                    break;
                 case 7:
                     $titulo = "DEL AÑO ACTUAL";
+                    break;
                 case 8:
                     $titulo = "DEL AÑO PASADO";
+                    break;
             }
+
+            if ($tipoIntervalo == 2)
+            {
+                $titulo = "ENTRE FECHAS";
+            }
+
 
             $data['titulo'] = $titulo;
             $data['total'] =  $total;

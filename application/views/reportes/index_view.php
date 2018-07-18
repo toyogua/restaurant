@@ -40,7 +40,7 @@
                 <div class="input-group-addon">
                     <div class="input-group">Desde</div>
                 </div>
-                <input type="date" class="form-control py-0" id="inlineFormInputGroup">
+                <input name="txtFInicial" type="date" class="form-control py-0" id="inlineFormInputGroup">
             </div>
         </div>
         <!-- Grid column -->
@@ -52,7 +52,7 @@
                 <div class="input-group-addon">
                     <div class="input-group">Hasta</div>
                 </div>
-                <input type="date" class="form-control py-0" id="inlineFormInputGroup">
+                <input name="txtFFinal" type="date" class="form-control py-0" id="inlineFormInputGroup">
             </div>
         </div>
         <!-- Grid column -->
