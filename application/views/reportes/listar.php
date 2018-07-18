@@ -1,6 +1,6 @@
 
 
-	<h2 align="center">REPORTES <?php print_r( $titulo .' '.$fInicial .'  --  '. $fFinal  ); ?> </h2>
+	<h2 align="center">REPORTES <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
 	<hr>
 
 	<?php if ( $total!= null || $total >0): ?>

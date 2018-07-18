@@ -46,13 +46,14 @@
             $intervalo = $this->input->post('intervalo');
             $tipoIntervalo = $this->input->post('radio');
 
-            if ($this->input->post('txtFInicial') != "" && $this->input->post('txtFFinal') != "")
-            {
-                $fInicial = $this->input->post('txtFInicial');
-                $fFinal = $this->input->post('txtFFinal');
+            $fInicial   = null;
+            $fFinal     = null;
 
-                $data['fInicial'] = $fInicial;
-                $data['fFinal'] = $fFinal;
+            if ($this->input->post('txtFInicial') != null && $this->input->post('txtFFinal') != null)
+            {
+                $fInicial   = $this->input->post('txtFInicial');
+                $fFinal     = $this->input->post('txtFFinal');
+
             }
 
 
@@ -82,6 +83,7 @@
                     //rango con fechas
                     if ( $tipoIntervalo == 2 )
                     {
+
                         $data['ventas'] = $this->Reporte_model->IntervaloFijo( null, $fInicial, $fFinal );
 
                         if ($data['ventas'] != FALSE){
@@ -130,6 +132,8 @@
             }
 
 
+            $data['fInicial'] = $fInicial;
+            $data['fFinal'] = $fFinal;
             $data['titulo'] = $titulo;
             $data['total'] =  $total;
             $data['main_view'] = "reportes/listar";
