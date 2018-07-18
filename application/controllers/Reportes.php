@@ -84,6 +84,17 @@
                 case 3:
                     $titulo= "DE ESTA SEMANA";
                     break;
+                case  4 :
+                    $titulo = "DE LA SEMANA PASADA";
+
+                case 5:
+                    $titulo = "DE ESTE MES";
+                case 6:
+                    $titulo = "DEL MES PASADO";
+                case 7:
+                    $titulo = "DEL AÑO ACTUAL";
+                case 8:
+                    $titulo = "DEL AÑO PASADO";
             }
 
             $data['titulo'] = $titulo;

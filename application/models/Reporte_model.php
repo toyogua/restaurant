@@ -57,6 +57,55 @@ class Reporte_model extends CI_Model
                 return false;
             }
 
+            //semana pasada
+            if ( $intervalo == 4)
+            {
+                $query = $this->db->query('SELECT * FROM ventas WHERE fecha >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND fecha < curdate() - INTERVAL DAYOFWEEK(curdate())-2 DAY');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
+
+            //mes actual
+            if ( $intervalo == 5 )
+            {
+                $query = $this->db->query('SELECT *  FROM ventas WHERE fecha BETWEEN SUBDATE(CURDATE(),MONTH(CURDATE())) AND ADDDATE(CURDATE(),MONTH(CURDATE()))');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
+
+            //mes pasado
+            if ( $intervalo == 6)
+            {
+                $query = $this->db->query('SELECT *  FROM ventas WHERE MONTH(fecha) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH));');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
+
+            //este anio
+            if ( $intervalo == 7)
+            {
+                $query = $this->db->query('SELECT *  FROM ventas WHERE YEAR(fecha) = YEAR(CURDATE())');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
+
+            //anio pasado
+            if( $intervalo == 8)
+            {
+                $query = $this->db->query('SELECT *  FROM ventas WHERE YEAR(fecha) = YEAR(NOW()) - 1');
+                if($query->num_rows() > 0){
+                    return $query->result();
+                }
+                return false;
+            }
         }
 
     }
