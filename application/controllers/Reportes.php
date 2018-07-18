@@ -52,17 +52,10 @@
             {
                 if ($tipoIntervalo < 3 )
                 {
-                    //hoy
+                    //intervalo fijo
                     if ( $tipoIntervalo == 1)
                     {
-                        //1 - hoy
-                        //2 - ayer
-                        //3 - esta semana
-                        //4 - la semana pasada
-                        //5 - este mes
-                        //6 - mes pasado
-                        //7 - este a;o
-                        //8 - a;o pasado
+
 
                         $data['ventas'] = $this->Reporte_model->IntervaloFijo( $intervalo );
 

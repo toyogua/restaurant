@@ -9,8 +9,20 @@
 class Reporte_model extends CI_Model
 {
 
-    public function IntervaloFijo( $intervalo )
+    /**
+     * @param $intervalo
+     * @return bool
+     */
+    public function IntervaloFijo($intervalo )
     {
+        //1 - hoy
+        //2 - ayer
+        //3 - esta semana
+        //4 - la semana pasada
+        //5 - este mes
+        //6 - mes pasado
+        //7 - este a;o
+        //8 - a;o pasado
 
         if ($intervalo > 0 || $intervalo !=null)
         {
@@ -34,6 +46,8 @@ class Reporte_model extends CI_Model
                 return false;
 
             }
+
+
         }
 
     }
