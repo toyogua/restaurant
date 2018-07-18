@@ -21,6 +21,7 @@
     <script src="<?php echo base_url();?>assets/js/TweenMax.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/permisos.js"></script>
     <script src="<?php echo base_url();?>assets/js/buscadores.js"></script>
+    <script src="<?php echo base_url();?>assets/js/reportes.js"></script>
 
 
     <!-- Bootstrap tooltips -->
@@ -118,9 +119,18 @@
                         <a class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
                     </li>
                     <?php endif;?>
-                   
+
                     <li class="nav-item btn-group">
-                        <a class="nav-link" href="<?php echo base_url();?>reportes">Reportes</a>
+                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
+
+                                <a class="dropdown-item" href="<?php echo base_url(); ?>reportes">Ventas</a>
+
+
+                                <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Ordenes</a>
+
+
+                        </div>
                     </li>
                    
                     <?php  if ($this->session->userdata("idempleado")):?>
