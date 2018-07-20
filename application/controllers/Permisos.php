@@ -39,6 +39,7 @@ class Permisos extends CI_Controller
         $data['acciones_empleados'] = $this->Permisos_model->accionesEmpleados();
         $data['acciones_mesas']     = $this->Permisos_model->accionesMesas();
         $data['acciones_ventas']    = $this->Permisos_model->accionesVentas();
+        $data['acciones_reportes']  = $this->Permisos_model->accionesReportes();
 
         $data['idempleado']         = $idempleado;
 

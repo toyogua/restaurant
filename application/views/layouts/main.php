@@ -120,6 +120,7 @@
                     </li>
                     <?php endif;?>
 
+                    <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Reportes", "Mostrar")): ?>
                     <li class="nav-item btn-group">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
@@ -132,7 +133,7 @@
 
                         </div>
                     </li>
-                   
+                    <?php endif;?>
                     <?php  if ($this->session->userdata("idempleado")):?>
                     <li class="nav-item btn-group navbar-toggler-right">
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('nombre');?></a>

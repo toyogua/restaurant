@@ -71,4 +71,21 @@
     </div>
 </div>
 
+<div class="col-md-4">
+    <h3 class="list-group text-center">Reportes</h3>
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><input class="acctodos" data-id="Reportes" type="checkbox">&nbsp;&nbsp;Todos</li>
+            <?php if ($acciones_reportes != FALSE): ?>
+                <?php foreach($acciones_reportes as $a_reportes): ?>
+                    <?php if( $res5 = obtenerPermisos( $idempleado, $a_reportes->id_modulo, $a_reportes->accion)): ?>
+                        <?php $res5 = "checked"; ?>
+                    <?php endif; ?>
+                    <li class="list-group-item"><input <?php echo $res5; ?> data-modulo="<?php echo $a_reportes->id_modulo; ?>" value="<?php echo $a_reportes->accion; ?>" class="<?php echo $a_reportes->id_modulo; ?>" type="checkbox">&nbsp;<?php echo $a_reportes->accion; ?> </li>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    </div>
+</div>
+
 <button id="btnAsignarPermisos" style="cursor: pointer;" class="btn btn-primary">Asignar </button>

@@ -74,6 +74,19 @@ class Permisos_model extends CI_Model
         return $res->result();
     }
 
+    public function accionesReportes()
+    {
+        $this->db->order_by('accion','asc');
+        $this->db->where('id_modulo', "Reportes");
+        $res = $this->db->get('acciones_modulos');
+        if( $res->num_rows() < 1)
+        {
+            return FALSE;
+        }
+
+        return $res->result();
+    }
+
     public function crear( $data )
     {
         $this->db->insert('permisos_acciones', $data);
