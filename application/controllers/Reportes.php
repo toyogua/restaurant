@@ -140,4 +140,11 @@
 
             $this->load->view('layouts/main', $data);
         }
+
+        public function filtrosOrdenes()
+        {
+            $data['main_view'] = "reportes/ordenes_view";
+
+            $this->load->view('layouts/main', $data);
+        }
     }

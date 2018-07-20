@@ -128,7 +128,7 @@
                                 <a class="dropdown-item" href="<?php echo base_url(); ?>reportes">Ventas</a>
 
 
-                                <a class="dropdown-item" href="<?php echo base_url(); ?>Products/display">Ordenes</a>
+                                <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtrosOrdenes">Ordenes</a>
 
 
                         </div>
