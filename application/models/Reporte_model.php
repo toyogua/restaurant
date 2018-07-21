@@ -161,7 +161,7 @@ class Reporte_model extends CI_Model
 
                 //semana pasada
                 if ($intervalo == 4) {
-                    $query = $this->db->query('SELECT * FROM ventas WHERE fecha >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND fecha < curdate() - INTERVAL DAYOFWEEK(curdate())-2 DAY');
+                    $query = $this->db->query('SELECT * FROM orden WHERE fechaOrden >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND fechaOrden < curdate() - INTERVAL DAYOFWEEK(curdate())-2 DAY');
                     if ($query->num_rows() > 0) {
                         return $query->result();
                     }
@@ -170,7 +170,7 @@ class Reporte_model extends CI_Model
 
                 //mes actual
                 if ($intervalo == 5) {
-                    $query = $this->db->query('SELECT *  FROM ventas WHERE fecha BETWEEN SUBDATE(CURDATE(),MONTH(CURDATE())) AND ADDDATE(CURDATE(),MONTH(CURDATE()))');
+                    $query = $this->db->query('SELECT *  FROM orden WHERE fechaOrden BETWEEN SUBDATE(CURDATE(),MONTH(CURDATE())) AND ADDDATE(CURDATE(),MONTH(CURDATE()))');
                     if ($query->num_rows() > 0) {
                         return $query->result();
                     }
@@ -179,7 +179,7 @@ class Reporte_model extends CI_Model
 
                 //mes pasado
                 if ($intervalo == 6) {
-                    $query = $this->db->query('SELECT *  FROM ventas WHERE MONTH(fecha) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH));');
+                    $query = $this->db->query('SELECT *  FROM orden WHERE MONTH(fechaOrden) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH));');
                     if ($query->num_rows() > 0) {
                         return $query->result();
                     }
@@ -188,7 +188,7 @@ class Reporte_model extends CI_Model
 
                 //este anio
                 if ($intervalo == 7) {
-                    $query = $this->db->query('SELECT *  FROM ventas WHERE YEAR(fecha) = YEAR(CURDATE())');
+                    $query = $this->db->query('SELECT *  FROM orden WHERE YEAR(fechaOrden) = YEAR(CURDATE())');
                     if ($query->num_rows() > 0) {
                         return $query->result();
                     }
@@ -197,7 +197,7 @@ class Reporte_model extends CI_Model
 
                 //anio pasado
                 if ($intervalo == 8) {
-                    $query = $this->db->query('SELECT *  FROM ventas WHERE YEAR(fecha) = YEAR(NOW()) - 1');
+                    $query = $this->db->query('SELECT *  FROM orden WHERE YEAR(fechaOrden) = YEAR(NOW()) - 1');
                     if ($query->num_rows() > 0) {
                         return $query->result();
                     }
@@ -207,11 +207,11 @@ class Reporte_model extends CI_Model
         }
         else
             if ( $fInicial != null && $fFinal != null){
-                $condition = "fecha BETWEEN " . "'" . $fInicial . "'" . " AND " . "'" . $fFinal . "'";
+                $condition = "fechaOrden BETWEEN " . "'" . $fInicial . "'" . " AND " . "'" . $fFinal . "'";
 
 
 
-                $this->db->from('ventas');
+                $this->db->from('orden');
 
                 $this->db->where($condition);
 
