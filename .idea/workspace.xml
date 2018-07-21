@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Reportes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Reportes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Reporte_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Reporte_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,6 +40,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="orden: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -47,17 +55,26 @@
       <file leaf-file-name="Reportes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1822">
-              <caret line="255" column="53" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
+            <state relative-caret-position="1380">
+              <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listar_reportes_ordenes_view.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Reporte_model.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="428">
+              <caret line="154" column="66" selection-start-line="154" selection-start-column="66" selection-end-line="154" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar_reportes_ordenes_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            <state relative-caret-position="340">
+              <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
             </state>
           </provider>
         </entry>
@@ -129,7 +146,6 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/assets/js/reportes.js" />
         <option value="$PROJECT_DIR$/application/views/reportes/index_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/listar.php" />
         <option value="$PROJECT_DIR$/application/models/Permisos_model.php" />
         <option value="$PROJECT_DIR$/application/views/permisos/asignar.php" />
@@ -138,6 +154,7 @@
         <option value="$PROJECT_DIR$/application/views/reportes/ordenes_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Reportes.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" />
+        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
       </list>
     </option>
   </component>
@@ -288,7 +305,7 @@
       <workItem from="1531967210496" duration="37000" />
       <workItem from="1531967331045" duration="2669000" />
       <workItem from="1532054659211" duration="2467000" />
-      <workItem from="1532181595327" duration="472000" />
+      <workItem from="1532181595327" duration="1036000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizacion helper...">
       <created>1530419340365</created>
@@ -388,11 +405,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532181674146</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Vista listar reportes ordenes">
+      <created>1532182290944</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1532182290944</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100557000" />
+    <option name="totallyTimeSpent" value="101121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -437,7 +461,8 @@
     <MESSAGE value="Bug corregio fechas reportes ventas" />
     <MESSAGE value="Permisos Reportes Agregados" />
     <MESSAGE value="Filtros Reportes Ordenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filtros Reportes Ordenes" />
+    <MESSAGE value="Vista listar reportes ordenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vista listar reportes ordenes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/views/layouts/form_view.php">
@@ -717,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="113" column="44" selection-start-line="113" selection-start-column="44" selection-end-line="113" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Permisos_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -762,13 +780,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1822">
-          <caret line="255" column="53" selection-start-line="255" selection-start-column="53" selection-end-line="255" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -778,8 +789,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="340">
+          <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="154" column="66" selection-start-line="154" selection-start-column="66" selection-end-line="154" selection-end-column="66" />
         </state>
       </provider>
     </entry>

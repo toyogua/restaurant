@@ -25,15 +25,15 @@
 
     </thead>
     <tbody>
-    <?php if($ventas != FALSE): ?>
+    <?php if($ordenes != FALSE): ?>
 
 
-    <?php foreach($ventas as $venta): ?>
-        <tr id="fila<?php echo $venta->idventa; ?>" >
-            <td align="center"><?php echo $venta->fecha; ?></td>
-            <td align="center"><?php echo $venta->total; ?></td>
-            <td align="center"><a title="Borrar" ><i  data-id="<?php echo $venta->idventa;?>"  class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
-            <td align="center"> <a data-toggle="modal" data-target="#mEditarMesa"  title="Editar" href=""><i data-id="<?php echo $venta->idventa;?>" class="fa fa-edit fa-3x" aria-hidden="true"></i></a>
+    <?php foreach($ordenes as $orden): ?>
+        <tr id="fila<?php echo $orden->idOrden; ?>" >
+            <td align="center"><?php echo $orden->fechaOrden; ?></td>
+            <td align="center"><?php echo $orden->totalOrden; ?></td>
+            <td align="center"><a title="Borrar" ><i  data-id="<?php echo $orden->idOrden;?>"  class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
+            <td align="center"> <a data-toggle="modal" data-target="#mEditarMesa"  title="Editar" href=""><i data-id="<?php echo $orden->idOrden;?>" class="fa fa-edit fa-3x" aria-hidden="true"></i></a>
             </td>
 
         </tr>
