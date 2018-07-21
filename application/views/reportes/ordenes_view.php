@@ -1,7 +1,7 @@
 <h1 style="padding-top: 5px; text-align: center;">Reporte de Ordenes</h1>
 <hr>
 
-<form id="formReVentas" method="post" action="reportes/listar">
+<form id="formReOrdenes" method="post" action="reportes/filtrosOrdenes">
 
 
     <div class="row offset-3">

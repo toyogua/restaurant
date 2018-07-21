@@ -141,10 +141,23 @@
             $this->load->view('layouts/main', $data);
         }
 
+        /**
+         *Muestra los filtros de rangos para visualizar reportes de ordenes
+         * return vista reportes/ordenes_view
+         */
         public function filtrosOrdenes()
         {
             $data['main_view'] = "reportes/ordenes_view";
 
             $this->load->view('layouts/main', $data);
+        }
+
+        /**
+         *Muestra los resultados encontrados en base a los intervalos enviados
+         * param-name(tipointervalo) = 1 intervalo fijo || 2 rango dinamico (fechas)
+         */
+        public function listarReportesOrdenes()
+        {
+
         }
     }
