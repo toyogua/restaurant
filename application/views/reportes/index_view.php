@@ -1,7 +1,18 @@
     <h1 style="padding-top: 5px; text-align: center;">Reporte de Ventas</h1>
     <hr>
-
-    <form id="formReVentas" method="post" action="reportes/listar">
+    <h3 class="text-danger text-center">
+        <?php if($this->session->flashdata('campos_vacios')): ?>
+            <?php echo($this->session->flashdata('campos_vacios')); ?>
+        <?php endif; ?>
+    </h3>
+    <h3 class="text-danger text-center">
+        <?php if($this->session->flashdata('fechas_vacias')): ?>
+            <?php echo($this->session->flashdata('fechas_vacias')); ?>
+        <?php endif; ?>
+    </h3>
+    <?php $attributes = array('id' => 'miform'); ?>
+<!--    <form  method="post" action="reportes/listar">-->
+        <?php echo form_open('reportes/listar/', $attributes); ?>
 
 
     <div class="row offset-3">
@@ -59,7 +70,8 @@
 
     </div>
     <div class="col-md-2 offset-3">
-        <input type="submit" style="cursor: pointer" id="btnReporteVentas" value="Ver Reporte" class="btn btn-primary">
+        <input type="submit" style="cursor: pointer"  value="Ver Reporte" class="btn btn-primary">
     </div>
 
-    </form>
+<!--    </form>-->
+    <?php echo form_close(); ?>

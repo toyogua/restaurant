@@ -3,6 +3,8 @@
 <h2 align="center">REPORTES <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
 <hr>
 
+
+
 <?php if ( $total!= null || $total >0): ?>
     <div class="col-md-4 offset-10">
         <label class="btn btn-info">Totales: Q <?php print_r($total)?></label>
@@ -25,16 +27,13 @@
 
     </thead>
     <tbody>
-    <?php if($ordenes != FALSE): ?>
-
+    <?php if( isset($ordenes)): ?>
 
     <?php foreach($ordenes as $orden): ?>
         <tr id="fila<?php echo $orden->idOrden; ?>" >
             <td align="center"><?php echo $orden->fechaOrden; ?></td>
             <td align="center"><?php echo $orden->totalOrden; ?></td>
-            <td align="center"><a title="Borrar" ><i  data-id="<?php echo $orden->idOrden;?>"  class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
-            <td align="center"> <a data-toggle="modal" data-target="#mEditarMesa"  title="Editar" href=""><i data-id="<?php echo $orden->idOrden;?>" class="fa fa-edit fa-3x" aria-hidden="true"></i></a>
-            </td>
+
 
         </tr>
 
@@ -47,7 +46,7 @@
 </table>
 
 <?php else: ?>
-    <br><br><p class="bg-danger">No se encontraron Ventas</p>
+    <br><br><p class="bg-danger">No se encontraron Ordenes</p>
 
 <?php endif; ?>
 

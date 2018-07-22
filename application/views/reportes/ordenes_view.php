@@ -1,9 +1,26 @@
 <h1 style="padding-top: 5px; text-align: center;">Reporte de Ordenes</h1>
 <hr>
+<h3 class="text-danger text-center">
+    <?php if($this->session->flashdata('campos_vacios')): ?>
+        <?php echo($this->session->flashdata('campos_vacios')); ?>
+    <?php endif; ?>
+</h3>
+<h3 class="text-danger text-center">
+    <?php if($this->session->flashdata('fechas_vacias')): ?>
+        <?php echo($this->session->flashdata('fechas_vacias')); ?>
+    <?php endif; ?>
+</h3>
 
-<form id="formReOrdenes" method="post" action="reportes/filtrosOrdenes">
+<h3 class="text-danger text-center">
+    <?php if($this->session->flashdata('combinacion')): ?>
+        <?php echo($this->session->flashdata('combinacion')); ?>
+    <?php endif; ?>
+</h3>
 
-
+<!---->
+<!--<form  method="post" action="ordenes">-->
+<?php $attributes = array('id' => 'miform2'); ?>
+    <?php echo form_open('reportes/ordenes/', $attributes); ?>
     <div class="row offset-3">
         <div class=" col-md-2">
             <input name="radio" value="1" type="radio" class="form-check-input" id="materialUnchecked" name="rdIntervalo">
@@ -59,7 +76,8 @@
 
     </div>
     <div class="col-md-2 offset-3">
-        <input type="submit" style="cursor: pointer" id="btnReporteVentas" value="Ver Reporte" class="btn btn-primary">
+        <input type="submit" style="cursor: pointer"  value="Ver Reporte" class="btn btn-primary">
     </div>
 
-</form>
+<!--</form>-->
+<?php echo form_close(); ?>

@@ -22,6 +22,7 @@
     <script src="<?php echo base_url();?>assets/js/permisos.js"></script>
     <script src="<?php echo base_url();?>assets/js/buscadores.js"></script>
     <script src="<?php echo base_url();?>assets/js/reportes.js"></script>
+    <script src="<?php echo base_url();?>assets/js/reporteordenes.js"></script>
 
 
     <!-- Bootstrap tooltips -->

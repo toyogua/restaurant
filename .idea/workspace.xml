@@ -2,9 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/assets/js/reporteordenes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Reporte_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Reporte_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/pre/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/pre/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Reportes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Reportes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/home_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/home_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/index_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/index_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/listar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/listar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/ordenes_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/ordenes_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/permisos.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/permisos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/reportes.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/reportes.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,24 +38,6 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="orden: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -55,26 +46,17 @@
       <file leaf-file-name="Reportes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1380">
-              <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
+            <state relative-caret-position="-1884">
+              <caret line="169" selection-start-line="169" selection-end-line="169" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Reporte_model.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
+      <file leaf-file-name="index_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/index_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="154" column="66" selection-start-line="154" selection-start-column="66" selection-end-line="154" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listar_reportes_ordenes_view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
+            <state relative-caret-position="204">
+              <caret line="12" column="45" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -82,8 +64,17 @@
       <file leaf-file-name="listar.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2" column="73" selection-end-line="55" />
+            <state relative-caret-position="459">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listar_reportes_ordenes_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -91,8 +82,17 @@
       <file leaf-file-name="ordenes_view.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/reportes/ordenes_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+            <state relative-caret-position="479">
+              <caret line="81" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reportes.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/js/reportes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -113,7 +113,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/application/config/pre/database.php" />
-        <option value="$PROJECT_DIR$/application/config/pre/config.php" />
         <option value="$PROJECT_DIR$/application/views/ingredientes/display_view.php" />
         <option value="$PROJECT_DIR$/application/views/productos/display_view.php" />
         <option value="$PROJECT_DIR$/application/models/Buscador_model.php" />
@@ -144,17 +143,21 @@
         <option value="$PROJECT_DIR$/application/controllers/Home.php" />
         <option value="$PROJECT_DIR$/application/config/dev/database.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/assets/js/reportes.js" />
-        <option value="$PROJECT_DIR$/application/views/reportes/index_view.php" />
-        <option value="$PROJECT_DIR$/application/views/reportes/listar.php" />
         <option value="$PROJECT_DIR$/application/models/Permisos_model.php" />
         <option value="$PROJECT_DIR$/application/views/permisos/asignar.php" />
         <option value="$PROJECT_DIR$/application/controllers/Permisos.php" />
+        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
         <option value="$PROJECT_DIR$/application/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/assets/js/reporteordenes.js" />
+        <option value="$PROJECT_DIR$/application/config/pre/config.php" />
+        <option value="$PROJECT_DIR$/application/views/home_view.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/listar.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/ordenes_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Reportes.php" />
-        <option value="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/index_view.php" />
+        <option value="$PROJECT_DIR$/assets/js/reportes.js" />
+        <option value="$PROJECT_DIR$/assets/js/permisos.js" />
       </list>
     </option>
   </component>
@@ -180,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +194,19 @@
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="pre" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
@@ -251,10 +266,26 @@
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
+              <item name="system" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,6 +305,18 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="reportes.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="reportes.js" working-dir="$PROJECT_DIR$/assets/js">
+      <EXTENSION ID="com.jetbrains.nodejs.run.NodeJSStartBrowserRunConfigurationExtension">
+        <browser name="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" with-js-debugger="true" />
+      </EXTENSION>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.reportes.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -305,7 +348,9 @@
       <workItem from="1531967210496" duration="37000" />
       <workItem from="1531967331045" duration="2669000" />
       <workItem from="1532054659211" duration="2467000" />
-      <workItem from="1532181595327" duration="1036000" />
+      <workItem from="1532181595327" duration="7101000" />
+      <workItem from="1532192809716" duration="6754000" />
+      <workItem from="1532229262700" duration="13212000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizacion helper...">
       <created>1530419340365</created>
@@ -412,11 +457,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532182290944</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Vista listar reportes ordenes">
+      <created>1532182644329</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1532182644329</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Reportes ordenes completos.">
+      <created>1532183225113</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1532183225113</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101121000" />
+    <option name="totallyTimeSpent" value="127152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -426,14 +485,14 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14787701" />
+      <window_info anchor="right" id="Database" order="3" weight="0.14787701" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -443,6 +502,28 @@
       <window_info active="true" anchor="bottom" id="Database Console" order="8" visible="true" weight="0.21462639" />
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17130308" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.14787701" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="12" visible="true" weight="0.21462639" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -462,61 +543,10 @@
     <MESSAGE value="Permisos Reportes Agregados" />
     <MESSAGE value="Filtros Reportes Ordenes" />
     <MESSAGE value="Vista listar reportes ordenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vista listar reportes ordenes" />
+    <MESSAGE value="Reportes ordenes completos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Reportes ordenes completos." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/layouts/form_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="6" lean-forward="true" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/buscadores.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Mesa_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users/display_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Empleado_model.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/User_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="121" column="8" lean-forward="true" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/crudEmpleados.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/ingredientes/display_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
@@ -573,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5502">
-          <caret line="247" column="32" lean-forward="true" selection-start-line="247" selection-start-column="32" selection-end-line="247" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -602,20 +625,6 @@
         <state relative-caret-position="-1020" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="55" column="79" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/permisos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="82" column="47" lean-forward="true" selection-start-line="82" selection-start-column="4" selection-end-line="82" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/orden.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-966">
@@ -630,31 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/categoria.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="141" column="17" lean-forward="true" selection-start-line="141" selection-start-column="17" selection-end-line="141" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="171" column="67" selection-start-line="171" selection-start-column="19" selection-end-line="171" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Orders.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="34" column="49" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="34" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/home_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="66" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="66" />
         </state>
       </provider>
     </entry>
@@ -690,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
           <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/reportes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -752,20 +733,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/permisos/index.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="130" column="96" selection-start-line="130" selection-start-column="96" selection-end-line="130" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/index_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="54" column="38" selection-end-line="64" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/orden">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -773,38 +740,167 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/ordenes_view.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/reporteordenes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
+    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="2" column="73" selection-end-line="55" />
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="35" lean-forward="true" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="171" column="152" lean-forward="true" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="152" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="35" column="144" selection-start-line="35" selection-start-column="144" selection-end-line="35" selection-end-column="144" />
+          <caret line="55" column="79" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="79" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
+    <entry file="file://$PROJECT_DIR$/application/config/pre/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="253" column="71" selection-start-line="253" selection-start-column="71" selection-end-line="253" selection-end-column="71" />
+        <state relative-caret-position="374">
+          <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="154" column="66" selection-start-line="154" selection-start-column="66" selection-end-line="154" selection-end-column="66" />
+        <state>
+          <caret line="132" column="52" selection-start-line="132" selection-start-column="52" selection-end-line="132" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/home_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/ordenes_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="81" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1884">
+          <caret line="169" selection-start-line="169" selection-end-line="169" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/index_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="45" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/categoria.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="140" column="79" selection-start-line="140" selection-start-column="20" selection-end-line="140" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/buscadores.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-320">
+          <folding>
+            <element signature="n#style#0;n#ul#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/crudMesas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2238">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7531">
+          <caret line="443" column="58" lean-forward="true" selection-start-line="443" selection-start-column="58" selection-end-line="443" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/permisos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="417">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/ventas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2499">
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/reportes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>

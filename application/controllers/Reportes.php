@@ -43,8 +43,17 @@
          */
         public function listar()
         {
-            $intervalo = $this->input->post('intervalo');
-            $tipoIntervalo = $this->input->post('radio');
+
+            $intervalo = null;
+            $tipoIntervalo = null;
+
+
+            if ( $this->input->post('intervalo') != null && $this->input->post('radio') )
+            {
+                $intervalo = $this->input->post('intervalo');
+                $tipoIntervalo = $this->input->post('radio');
+            }
+
 
             $fInicial   = null;
             $fFinal     = null;
@@ -67,38 +76,55 @@
                     if ( $tipoIntervalo == 1)
                     {
 
+                        if ($fInicial != null || $fFinal != null)
+                        {
+                            $this->session->set_flashdata('combinacion', 'Mala combinacion de rangos');
+                            redirect('reportes/index');
+                        }
 
-                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( $intervalo, null, null );
+                        $temp = $this->Reporte_model->IntervaloFijo( $intervalo, null, null );
 
-                        if ($data['ventas'] != FALSE){
-                            $datos = $data['ventas'];
+                        if ($temp != FALSE){
+                            $data['ventas'] = $temp;
 
-                            for($i=0; $i<count($datos); $i++){
+                            for($i=0; $i<count($temp); $i++){
 
-                                $total = $total + $datos[$i]->total;
+                                $total = $total + $temp[$i]->total;
                             }
                         }
+
+
                     }
 
                     //rango con fechas
                     if ( $tipoIntervalo == 2 )
                     {
+                        if ($fInicial == null && $fInicial == null ){
+                            $this->session->set_flashdata('fechas_vacias', 'Las fechas no pueden estar vacias');
+                            redirect('reportes/index');
+                        }
 
-                        $data['ventas'] = $this->Reporte_model->IntervaloFijo( null, $fInicial, $fFinal );
+                        $temp = $this->Reporte_model->IntervaloFijo( null, $fInicial, $fFinal );
 
-                        if ($data['ventas'] != FALSE){
-                            $datos = $data['ventas'];
+                        if ($temp != FALSE){
+                            $data['ventas'] = $temp;
 
-                            for($i=0; $i<count($datos); $i++){
+                            for($i=0; $i<count($temp); $i++){
 
-                                $total = $total + $datos[$i]->total;
+                                $total = $total + $temp[$i]->total;
                             }
                         }
+
+
                     }
 
                 }
+            }else{
+                $this->session->set_flashdata('campos_vacios', 'Debes seleccionar una opcion');
+                redirect('reportes/index');
             }
 
+            $titulo = " (Parece que no selecciono ningun rango )";
             switch ($intervalo) {
                 case 1:
                     $titulo = "HOY";
@@ -141,6 +167,7 @@
             $this->load->view('layouts/main', $data);
         }
 
+
         /**
          *Muestra los filtros de rangos para visualizar reportes de ordenes
          * return vista reportes/ordenes_view
@@ -152,11 +179,12 @@
             $this->load->view('layouts/main', $data);
         }
 
+
         /**
          *Muestra los resultados encontrados en base a los intervalos enviados
          * param-name(tipointervalo) = 1 intervalo fijo || 2 rango dinamico (fechas)
          */
-        public function listarReportesOrdenes()
+        public function ordenes()
         {
             $intervalo = $this->input->post('intervalo');
             $tipoIntervalo = $this->input->post('radio');
@@ -181,39 +209,62 @@
                     //intervalo fijo
                     if ( $tipoIntervalo == 1)
                     {
+                        if ($fInicial != null || $fFinal != null)
+                        {
+                            $this->session->set_flashdata('combinacion', 'Mala combinacion de rangos');
+                            redirect('reportes/filtrosOrdenes');
+                        }
 
 
-                        $data['ordenes'] = $this->Reporte_model->IntervaloFijo( $intervalo, null, null );
+                        $temp = $this->Reporte_model->reporteOrdenes( $intervalo, null, null );
 
-                        if ($data['ordenes'] != FALSE){
-                            $datos = $data['ordenes'];
+                        if ($temp != FALSE){
 
-                            for($i=0; $i<count($datos); $i++){
+                            $data['ordenes'] = $temp;
 
-                                $total = $total + $datos[$i]->total;
+                            //$datos = $data['ordenes'];
+
+                            for($i=0; $i<count($temp); $i++){
+
+                                $total = $total + $temp[$i]->totalOrden;
                             }
                         }
+
                     }
 
                     //rango con fechas
                     if ( $tipoIntervalo == 2 )
                     {
+//
 
-                        $data['ordenes'] = $this->Reporte_model->IntervaloFijo( null, $fInicial, $fFinal );
+                        if ($fInicial == null && $fInicial == null ){
+                            $this->session->set_flashdata('fechas_vacias', 'Las fechas no pueden estar vacias');
+                            redirect('reportes/filtrosOrdenes');
+                        }
 
-                        if ($data['ordenes'] != FALSE){
-                            $datos = $data['ordenes'];
+                        $temp = $this->Reporte_model->reporteOrdenes( null, $fInicial, $fFinal );
 
-                            for($i=0; $i<count($datos); $i++){
+                        if ($temp != FALSE){
+                            $data['ordenes'] = $temp;
 
-                                $total = $total + $datos[$i]->total;
+                            for($i=0; $i<count($temp); $i++){
+
+                                $total = $total + $temp[$i]->totalOrden;
                             }
                         }
+
+
                     }
 
                 }
+            }else
+            {
+                $this->session->set_flashdata('campos_vacios', 'Debes seleccionar una opcion');
+                redirect('reportes/filtrosOrdenes');
+
             }
 
+            $titulo = " (Parece que no selecciono ningun rango )";
             switch ($intervalo) {
                 case 1:
                     $titulo = "HOY";

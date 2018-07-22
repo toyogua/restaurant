@@ -50,8 +50,8 @@ $(document).ready(function () {
 
 
 
-                let borrarJSON      = JSON.stringify( aborrar.listos );
-                let permisosJSON    = JSON.stringify( permisos.listos );
+                var borrarJSON      = JSON.stringify( aborrar.listos );
+                var permisosJSON    = JSON.stringify( permisos.listos );
 
                 $.ajax({
                     type: "POST",
