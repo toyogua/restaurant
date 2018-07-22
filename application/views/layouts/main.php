@@ -21,9 +21,7 @@
     <script src="<?php echo base_url();?>assets/js/TweenMax.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/permisos.js"></script>
     <script src="<?php echo base_url();?>assets/js/buscadores.js"></script>
-    <script src="<?php echo base_url();?>assets/js/reportes.js"></script>
-    <script src="<?php echo base_url();?>assets/js/reporteordenes.js"></script>
-
+    <script src="<?php echo base_url();?>assets/js/datatables.min.js"></script>
 
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="<?php echo base_url();?>assets/js/tether.min.js"></script>
