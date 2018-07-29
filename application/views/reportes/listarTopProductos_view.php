@@ -1,55 +1,55 @@
 
 
-	<h2 align="center">REPORTES VENTAS <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
-	<hr>
+<h2 align="center">REPORTES PRODUCTOS <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
+<hr>
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead class="blue-grey lighten-4">
+    <tr>
+
+        <th class="text-center">
+            PRODUCTO
+        </th>
+
+        <th class="text-center">
+            FECHA VENTA
+        </th>
+
+        <th class="text-center">
+            UNIDADES VENDIDAS
+        </th>
 
 
-	<?php if ( $total!= null || $total >0): ?>
-		<div class="col-md-4 offset-10">
-			<label class="btn btn-info">Totales: <?php echo moneda($total)?></label>
-		</div>
-	<?php endif; ?>
-	<table id="myTable" class="table table-bordered table-striped">
-		<thead class="blue-grey lighten-4">
-		<tr>
+    </tr>
 
-			<th class="text-center">
-				FECHA
-			</th>
-
-			<th class="text-center">
-				TOTAL
-			</th>
+    </thead>
+    <tbody>
+    <?php if(isset($productos)): ?>
 
 
-		</tr>
+    <?php foreach($productos as $producto): ?>
+        <tr id="fila<?php echo $producto->idproducto; ?>" >
+            <td align="center"><?php echo $producto->producto; ?></td>
+            <td align="center"><?php echo date("d/m/Y", strtotime($producto->fechaventa)); ?></td>
+            <td align="center"><?php echo $producto->unidades; ?></td>
 
-		</thead>
-		<tbody>
-        <?php if(isset($ventas)): ?>
-
-
-		<?php foreach($ventas as $venta): ?>
-				<tr id="fila<?php echo $venta->idventa; ?>" >
-					<td align="center"><?php echo date("d/m/Y", strtotime($venta->fecha)); ?></td>
-				<td align="center"><?php echo moneda( $venta->total ); ?></td>
-
-			</tr>
+        </tr>
 
 
-		<?php endforeach; ?>
+    <?php endforeach; ?>
 
 
-		</tbody>
+    </tbody>
 
-	</table>
+</table>
 
-	<?php else: ?>
-		<br><br><p class="bg-danger">No se encontraron Ventas</p>
+<?php else: ?>
+    <br><br><p class="bg-danger text-center">No se encontraron Productos</p>
 
-	<?php endif; ?>
+<?php endif; ?>
 
 <script>
+
     $( function () {
         $("select.form-control").removeClass("form-control-sm");
         $("select.form-control").css("cursor", "pointer" );
@@ -58,7 +58,11 @@
 
     $('#myTable').dataTable( {
         //"dom": '<"row"<"col-md-3" f > <"col-md-3" p > <"col-md-1" l > <"col-md-3" i > > rt <"bottom"i><"clear">',
+        //para los encabezados
+        // f = buscar p=pagineo l=mostrar elementos i=cantidad de elementos
         "dom": '<"row" <"col-md-3" f > <"col-md-3" p > <"col-md-2 cantidad" l > <"col-md-3" i >> rt <"clear">',
+        //ordenar el numero de columna y el orden
+        //"order": [[ 2, "desc"]],
         language: {
             processing:     "Solicitud en curso...",
             search:         "Buscar:",
@@ -80,6 +84,12 @@
                 sortAscending:  ": activer pour trier la colonne par ordre croissant",
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
-        }
+        },
+
+        //sin ordenar, toma el orden que devuelva la consulta
+        ordering:  false
+
+
     } );
 </script>
+

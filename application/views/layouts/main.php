@@ -124,10 +124,10 @@
                         <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reportes</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="dropdownMenu1">
 
-                                <a class="dropdown-item" href="<?php echo base_url(); ?>reportes">Ventas</a>
-
-
-                                <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtrosOrdenes">Ordenes</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>reportes">Ventas</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtrosOrdenes">Ordenes</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtroTopVentas">Top Productos Vendidos</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtroMesero">Rendimiento Meseros</a>
 
 
                         </div>

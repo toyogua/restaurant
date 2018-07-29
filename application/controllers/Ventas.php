@@ -74,7 +74,10 @@ class Ventas extends CI_Controller
 
                 'idproducto'            => $producto->idproducto,
                 'idventa'               => $idventa,
+                'cantidad'              => $producto->cantidad
             );
+
+           var_dump($producto);
 
             $this->Venta_model->insertaDetalleVenta( $arrproductos );
         }

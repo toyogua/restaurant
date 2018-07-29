@@ -1,13 +1,13 @@
 
 
-<h2 align="center">REPORTES <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
+<h2 align="center">REPORTES ORDENES <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
 <hr>
 
 
 
 <?php if ( $total!= null || $total >0): ?>
     <div class="col-md-4 offset-10">
-        <label class="btn btn-info">Totales: Q <?php print_r($total)?></label>
+        <label class="btn btn-info">Totales: <?php echo moneda($total)?></label>
     </div>
 <?php endif; ?>
 <table id="myTable" class="table table-bordered table-striped">
@@ -31,8 +31,8 @@
 
     <?php foreach($ordenes as $orden): ?>
         <tr id="fila<?php echo $orden->idOrden; ?>" >
-            <td align="center"><?php echo $orden->fechaOrden; ?></td>
-            <td align="center"><?php echo $orden->totalOrden; ?></td>
+            <td align="center"><?php echo date("d/m/Y", strtotime($orden->fechaOrden)); ?></td>
+            <td align="center"><?php echo moneda( $orden->totalOrden ); ?></td>
 
 
         </tr>

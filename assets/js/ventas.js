@@ -103,7 +103,8 @@ $(document).ready(function() {
                 $("input:checkbox:checked").each(   
                     function() {
                         apagar.listos.push({
-                            "idproducto": $(this).val()
+                            "idproducto": $(this).val(),
+                            "cantidad": $(this).data("cantidad")
         
                         });
                     }

@@ -1,55 +1,53 @@
 
 
-	<h2 align="center">REPORTES VENTAS <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
-	<hr>
+<h2 align="center">REPORTES MESEROS <?php print_r( $titulo .' '.$fInicial .'  '. $fFinal  ); ?> </h2>
+<hr>
+
+<table id="myTable" class="table table-bordered table-striped">
+    <thead class="blue-grey lighten-4">
+    <tr>
+
+        <th class="text-center">
+            NOMBRE
+        </th>
+
+        <th class="text-center">
+            CANTIDAD DE ORDENES
+        </th>
+
+        <th class="text-center">
+            MONTO VENDIDO
+        </th>
 
 
-	<?php if ( $total!= null || $total >0): ?>
-		<div class="col-md-4 offset-10">
-			<label class="btn btn-info">Totales: <?php echo moneda($total)?></label>
-		</div>
-	<?php endif; ?>
-	<table id="myTable" class="table table-bordered table-striped">
-		<thead class="blue-grey lighten-4">
-		<tr>
+    </tr>
 
-			<th class="text-center">
-				FECHA
-			</th>
+    </thead>
+    <tbody>
+    <?php if(isset($meseros)): ?>
+    <?php foreach($meseros as $mesero): ?>
+        <tr id="fila<?php echo $mesero->idempleado; ?>" >
+            <td align="center"><?php echo $mesero->nombres . ' ' . $mesero->apellidos ; ?></td>
+            <td align="center"><?php echo $mesero->ordenes; ?></td>
+            <td align="center"><?php echo moneda($mesero->montos); ?></td>
 
-			<th class="text-center">
-				TOTAL
-			</th>
+        </tr>
 
 
-		</tr>
-
-		</thead>
-		<tbody>
-        <?php if(isset($ventas)): ?>
+    <?php endforeach; ?>
 
 
-		<?php foreach($ventas as $venta): ?>
-				<tr id="fila<?php echo $venta->idventa; ?>" >
-					<td align="center"><?php echo date("d/m/Y", strtotime($venta->fecha)); ?></td>
-				<td align="center"><?php echo moneda( $venta->total ); ?></td>
+    </tbody>
 
-			</tr>
+</table>
 
+<?php else: ?>
+    <br><br><p class="bg-danger text-center">No se encontraron Resultados</p>
 
-		<?php endforeach; ?>
-
-
-		</tbody>
-
-	</table>
-
-	<?php else: ?>
-		<br><br><p class="bg-danger">No se encontraron Ventas</p>
-
-	<?php endif; ?>
+<?php endif; ?>
 
 <script>
+
     $( function () {
         $("select.form-control").removeClass("form-control-sm");
         $("select.form-control").css("cursor", "pointer" );
@@ -58,7 +56,11 @@
 
     $('#myTable').dataTable( {
         //"dom": '<"row"<"col-md-3" f > <"col-md-3" p > <"col-md-1" l > <"col-md-3" i > > rt <"bottom"i><"clear">',
+        //para los encabezados
+        // f = buscar p=pagineo l=mostrar elementos i=cantidad de elementos
         "dom": '<"row" <"col-md-3" f > <"col-md-3" p > <"col-md-2 cantidad" l > <"col-md-3" i >> rt <"clear">',
+        //ordenar el numero de columna y el orden
+        //"order": [[ 2, "desc"]],
         language: {
             processing:     "Solicitud en curso...",
             search:         "Buscar:",
@@ -80,6 +82,12 @@
                 sortAscending:  ": activer pour trier la colonne par ordre croissant",
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
-        }
+        },
+
+        //sin ordenar, toma el orden que devuelva la consulta
+        ordering:  false
+
+
     } );
 </script>
+

@@ -118,3 +118,19 @@ if(!function_exists('obtenerTotales')) {
     }
 }
 
+if(!function_exists('moneda')) {
+
+    function moneda( $valor )
+    {
+
+        if ($valor != null )
+        {
+
+            return 'Q ' . number_format($valor, 2);
+        }
+
+        return 0;
+
+    }
+}
+

@@ -306,4 +306,269 @@
 
             $this->load->view('layouts/main', $data);
         }
+
+        public function filtroTopVentas()
+        {
+            $data['main_view'] = "reportes/filtroTopVentas_view";
+
+            $this->load->view('layouts/main', $data);
+        }
+
+        public function listarTopProductos()
+        {
+            $intervalo = null;
+            $tipoIntervalo = null;
+            $top = NULL;
+
+
+            if ( $this->input->post('intervalo') != null && $this->input->post('radio') )
+            {
+                $intervalo = $this->input->post('intervalo');
+                $tipoIntervalo = $this->input->post('radio');
+            }
+
+            if ( $this->input->post('top') != null ){
+
+                $top = $this->input->post('top');
+            }
+
+            $fInicial   = null;
+            $fFinal     = null;
+
+            if ($this->input->post('txtFInicial') != null && $this->input->post('txtFFinal') != null)
+            {
+                $fInicial   = $this->input->post('txtFInicial');
+                $fFinal     = $this->input->post('txtFFinal');
+
+            }
+
+
+            $total = 0;
+            if ($tipoIntervalo != null || $tipoIntervalo != 0 )
+            {
+
+                if ($tipoIntervalo < 3 )
+                {
+                    //intervalo fijo
+                    if ( $tipoIntervalo == 1)
+                    {
+
+                        if ($fInicial != null || $fFinal != null  )
+                        {
+                            $this->session->set_flashdata('combinacion', 'Mala combinacion de rangos');
+                            redirect('reportes/filtroTopVentas');
+                        }
+
+                        if ( $top == null )
+                        {
+                            $this->session->set_flashdata('top', 'Debes elegir alguna opcion Mas / Menos Vendidos');
+                            redirect('reportes/filtroTopVentas');
+                        }
+
+                        $temp = $this->Reporte_model->topProductos( $intervalo, null, null, $top );
+
+                        if ($temp != FALSE){
+                            $data['productos'] = $temp;
+                        }
+
+
+                    }
+
+                    //rango con fechas
+                    if ( $tipoIntervalo == 2 )
+                    {
+                        if ($fInicial == null && $fInicial == null ){
+                            $this->session->set_flashdata('fechas_vacias', 'Las fechas no pueden estar vacias');
+                            redirect('reportes/filtroTopVentas');
+                        }
+
+                        if ( $top == null )
+                        {
+                            $this->session->set_flashdata('top', 'Debes elegir alguna opcion Mas / Menos Vendidos');
+                            redirect('reportes/filtroTopVentas');
+                        }
+
+                        $temp = $this->Reporte_model->topProductos( null, $fInicial, $fFinal, $top );
+
+                        if ($temp != FALSE){
+                            $data['productos'] = $temp;
+
+                        }
+
+
+                    }
+
+                }
+            }else{
+                $this->session->set_flashdata('campos_vacios', 'Debes seleccionar una opcion');
+                redirect('reportes/filtroTopVentas');
+            }
+
+            $titulo = " (Parece que no selecciono ningun rango )";
+            switch ($intervalo) {
+                case 1:
+                    $titulo = "HOY";
+                    break;
+                case 2:
+                    $titulo = "AYER";
+                    break;
+                case 3:
+                    $titulo= "DE ESTA SEMANA";
+                    break;
+                case  4 :
+                    $titulo = "DE LA SEMANA PASADA";
+                    break;
+                case 5:
+                    $titulo = "DE ESTE MES";
+                    break;
+                case 6:
+                    $titulo = "DEL MES PASADO";
+                    break;
+                case 7:
+                    $titulo = "DEL AÑO ACTUAL";
+                    break;
+                case 8:
+                    $titulo = "DEL AÑO PASADO";
+                    break;
+            }
+
+            if ($tipoIntervalo == 2)
+            {
+                $titulo = "ENTRE FECHAS";
+            }
+
+
+            $data['fInicial'] = $fInicial;
+            $data['fFinal'] = $fFinal;
+            $data['titulo'] = $titulo;
+            $data['total'] =  $total;
+            $data['main_view'] = "reportes/listarTopProductos_view";
+
+            $this->load->view('layouts/main', $data);
+        }
+
+        public function filtroMesero()
+        {
+            $data['main_view'] = "reportes/filtroMesero_view";
+
+            $this->load->view('layouts/main', $data);
+        }
+
+        public function listarRendimientoMesero()
+        {
+            $intervalo = null;
+            $tipoIntervalo = null;
+
+
+            if ( $this->input->post('intervalo') != null && $this->input->post('radio') )
+            {
+                $intervalo = $this->input->post('intervalo');
+                $tipoIntervalo = $this->input->post('radio');
+            }
+
+
+            $fInicial   = null;
+            $fFinal     = null;
+
+            if ($this->input->post('txtFInicial') != null && $this->input->post('txtFFinal') != null)
+            {
+                $fInicial   = $this->input->post('txtFInicial');
+                $fFinal     = $this->input->post('txtFFinal');
+
+            }
+
+
+            $total = 0;
+            if ($tipoIntervalo != null || $tipoIntervalo != 0 )
+            {
+
+                if ($tipoIntervalo < 3 )
+                {
+                    //intervalo fijo
+                    if ( $tipoIntervalo == 1)
+                    {
+
+                        if ($fInicial != null || $fFinal != null  )
+                        {
+                            $this->session->set_flashdata('combinacion', 'Mala combinacion de rangos');
+                            redirect('reportes/filtroMesero');
+                        }
+
+
+                        $temp = $this->Reporte_model->topEmpleados( $intervalo, null, null );
+
+                        if ($temp != FALSE){
+                            $data['meseros'] = $temp;
+                        }
+
+
+                    }
+
+                    //rango con fechas
+                    if ( $tipoIntervalo == 2 )
+                    {
+                        if ($fInicial == null && $fInicial == null ){
+                            $this->session->set_flashdata('fechas_vacias', 'Las fechas no pueden estar vacias');
+                            redirect('reportes/filtroMesero');
+                        }
+
+
+                        $temp = $this->Reporte_model->topEmpleados( null, $fInicial, $fFinal );
+
+                        if ($temp != FALSE){
+                            $data['meseros'] = $temp;
+
+                        }
+
+
+                    }
+
+                }
+            }else{
+                $this->session->set_flashdata('campos_vacios', 'Debes seleccionar una opcion');
+                redirect('reportes/filtroMesero');
+            }
+
+            $titulo = " (Parece que no selecciono ningun rango )";
+            switch ($intervalo) {
+                case 1:
+                    $titulo = "HOY";
+                    break;
+                case 2:
+                    $titulo = "AYER";
+                    break;
+                case 3:
+                    $titulo= "DE ESTA SEMANA";
+                    break;
+                case  4 :
+                    $titulo = "DE LA SEMANA PASADA";
+                    break;
+                case 5:
+                    $titulo = "DE ESTE MES";
+                    break;
+                case 6:
+                    $titulo = "DEL MES PASADO";
+                    break;
+                case 7:
+                    $titulo = "DEL AÑO ACTUAL";
+                    break;
+                case 8:
+                    $titulo = "DEL AÑO PASADO";
+                    break;
+            }
+
+            if ($tipoIntervalo == 2)
+            {
+                $titulo = "ENTRE FECHAS";
+            }
+
+
+            $data['fInicial'] = $fInicial;
+            $data['fFinal'] = $fFinal;
+            $data['titulo'] = $titulo;
+            $data['total'] =  $total;
+            $data['main_view'] = "reportes/listarRendimientoMesero_view";
+
+            $this->load->view('layouts/main', $data);
+        }
     }
