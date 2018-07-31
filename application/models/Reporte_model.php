@@ -597,4 +597,26 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                 return FALSE;
             }
     }
+
+    public function ventasCierreCaja($fInicial, $fFinal, $idempleado )
+    {
+        if ( $fInicial != null && $fFinal != null){
+
+            $this->db->select('SUM(ventas.total) as total');
+            $condition = "fecha BETWEEN " . "'" . $fInicial . "'" . " AND " . "'" . $fFinal . "'";
+
+            $this->db->from('ventas');
+
+            $this->db->where($condition);
+            $this->db->where('idempleado', $idempleado );
+            $this->db->where('estado', 1);
+
+            $query = $this->db->get();
+            if ($query->num_rows() > 0) {
+                return $query->result();
+            } else {
+                return FALSE;
+            }
+        }
+    }
 }

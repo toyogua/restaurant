@@ -601,6 +601,11 @@ function cache_clear() {
     // window.location.reload(); use this if you do not remove cache
 }
 
+function destroyAll() {
+    window.location.href = baseurl+'/users/logout';
+    // window.location.reload(); use this if you do not remove cache
+}
+
 function cargar() {
     window.location.href = baseurl+"Products/display";
 }

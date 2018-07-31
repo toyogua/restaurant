@@ -134,3 +134,27 @@ if(!function_exists('moneda')) {
     }
 }
 
+
+if(!function_exists('movimiento')) {
+
+    function movimiento( $idempleado )
+    {
+        $CI = & get_instance();
+        $CI->load->database();
+        $CI->load->Caja_model;
+
+        if ($idempleado != null )
+        {
+            $idmovimiento = $CI->Caja_model->obtenerMovimiento( $idempleado );
+
+            if ($idmovimiento != FALSE && $idmovimiento != NULL)
+            {
+                return $idmovimiento;
+            }else{
+
+                return FALSE;
+            }
+        }
+
+    }
+}

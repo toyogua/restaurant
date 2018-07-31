@@ -12,6 +12,41 @@ var controlinsertados = 0;
 
 $(document).ready(function() {
 
+    if( window.location.href === baseurl + 'ventas') {
+
+
+        //$("#txtMontoApertura").val("");
+
+        var empleado = $("#txtRegistrarApertura").data("empleado");
+        console.log(empleado);
+        // $.post(baseurl + 'cajas/obtenerEstado/', {id: empleado}, function (respuesta) {
+        //
+        //     if (respuesta == 1) {
+        //         $('#modalAperturaCaja').modal('show');
+        //         console.log("res"+respuesta);
+        //         //window.location.href = baseurl+'/users/display';
+        //     }
+        //
+        // });
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'cajas/obtenerEstado/',
+            dataType: 'json',
+            data: {id: empleado },
+            success: function (res) {
+                if (res) {
+                    $('#modalAperturaCaja').modal('show');
+                    console.log("res"+respuesta);
+                    //window.location.href = baseurl+'/users/display';
+                }
+                //alertify.success('Venta Procesada');
+            }
+        });
+
+
+    }
+
     $(document).on("click", ".btnmesacobrar", function () {
         total = 0;
         
@@ -127,7 +162,7 @@ $(document).ready(function() {
                         }
                     });
                 setInterval(function() {
-                    //cache_clear()
+                    cache_clear()
                 }, 1000);
 
                 total = 0;
@@ -143,6 +178,7 @@ $(document).ready(function() {
                 apagar.listos=[];
 
                 if( enordenhay === controlinsertados){
+
                     console.log("Listo ya se acabo");
                     $.ajax({
                         type: "POST",
@@ -160,6 +196,8 @@ $(document).ready(function() {
 
                         }
                     });
+
+
                 }else{
                     console.log("Siga trabajando...");
                 }
@@ -175,6 +213,105 @@ $(document).ready(function() {
         
     });
 
+    $("#btnRegistrarMontoApertura").click(function () {
+        var monto = $("#txtRegistrarApertura").val();
+        var empleado = $("#txtRegistrarApertura").data("empleado");
 
+        if ( monto == "")
+        {
+            swal("Error!", "Debes ingresar un monto", "error");
+            return false;
+
+        }
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'cajas/aperturaCaja',
+            dataType: 'json',
+            data: {monto: monto, idempleado: empleado },
+            success: function (res) {
+                alertify.success('Caja Abierta');
+                setInterval(function() {
+                    cache_clear()
+                }, 1000);
+            }
+        });
+    });
+
+    var monto = 0;
+    $("#btnCerarCaja").click( function () {
+
+        $('#modalCierreCaja').modal('show');
+
+        var idempleado = $(this).data("idempleado");
+        var movimiento = $(this).data("idmovimiento");
+
+
+        console.log(idempleado);
+        console.log(movimiento);
+
+        $.ajax({
+            type: "POST",
+            url: baseurl + 'cajas/cierreContraVenta',
+            dataType: 'json',
+            data: {idempleado: idempleado},
+            success: function (res) {
+                //console.log(res);
+                if ( res )
+                {
+                    $("#txtCierreCaja").text(res.montotxt );
+                    //monto = res.montobd;
+                    montototal( res.montobd);
+                    console.log(monto);
+
+                }else{
+                    console.log("Sin ventas");
+                }
+                //alertify.success('Caja Abierta');
+            }
+        });
+    });
+
+    function montototal( $montobd )
+    {
+        monto = $montobd;
+    }
+
+    $("#btnConfirmaCierreCaja").click( function () {
+        var idempleado = $(this).data("empleado");
+        var movimiento = $(this).data("idmovimiento");
+
+        alertify.confirm('Estás seguro?', 'Este proceso no se puede revertir',
+            function(){
+
+                    $.ajax({
+                        type: "POST",
+                        url: baseurl + 'cajas/cierreCaja',
+                        dataType: 'json',
+                        data: {idempleado: idempleado, idcaja: movimiento, monto: monto},
+                        success: function (res) {
+                            //console.log(res);
+                            if ( res )
+                            {
+                                alertify.success('Todo procesado con éxito');
+                                setInterval(function() {
+                                    cache_clear()
+                                }, 1000);
+
+                            }else{
+                                console.log("Sin ventas");
+                            }
+                            //alertify.success('Caja Abierta');
+                        }
+                    }
+                    );
+
+            },
+            function(){
+                alertify.error('Cancelado')
+            });
+
+
+    });
 
 });

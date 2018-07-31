@@ -115,7 +115,7 @@
                     <?php endif;?>
                     <?php if( $res= obtenerPermisos($this->session->userdata('idempleado'), "Permisos", "Mostrar")): ?>
                     <li class="nav-item btn-group">
-                        <a class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
+                        <a  class="nav-link" href="<?php echo base_url();?>permisos">Permisos</a>
                     </li>
                     <?php endif;?>
 
@@ -171,4 +171,5 @@
     <?php endif; ?>
 </div>
 
+</body>
 </html>

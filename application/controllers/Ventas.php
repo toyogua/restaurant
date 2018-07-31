@@ -14,6 +14,7 @@ class Ventas extends CI_Controller
 
         parent::__construct();
         $this->load->model('Venta_model');
+        $this->load->model('Caja_model');
         $this->load->helper('utilidades');
 
 
@@ -62,7 +63,8 @@ class Ventas extends CI_Controller
         $data = array(
             'idempleado'                => $idempleado,
             'fecha'                     => $fecha,
-            'total'                     => $total
+            'total'                     => $total,
+            'estado'                    => 1
         );
 
         $idventa = $this->Venta_model->insertarVenta( $data );

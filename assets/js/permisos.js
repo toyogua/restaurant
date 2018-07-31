@@ -8,16 +8,18 @@ var aborrar = {
 
 $(document).ready(function () {
 
+
+
     $(".acctodos").change(function () {
 
-        let idmodulo = $(this).data("id");
+        var idmodulo = $(this).data("id");
 
         $("input:checkbox."+idmodulo).prop('checked', $(this).prop("checked"));
     });
 
     $(document).on("change", "input:checkbox", function () {
 
-        let idempleado = $("#idempleado").val();
+        var idempleado = $("#idempleado").val();
 
         if( !$(this).is(':checked') ) {
            aborrar.listos.push({
@@ -29,7 +31,7 @@ $(document).ready(function () {
     });
 
     $("#btnAsignarPermisos").click( function () {
-        let idempleado = $("#idempleado").val();
+        var idempleado = $("#idempleado").val();
 
 
         alertify.confirm('Estás seguro?', 'De querer realizar esta acción?',
