@@ -25,7 +25,7 @@ $(document).ready(function() {
             success: function (res) {
                 if (res) {
                     $('#modalAperturaCaja').modal('show');
-                    console.log("res"+respuesta);
+                    //console.log("res"+respuesta);
                     //window.location.href = baseurl+'/users/display';
                 }
                 //alertify.success('Venta Procesada');
@@ -236,9 +236,6 @@ $(document).ready(function() {
         var movimiento = $(this).data("idmovimiento");
 
 
-        console.log(idempleado);
-        console.log(movimiento);
-
         $.ajax({
             type: "POST",
             url: baseurl + 'cajas/cierreContraVenta',
@@ -251,10 +248,10 @@ $(document).ready(function() {
                     $("#txtCierreCaja").text(res.montotxt );
                     //monto = res.montobd;
                     montototal( res.montobd);
-                    console.log(monto);
+
 
                 }else{
-                    console.log("Sin ventas");
+                    //console.log("Sin ventas");
                 }
                 //alertify.success('Caja Abierta');
             }
@@ -288,7 +285,7 @@ $(document).ready(function() {
                                 }, 1000);
 
                             }else{
-                                console.log("Sin ventas");
+                                //console.log("Sin ventas");
                             }
                             //alertify.success('Caja Abierta');
                         }

@@ -58,7 +58,10 @@ class Ventas extends CI_Controller
         $idempleado =   $this->input->post('idempleado');
         $total =        $this->input->post('total');
 
-        $fecha = date('y/m/d');
+        date_default_timezone_set('America/Guatemala');
+        //$hoy = date("Y-m-d H:i:s");
+        //$hoy = date("Y-m-d");
+        $fecha = date("Y-m-d");
 
         $data = array(
             'idempleado'                => $idempleado,
