@@ -58,9 +58,11 @@ class Venta_model extends CI_Model
         $this->db->join('subcategorias', 'subcategorias.idSubcategoria = producto.idSubCategoria');
         $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
         $this->db->where('detalleorden.estadoDetalleOrden', 1);
+        $this->db->where('detalleorden.pagado', 0);
         $this->db->where('orden.estadoOrden', 0);
         $this->db->where('orden.pagada', 0);
         $this->db->where('mesa.idMesa', $idmesa);
+
 
         $query = $this->db->get();
 
@@ -89,6 +91,12 @@ class Venta_model extends CI_Model
 
     }
 
+    public function marcaProductoDetalleOrden($idproducto, $iddetalle, $data)
+    {
+        $this->db->where('idorden', $iddetalle);
+        $this->db->where('idProducto', $idproducto );
+        $this->db->update('detalleorden', $data );
+    }
     public function marcarOrden( $data, $idmesa)
     {
         $this->db->where('idMesa', $idmesa);

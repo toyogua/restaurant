@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/Cajas.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/Errores.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/models/Caja_model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/errores/fatal_error_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Ventas.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ventas.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/utilidades_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/utilidades_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Reporte_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Reporte_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/users/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/users/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/permisos.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/permisos.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/producto.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/producto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Venta_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Venta_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/ventas.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ventas.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,52 +45,128 @@
         <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="movimientos_caja: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="detalleorden: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="temp_movimientos: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="detalleventas: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="producto: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="ventas: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1918140245">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.115" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="detalleorden" value="2" />
+          <entry key="detalleventas" value="2" />
+          <entry key="orden" value="1" />
+          <entry key="php" value="1" />
+          <entry key="sql" value="1" />
+          <entry key="ventas" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.composer.actions" />
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="130" />
+          <entry key="php" value="643" />
+          <entry key="sql" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.php.new.test" />
+      <usages-collector id="statistics.php.new.class" />
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="130" />
+          <entry key="PHP" value="643" />
+          <entry key="SQL" value="12" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Database Element" value="6" />
+          <entry key="PHP" value="1" />
+          <entry key="SQL" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.composer.command.options" />
+      <usages-collector id="statistics.php.rename.constructor" />
+    </session>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ventas.js" pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/ventas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="232" column="49" selection-start-line="232" selection-start-column="49" selection-end-line="232" selection-end-column="49" />
+            <state relative-caret-position="119">
+              <caret line="153" column="20" lean-forward="true" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registrar_venta_view.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
+            <state relative-caret-position="528">
               <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ventas.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+            <state relative-caret-position="205">
+              <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Venta_model.php" pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/detalleorden">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Venta_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+            <state relative-caret-position="425">
+              <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -135,7 +199,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/helpers/paginacion_helper.php" />
         <option value="$PROJECT_DIR$/application/controllers/Products.php" />
         <option value="$PROJECT_DIR$/application/models/Ingrediente_model.php" />
         <option value="$PROJECT_DIR$/application/models/Producto_model.php" />
@@ -183,8 +246,9 @@
         <option value="$PROJECT_DIR$/application/controllers/Cajas.php" />
         <option value="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" />
         <option value="$PROJECT_DIR$/application/models/Caja_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Ventas.php" />
         <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Ventas.php" />
+        <option value="$PROJECT_DIR$/application/models/Venta_model.php" />
         <option value="$PROJECT_DIR$/assets/js/ventas.js" />
       </list>
     </option>
@@ -200,9 +264,6 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="NodePackageJsonFileManager">
-    <packageJsonPaths />
   </component>
   <component name="PhpDebugGeneral" break_at_first_line="true" hide_empty_superglobals="false" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
@@ -324,9 +385,15 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/application/controllers/Reportes.php" />
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" filter_connections="FILTER" server_name="localhost" session_id="JRAMIREZ" />
-    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost" />
+    <configuration name="Unnamed" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/application/controllers/Reportes.php">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" filter_connections="FILTER" server_name="localhost" session_id="JRAMIREZ">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" browser="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" server_name="localhost">
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -369,7 +436,10 @@
       <workItem from="1532852400319" duration="5178000" />
       <workItem from="1532872483740" duration="28020000" />
       <workItem from="1532905002084" duration="19489000" />
-      <workItem from="1532999992026" duration="605000" />
+      <workItem from="1532999992026" duration="3387000" />
+      <workItem from="1533093627159" duration="415000" />
+      <workItem from="1533094245834" duration="668000" />
+      <workItem from="1533173197636" duration="4521000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizacion helper...">
       <created>1530419340365</created>
@@ -518,59 +588,66 @@
       <option name="project" value="LOCAL" />
       <updated>1532884286113</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Apertura y cierre de caja contra venta COMPLETO">
+      <created>1533001075301</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1533001075301</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220980000" />
+    <option name="totallyTimeSpent" value="229366000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16398244" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.3990461" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50073206" side_tool="true" weight="0.3990461" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.16764276" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3290938" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.3990461" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3290938" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.21303657" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50073206" side_tool="true" weight="0.39836067" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32867134" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32867134" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="11" weight="0.21303657" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.16717096" />
     </layout>
     <layout-to-restore>
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13836017" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info active="true" anchor="bottom" id="Database Console" order="11" visible="true" weight="0.21462639" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.08418741" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="11" visible="true" weight="0.21462639" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +682,8 @@
     <MESSAGE value="Corregidos bugs reportes ordenes y ventas." />
     <MESSAGE value="Paginacion reportes, filtros dinamicos, visualizacion por cantidad. TODO COMPLETO" />
     <MESSAGE value="Reportes Rendimientos Productos y Reportes Rendimientos Meseros COMPLETOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reportes Rendimientos Productos y Reportes Rendimientos Meseros COMPLETOS" />
+    <MESSAGE value="Apertura y cierre de caja contra venta COMPLETO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apertura y cierre de caja contra venta COMPLETO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,31 +696,9 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="11" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/system/core/Utf8.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="181" selection-start-line="181" selection-end-line="181" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/filtroMesero_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="47" column="26" lean-forward="true" selection-start-line="47" selection-start-column="26" selection-end-line="47" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
@@ -889,13 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/ventas">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
@@ -926,15 +975,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
+        <state relative-caret-position="528">
           <caret line="36" column="30" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -945,17 +987,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Venta_model.php">
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/detalleorden.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+          <caret line="1" column="13" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/detalleventas">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/ventas">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Ventas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="78" column="62" selection-start-line="78" selection-start-column="62" selection-end-line="78" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Venta_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/detalleorden">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/ventas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="232" column="49" selection-start-line="232" selection-start-column="49" selection-end-line="232" selection-end-column="49" />
+        <state relative-caret-position="119">
+          <caret line="153" column="20" lean-forward="true" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

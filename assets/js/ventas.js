@@ -14,20 +14,8 @@ $(document).ready(function() {
 
     if( window.location.href === baseurl + 'ventas') {
 
-
-        //$("#txtMontoApertura").val("");
-
         var empleado = $("#txtRegistrarApertura").data("empleado");
-        console.log(empleado);
-        // $.post(baseurl + 'cajas/obtenerEstado/', {id: empleado}, function (respuesta) {
-        //
-        //     if (respuesta == 1) {
-        //         $('#modalAperturaCaja').modal('show');
-        //         console.log("res"+respuesta);
-        //         //window.location.href = baseurl+'/users/display';
-        //     }
-        //
-        // });
+
 
         $.ajax({
             type: "POST",
@@ -81,7 +69,7 @@ $(document).ready(function() {
 
                         '<label id="lbl'+ val.idProducto +'"  style="font-size: 15px; cursor: pointer" class="input-group">'+
 
-                        '<input style="transform: scale(2.0); margin-right: 10px; cursor: pointer;" id="producto" data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="form-check checkproducto" value="'+val.idProducto+'" type="checkbox"'+
+                        '<input data-idorden="'+ val.idOrden +'" style="transform: scale(2.0); margin-right: 10px; cursor: pointer;" id="producto" data-precio="'+val.precioProducto+'" data-cantidad="'+val.cantDetalleOrden+'" checked="checked" class="form-check checkproducto" value="'+val.idProducto+'" type="checkbox"'+
                         'aria-label="Radio button for following text input">'  + val.producto +'  - Cantidad: '+val.cantDetalleOrden+' - Subtotal: '+subtotal+''+
                         
                         '</label>'+
@@ -139,7 +127,8 @@ $(document).ready(function() {
                     function() {
                         apagar.listos.push({
                             "idproducto": $(this).val(),
-                            "cantidad": $(this).data("cantidad")
+                            "cantidad": $(this).data("cantidad"),
+                            "idorden" : $(this).data("idorden")
         
                         });
                     }
