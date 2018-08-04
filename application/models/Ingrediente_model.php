@@ -5,12 +5,14 @@ class Ingrediente_model extends CI_Model{
 
     public function get_ingredientes_info( $porpagina, $desde, $id ){
         $this->db->from('ingrediente');
+        $this->db->join('tipoinventario', 'ingrediente.tipo = tipoinventario.id');
 
         if ($id != null ){
             $this->db->where('idIngrediente', $id);
         }
         $this->db->limit($porpagina, $desde);
         $this->db->order_by('ingrediente', 'ASC');
+
         $query = $this->db->get();
 
         if ($query->num_rows() < 1){
@@ -23,9 +25,9 @@ class Ingrediente_model extends CI_Model{
     }
 
 
-
     public function get_ingrediente_info($idIngrediente){
         $this->db->from('ingrediente');
+        $this->db->join('tipoinventario', 'ingrediente.tipo = tipoinventario.id');
         $this->db->where('idIngrediente', $idIngrediente);
         $query = $this->db->get();
 

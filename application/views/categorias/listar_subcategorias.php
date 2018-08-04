@@ -54,7 +54,7 @@
 </div>
 
 
-<table class="table table-bordered table-striped listadoproductos">
+<table id="myTable" class="table table-bordered table-striped listadoproductos">
     <thead class="blue-grey lighten-4">
     <tr>
 
@@ -101,6 +101,7 @@
     <br><br><p class="bg-danger">No se encontraron Sub Categorias</p>
 
 <?php endif; ?>
+
 
 
 

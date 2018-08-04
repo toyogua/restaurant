@@ -63,7 +63,8 @@ class Ingredientes extends CI_Controller
             'costoIngrediente'          => $listaIngredientes->costoIngrediente,
             'cantIngrediente'           => $listaIngredientes->cantIngrediente,
             'fechaIngreso'              => $listaIngredientes->fechaIngreso,
-            'medida'                    => $listaIngredientes->medida
+            'medida'                    => $listaIngredientes->medida,
+            'tipo'                      => $listaIngredientes->inventario
         );
 
         $res = $this->Ingrediente_model->insertIngredientes($data);
@@ -80,7 +81,8 @@ class Ingredientes extends CI_Controller
             'costoIngrediente'          => $listaIngredientes->costoIngrediente,
             'cantIngrediente'           => $listaIngredientes->cantIngrediente,
             'fechaIngreso'              => $listaIngredientes->fechaIngreso,
-            'medida'                    => $listaIngredientes->medida
+            'medida'                    => $listaIngredientes->medida,
+            'tipo'                      => $listaIngredientes->inventario
         );
 
         $res = $this->Ingrediente_model->edit_ingrediente($listaIngredientes->idingrediente, $data);

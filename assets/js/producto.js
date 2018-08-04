@@ -14,6 +14,7 @@ var ingredienteslistaborrar = {
 idCategoriaActual = 0;
 categoriaActual = "";
 categoriaseleccionada = 0;
+categoriainv = 0;
 
 var idsubcategoria = 0;
 
@@ -27,7 +28,7 @@ $(document).ready(function() {
             $.post(baseurl + 'categorias/todasSubCategoriasJSON/', function (data) {
                 var resultado = JSON.parse(data);
                 $.each(resultado, function (i, val) {
-                    $("#divsubcategorias").append('<a class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
+                    $("#divsubcategorias").append('<a data-categoria="'+ val.idCategoria +'" class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
                 });
             });
 
@@ -199,10 +200,12 @@ $(document).ready(function() {
         $(document).on("click", ".subcategoriasencontradas", function () {
             var nombre = $(this).data("nombre");
             var id = $(this).data("id");
+            var categoria = $(this).data("categoria");
 
             $("#lblSubCategoria").text("Seleccionó:  " + nombre );
 
             idsubcategoria = id;
+            categoriainv = categoria;
 
         });
 
@@ -241,6 +244,7 @@ $(document).ready(function() {
                     formData.append("ingredientes", ingredienteslistosinsertar);
                     formData.append("idsubcategoria", idsubcategoria);
                     formData.append("servicio", servicio);
+                    formData.append("categoria", categoriainv);
 
                     //verificamos si tra ingredientes o no
                     if( $("#chkactivaingrediente").is(':checked') ) {
@@ -303,8 +307,8 @@ $(document).ready(function() {
 
             var id      = $(this).data("id");
             idProducto = id;
-            console.log(id);
-            console.log(idProducto);
+            //console.log(id);
+            //console.log(idProducto);
 
             $.post(baseurl + 'Products/get_producto/' + id, function (data) {
 
@@ -316,7 +320,7 @@ $(document).ready(function() {
                     $.post(baseurl + 'Products/getProductoIngrediente/' + id, function (data2) {
 
                         var resultingredientes = JSON.parse(data2);
-                        console.log(resultingredientes);
+                        //console.log(resultingredientes);
 
                         $.each(resultingredientes, function (j, val2) {
                             $("#txtareaingredientes").append('<div id="'+ val2.idIngrediente +'" data-id="'+ val2.idIngrediente +'" class="chip green lighten-4 col-md-3 cargaringrediente">'+val2.ingrediente+''+" " + ''+val2.cantIngrediente+''+ "  " +''+val2.medida+'<i style="cursor: pointer;" data-id="'+ val2.idIngrediente +'" class="eliminaingrediente fa fa-times"></i></div>');
@@ -400,7 +404,7 @@ $(document).ready(function() {
             $.post(baseurl + 'categorias/todasSubCategoriasJSON/', function (data) {
                 var resultado = JSON.parse(data);
                 $.each(resultado, function (i, val) {
-                    $("#divsubcategorias").append('<a class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
+                    $("#divsubcategorias").append('<a data-categoria="'+ val.idCategoria +'" class="dropdown-item subcategoriasencontradas" data-id="'+ val.idSubcategoria +'" data-nombre="'+ val.nombre +'" href="#">'+ val.nombre+'</a>')
                 });
             });
 
@@ -437,6 +441,7 @@ $(document).ready(function() {
                     formData.append("idproducto", idProducto);
                     formData.append("ingredientes", ingredientesparainsertar);
                     formData.append("ingredientesborrar", ingredientesparaborrar);
+                    formData.append("categoria", categoriainv);
 
 
                     $.ajax({

@@ -71,6 +71,7 @@
         <th class="th-lg"><b>Costo</b></th>
         <th class="th-lg"><b>Existencia</b></th>
         <th class="th-lg"><b>Medida</b></th>
+        <th class="th-lg"><b>Tipo Inventario</b></th>
     </tr>
     </thead>
     <!--Table head-->
@@ -87,6 +88,7 @@
             <?php  echo "<td style='width: 10%' align='center'>Q " . $ingrediente->costoIngrediente ."</td>"; ?>
             <?php  echo "<td style='width: 10%' align='center'>" . $ingrediente->cantIngrediente ."</td>"; ?>
             <?php  echo "<td style='width: 10%' align='center'>" . $ingrediente->medida ."</td>"; ?>
+            <?php  echo "<td style='width: 10%' align='center'>" . $ingrediente->tipo ."</td>"; ?>
 
             <td align="center" style='width: 5%'><a class="btnEliminarIngrediente" title="Borrar" href="" data-nombre="<?php echo $ingrediente->ingrediente;?>" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-times fa-3x red-text" aria-hidden="true"></i></a></td>
             <td align="center" style='width: 5%'><a data-toggle="modal" data-target="#modalIngrediente" class="btnEditarIngrediente" title="Editar" href="" data-id="<?php echo $ingrediente->idIngrediente;?>"><i class="fa fa-edit fa-3x" aria-hidden="true"></i></a></td>

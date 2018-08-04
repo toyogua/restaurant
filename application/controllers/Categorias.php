@@ -70,7 +70,7 @@ class Categorias extends CI_Controller
         $elementos =  5;
         $data['porpagina'] = $elementos;
         $data['miurl'] = "categorias/listarCategorias/";
-        $data['paginas'] =  cuenta("categoria", $elementos);
+        $data['paginas'] =  cuenta("subcategorias", $elementos);
 
         //datos necesarios para la vista de form
         $data['placeholder'] = "Nombre Subategoria";

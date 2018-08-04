@@ -121,6 +121,8 @@ class Products extends CI_Controller
         $imagen         = $_FILES['imagen']['name'];
         $idsubcategoria = $this->input->post('idsubcategoria');
         $servicio       = $this->input->post('servicio');
+        //categoria para insertar el tipo de inventario que corresponde
+        $categoria      = $this->input->post('categoria');
 
 
         $temporal = $_FILES['imagen']['tmp_name']; //Obtenemos la ruta Original del archivo
@@ -137,7 +139,8 @@ class Products extends CI_Controller
             'cantProducto'           => $cantidad,
             'idSubCategoria'         => $idsubcategoria,
             'imagen'                 => $Destino,
-            'servicio'               => $servicio
+            'servicio'               => $servicio,
+            'tipo'                   => $categoria
         );
 
         $id = $this->Producto_model->insertProducto($data);
@@ -170,9 +173,11 @@ class Products extends CI_Controller
         $costo          = $this->input->post('costo');
         $precio         = $this->input->post('precio');
         $cantidad       = $this->input->post('cantidad');
-        $servicio       = $this->input->post('existencia');
+        $servicio       = $this->input->post('servicio');
         $imagen         = $_FILES['imagen']['name'];
         $idsubcategoria = $this->input->post('idsubcategoria');
+        //categoria para insertar el tipo de inventario que corresponde
+        $categoria      = $this->input->post('categoria');
 
 
         $temporal = $_FILES['imagen']['tmp_name']; //Obtenemos la ruta Original del archivo
@@ -189,7 +194,8 @@ class Products extends CI_Controller
             'cantProducto'           => $cantidad,
             'idSubCategoria'         => $idsubcategoria,
             'imagen'                 => $Destino,
-            'servicio'               => $servicio
+            'servicio'               => $servicio,
+            'tipo'                   => $categoria
         );
 
         $res = $this->Producto_model->insertProducto($data);
@@ -222,6 +228,8 @@ class Products extends CI_Controller
         $precio = $this->input->post('precio');
         $cantidad = $this->input->post('cantidad');
         $imagen = $_FILES['imagen']['name'];
+        //variable para asignar el tipo de inventario
+        $categoria = $this->input->post('categoria');
 
         $imgcon = $this->input->post('imgcon');
         $idsubcategoria = $this->input->post('idsubcategoria');
@@ -244,7 +252,8 @@ class Products extends CI_Controller
             'precioProducto'         => $precio,
             'cantProducto'           => $cantidad,
             'idSubCategoria'         => $idsubcategoria,
-            'imagen'                 => $Destino
+            'imagen'                 => $Destino,
+            'tipo'                   => $categoria
         );
 
         $res = $this->Producto_model->edit_producto($idProducto, $data);

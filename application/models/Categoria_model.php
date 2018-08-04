@@ -15,9 +15,12 @@ class Categoria_model extends CI_Model{
            categoria.categoria
            
           ');
+
+
         $this->db->from('subcategorias');
         $this->db->join('categoria', 'categoria.idCategoria = subcategorias.idCategoria');
         $this->db->where('subcategorias.estado', 1 );
+        $this->db->order_by('nombre', 'asc');
         $this->db->limit($porpagina, $desde);
         $query = $this->db->get();
 

@@ -12,6 +12,25 @@ $(document).ready(function() {
         $(document).on("click", ".btnNuevoIngrediente", function (e) {
             var content = "";
             content += '<form>';
+
+            content += '<div class="md-form offset-1">';
+
+            content += '<p class="text-info ">Tipo Inventario: </p>';
+            content += '<div class="row">';
+            content += '<div class="col-md-1"><label for="riventario1">Barra</label></div>';
+            content += '<div class="col-md 2">';
+            content += '<input checked class="" name="inventario" type="radio" id="riventario1" value="1">';
+            content += '</div>';
+
+            content += '<div class="col-md-1"><label for="riventario">Cocina</label></div>';
+            content += '<div class="col-md 2">';
+            content += '<input class="" name="inventario" type="radio" id="riventario2" value="2">';
+            content += '</div>';
+            content += '</div>';
+            content += '</div>';
+
+            content += '<div class="md-form">';
+
             content += '<div class="md-form">';
             content += '<input type="text" class="form-control" id="ingrediente">';
             content += '<label>Ingrediente</label>';
@@ -35,7 +54,7 @@ $(document).ready(function() {
             content += '<div class="row">';
             content += '<div class="col-md-1"><label for="rgramos">Gramos</label></div>';
             content += '<div class="col-md 2">';
-            content += '<input class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
+            content += '<input checked class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
             content += '</div>';
 
             content += '<div class="col-md-1"><label for="runidad">Unidad</label></div>';
@@ -62,6 +81,7 @@ $(document).ready(function() {
         $(document).on("click", "#btnRegistrarIngrediente", function (e) {
             //detectamos los radio button presionados
             var medida = $('input:radio[name=rmedida]:checked').val();
+            var inventario = $('input:radio[name=inventario]:checked').val();
 
             alertify.confirm('Estás seguro?', 'De querer registrar este ingrediente',
                 function(){
@@ -71,7 +91,8 @@ $(document).ready(function() {
                         "costoIngrediente"          : document.getElementById("costo").value,
                         "cantIngrediente"           : document.getElementById("cantidad").value,
                         "fechaIngreso"              : document.getElementById("fecha").value,
-                        "medida"                    : medida
+                        "medida"                    : medida,
+                        "inventario"                : inventario
                     };
 
                     var ordenJSON = JSON.stringify(ingredientes.lista);
@@ -122,6 +143,23 @@ $(document).ready(function() {
                     $.each(result, function (i, val) {
                         var content = "";
                         content += '<form>';
+
+                        content += '<div class="md-form offset-1">';
+
+                        content += '<p class="text-info ">Tipo Inventario: Actualmente = '+ val.tipo + ' </p>';
+                        content += '<div class="row">';
+                        content += '<div class="col-md-1"><label for="riventario1">Barra</label></div>';
+                        content += '<div class="col-md 2">';
+                        content += '<input checked class="" name="inventario" type="radio" id="riventario1" value="1">';
+                        content += '</div>';
+
+                        content += '<div class="col-md-1"><label for="riventario">Cocina</label></div>';
+                        content += '<div class="col-md 2">';
+                        content += '<input class="" name="inventario" type="radio" id="riventario2" value="2">';
+                        content += '</div>';
+                        content += '</div>';
+                        content += '</div>';
+
                         content += '<div class="">';
                         content += '<label class="h6">Ingrediente</label><br>';
                         content += '<input type="text" class="" id="ingrediente" value="'+val.ingrediente+'">';
@@ -144,7 +182,7 @@ $(document).ready(function() {
                         content += '<div class="row">';
                         content += '<div class="col-md-1"><label for="rgramos">Gramos</label></div>';
                         content += '<div class="col-md 2">';
-                        content += '<input class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
+                        content += '<input checked class="rmedida" name="rmedida" type="radio" id="rgramos" value="Gramos">';
                         content += '</div>';
 
                         content += '<div class="col-md-1"><label for="runidad">Unidad</label></div>';
@@ -169,6 +207,8 @@ $(document).ready(function() {
         $(document).on("click", "#btnEditIngrediente",function(e){
             //detectamos los radio button presionados
             var medida = $('input:radio[name=rmedida]:checked').val();
+            var inventario = $('input:radio[name=inventario]:checked').val();
+
             alertify.confirm('Estás seguro?', 'De querer editar el ingrediente',
                 function(){
                     ingredientes.lista={
@@ -178,6 +218,7 @@ $(document).ready(function() {
                         "cantIngrediente"           : document.getElementById("cantidad").value,
                         "fechaIngreso"              : document.getElementById("fecha").value,
                         "medida"                    : medida,
+                        "inventario"                : inventario,
                         "idingrediente"             : idIngrediente
                     };
 
