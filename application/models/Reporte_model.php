@@ -619,4 +619,224 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
             }
         }
     }
+
+
+    public function movimientos( $intervalo, $fInicial, $fFinal )
+    {
+        //1 - hoy
+        //2 - ayer
+        //3 - esta semana
+        //4 - la semana pasada
+        //5 - este mes
+        //6 - mes pasado
+        //7 - este a;o
+        //8 - a;o pasado
+
+        if ($intervalo != null ){
+            if ($intervalo > 0 || $intervalo !=null) {
+                //hoy
+                if ($intervalo == 1) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE DATE(movimientos_caja.apertura) = CURRENT_DATE
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+
+                }
+                //ayer
+                if ($intervalo == 2) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE DATE(movimientos_caja.apertura) = DATE(DATE(NOW())-1)
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+
+                }
+
+                //esta semana
+                if ($intervalo == 3) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE movimientos_caja.apertura >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND movimientos_caja.apertura < curdate() - INTERVAL DAYOFWEEK
+                                                    (curdate())-2 DAY
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+
+                //semana pasada
+                if ($intervalo == 4) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE movimientos_caja.apertura >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND movimientos_caja.apertura < curdate() - INTERVAL DAYOFWEEK
+                                                    (curdate())-2 DAY
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+
+                //mes actual
+                if ($intervalo == 5) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE movimientos_caja.apertura BETWEEN SUBDATE(CURDATE(),MONTH(CURDATE())) AND ADDDATE(CURDATE(),MONTH(CURDATE()))
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+
+                //mes pasado
+                if ($intervalo == 6) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE MONTH(movimientos_caja.apertura) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH))
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+
+                //este anio
+                if ($intervalo == 7) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE YEAR(movimientos_caja.apertura) = YEAR(CURDATE())
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+
+                //anio pasado
+                if ($intervalo == 8) {
+                    $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                    WHERE YEAR(movimientos_caja.apertura) = YEAR(NOW()) - 1
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                    if ($query->num_rows() > 0) {
+                        return $query->result();
+                    }
+                    return FALSE;
+                }
+            }
+        }
+        else
+            if ( $fInicial != null && $fFinal != null){
+
+
+                $query = $this->db->query('SELECT e.idEmpleado as idempleado, e.nombresEmpleado as nombres, 
+                                                    e.apellidosEmpleado as apellidos, users.idUser as iduser,
+                                                    movimientos_caja.id as idmovimiento, movimientos_caja. apertura,
+                                                    movimientos_caja.cierre, movimientos_caja.montoApertura,
+                                                    movimientos_caja.montoCierre
+                                                   
+                                                    FROM movimientos_caja
+                                                    INNER JOIN empleado e on movimientos_caja.idEmpleado = e.idEmpleado
+                                                    INNER JOIN users on users.idEmpleado = e.idEmpleado 
+                                                  
+                                                   WHERE movimientos_caja.apertura BETWEEN "'.$fInicial.'" AND "'.$fFinal.'"
+                                                    AND movimientos_caja.estado = 1 
+                                                    AND (e.idEmpleado) = 1
+                                                    GROUP BY movimientos_caja.apertura');
+                if ($query->num_rows() > 0) {
+                    return $query->result();
+                }
+                return FALSE;
+            }
+    }
+
 }

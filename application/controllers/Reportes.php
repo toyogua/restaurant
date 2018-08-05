@@ -571,4 +571,129 @@
 
             $this->load->view('layouts/main', $data);
         }
+
+        public function cajas()
+        {
+            $data['main_view'] = "reportes/cajas_view";
+
+            $this->load->view('layouts/main', $data);
+        }
+
+        public function listarMovimientosCaja()
+        {
+            $intervalo = null;
+            $tipoIntervalo = null;
+
+
+            if ( $this->input->post('intervalo') != null && $this->input->post('radio') )
+            {
+                $intervalo = $this->input->post('intervalo');
+                $tipoIntervalo = $this->input->post('radio');
+            }
+
+
+            $fInicial   = null;
+            $fFinal     = null;
+
+            if ($this->input->post('txtFInicial') != null && $this->input->post('txtFFinal') != null)
+            {
+                $fInicial   = $this->input->post('txtFInicial');
+                $fFinal     = $this->input->post('txtFFinal');
+
+            }
+
+
+            $total = 0;
+            if ($tipoIntervalo != null || $tipoIntervalo != 0 )
+            {
+
+                if ($tipoIntervalo < 3 )
+                {
+                    //intervalo fijo
+                    if ( $tipoIntervalo == 1)
+                    {
+
+                        if ($fInicial != null || $fFinal != null  )
+                        {
+                            $this->session->set_flashdata('combinacion', 'Mala combinacion de rangos');
+                            redirect('reportes/cajas');
+                        }
+
+
+                        $temp = $this->Reporte_model->movimientos( $intervalo, null, null );
+
+                        if ($temp != FALSE){
+                            $data['movimientos'] = $temp;
+                        }
+
+
+                    }
+
+                    //rango con fechas
+                    if ( $tipoIntervalo == 2 )
+                    {
+                        if ($fInicial == null && $fInicial == null ){
+                            $this->session->set_flashdata('fechas_vacias', 'Las fechas no pueden estar vacias');
+                            redirect('reportes/cajas');
+                        }
+
+
+                        $temp = $this->Reporte_model->movimientos( null, $fInicial, $fFinal );
+
+                        if ($temp != FALSE){
+                            $data['movimientos'] = $temp;
+
+                        }
+
+
+                    }
+
+                }
+            }else{
+                $this->session->set_flashdata('campos_vacios', 'Debes seleccionar una opcion');
+                redirect('reportes/cajas');
+            }
+
+            $titulo = " (Parece que no selecciono ningun rango )";
+            switch ($intervalo) {
+                case 1:
+                    $titulo = "HOY";
+                    break;
+                case 2:
+                    $titulo = "AYER";
+                    break;
+                case 3:
+                    $titulo= "DE ESTA SEMANA";
+                    break;
+                case  4 :
+                    $titulo = "DE LA SEMANA PASADA";
+                    break;
+                case 5:
+                    $titulo = "DE ESTE MES";
+                    break;
+                case 6:
+                    $titulo = "DEL MES PASADO";
+                    break;
+                case 7:
+                    $titulo = "DEL AÑO ACTUAL";
+                    break;
+                case 8:
+                    $titulo = "DEL AÑO PASADO";
+                    break;
+            }
+
+            if ($tipoIntervalo == 2)
+            {
+                $titulo = "ENTRE FECHAS";
+            }
+
+
+            $data['fInicial'] = $fInicial;
+            $data['fFinal'] = $fFinal;
+            $data['titulo'] = $titulo;
+            //$data['total'] =  $total;
+            $data['main_view'] = "reportes/listarMovimientosCaja_view";
+
+            $this->load->view('layouts/main', $data);
+        }
     }

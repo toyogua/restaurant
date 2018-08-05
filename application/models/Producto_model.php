@@ -42,7 +42,7 @@ class Producto_model extends CI_Model{
         {
             $this->db->where('idProducto', $id );
         }
-        $this->db->limit($porpagina, $desde);
+        //$this->db->limit($porpagina, $desde);
         $this->db->order_by('producto','asc');
 
         $query = $this->db->get();

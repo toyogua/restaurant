@@ -1,20 +1,20 @@
 <h2 align="center">INGREDIENTES </h2>
 <hr>
 
-<div class="row">
+<!--<div class="row">-->
     <div class="col-md-2">
         <!-- Button trigger modal -->
         <button style="cursor: pointer;"  type="button" class="btn btn-success btnNuevoIngrediente" data-toggle="modal" data-target="#modaIngrediente">
             <i class="fa fa-plus"></i>Nuevo Ingrediente
         </button>
     </div>
-    <div>
-        <?php $this->load->view('layouts/paginacion_view'); ?>
-    </div>
-
-        <?php $this->load->view('layouts/form_view'); ?>
-
-</div>
+<!--    <div>-->
+<!--        --><?php //$this->load->view('layouts/paginacion_view'); ?>
+<!--    </div>-->
+<!---->
+<!--        --><?php //$this->load->view('layouts/form_view'); ?>
+<!---->
+<!--</div>-->
 
 <div class="modal fade  myModal" id="modaIngrediente" data-backdrop="static" data-keyboard="false"  tabindex="-1" role="dialog" aria-labelledby="ingredienteModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -59,7 +59,7 @@
 <?php if($ingredientes_data!=FALSE): ?>
  <?php $contador = 0; ?>
 
-<table class="table table-bordered table-striped table-responsive">
+<table id="myTable" class="table table-bordered table-striped ">
 
     <!--Table head-->
     <thead>
@@ -72,6 +72,8 @@
         <th class="th-lg"><b>Existencia</b></th>
         <th class="th-lg"><b>Medida</b></th>
         <th class="th-lg"><b>Tipo Inventario</b></th>
+        <th class="th-lg"><b>Eliminar</b></th>
+        <th class="th-lg"><b>Editar</b></th>
     </tr>
     </thead>
     <!--Table head-->
@@ -98,10 +100,46 @@
     </tbody>
 </table><br>
 
-</div>
+<!--</div>-->
 <?php else: ?>
     <br><br><p class="bg-danger">No se encontraron Ingredientes</p>
 <?php endif; ?>
+
+
+<script>
+    $( function () {
+        $("select.form-control").removeClass("form-control-sm");
+        $("select.form-control").css("cursor", "pointer" );
+        $("input.form-control").removeClass("form-control form-control-sm");
+    });
+
+    $('#myTable').dataTable( {
+        //"dom": '<"row"<"col-md-3" f > <"col-md-3" p > <"col-md-1" l > <"col-md-3" i > > rt <"bottom"i><"clear">',
+        "dom": '<"row" <"col-md-3" f > <"col-md-3" p > <"col-md-2 cantidad" l > <"col-md-3" i >> rt <"clear">',
+        language: {
+            processing:     "Solicitud en curso...",
+            search:         "Buscar:",
+            lengthMenu:    "Mostrar _MENU_ elementos",
+            info:           "Mostrando elementos _START_ al _END_ de _TOTAL_  elementos",
+            infoEmpty:      "Ningún elemento encontrado",
+            infoFiltered:   "(0 filtrados de _MAX_ elementos en total)",
+            infoPostFix:    "",
+            loadingRecords: "Datos cargandose...",
+            zeroRecords:    "No se encontró ningún resultado",
+            emptyTable:     "Sin datos para mostrar",
+            paginate: {
+                first:      "Primero",
+                previous:   "Anterior",
+                next:       "Siguiente",
+                last:       "Último"
+            },
+            aria: {
+                sortAscending:  ": activer pour trier la colonne par ordre croissant",
+                sortDescending: ": activer pour trier la colonne par ordre décroissant"
+            }
+        }
+    } );
+</script>
 
 
 

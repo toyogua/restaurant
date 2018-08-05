@@ -128,7 +128,7 @@
                             <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtrosOrdenes">Ordenes</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtroTopVentas">Top Productos Vendidos</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/filtroMesero">Rendimiento Meseros</a>
-
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>reportes/cajas">Movimientos Caja</a>
 
                         </div>
                     </li>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="Corredigo bug fecha en ventas.">
+    <list default="true" id="a98b7812-1dc1-4e88-aa03-69e45254eae9" name="Default" comment="Agregado tipo de inventario a ingredientes y productos. COMPLETO">
+      <change afterPath="$PROJECT_DIR$/application/views/reportes/cajas_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/reportes/listarMovimientosCaja_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Categorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Categorias.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Ingredientes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Ingredientes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Products.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Categoria_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Categoria_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Ingrediente_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Ingrediente_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Reportes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Reportes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Producto_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Producto_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Reporte_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Reporte_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ingredientes/display_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/ingrediente.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/ingrediente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/producto.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/producto.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/productos/display_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/productos/display_view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +45,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="habitatreal@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="habitatreal: schema" type="c314c289:MysqlImplModel$Schema" />
+        <item name="movimientos_caja: table" type="98d5ac3d:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -53,12 +59,15 @@
     <session id="-1918140245">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.115" value="1" />
           <entry key="project.open.time.43" value="1" />
+          <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.51" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.86" value="1" />
+          <entry key="project.open.time.95" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -68,9 +77,10 @@
           <entry key="detalleproducto" value="1" />
           <entry key="detalleventas" value="2" />
           <entry key="ingrediente" value="1" />
-          <entry key="js" value="5" />
+          <entry key="js" value="6" />
+          <entry key="movimientos_caja" value="2" />
           <entry key="orden" value="1" />
-          <entry key="php" value="13" />
+          <entry key="php" value="30" />
           <entry key="producto" value="4" />
           <entry key="sql" value="1" />
           <entry key="subcategorias" value="3" />
@@ -83,9 +93,9 @@
         <counts>
           <entry key="cell" value="11" />
           <entry key="js" value="643" />
-          <entry key="php" value="1163" />
+          <entry key="php" value="1985" />
           <entry key="sql" value="12" />
-          <entry key="txt" value="84" />
+          <entry key="txt" value="168" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -94,17 +104,17 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="JavaScript" value="643" />
-          <entry key="PHP" value="1163" />
-          <entry key="PLAIN_TEXT" value="84" />
-          <entry key="SQL" value="12" />
+          <entry key="PHP" value="1953" />
+          <entry key="PLAIN_TEXT" value="168" />
+          <entry key="SQL" value="44" />
           <entry key="Scratch" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="27" />
-          <entry key="JavaScript" value="5" />
-          <entry key="PHP" value="13" />
+          <entry key="Database Element" value="29" />
+          <entry key="JavaScript" value="6" />
+          <entry key="PHP" value="30" />
           <entry key="SQL" value="1" />
         </counts>
       </usages-collector>
@@ -115,55 +125,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/producto">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/categoria">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+        <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9792">
+              <caret line="581" column="45" selection-start-line="581" selection-start-column="24" selection-end-line="581" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
+        <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3656">
-              <caret line="400" column="52" lean-forward="true" selection-start-line="400" selection-start-column="52" selection-end-line="400" selection-end-column="52" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="376">
+              <caret line="802" column="53" selection-start-line="802" selection-start-column="53" selection-end-line="802" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/listarMovimientosCaja_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="251" column="48" lean-forward="true" selection-start-line="251" selection-start-column="48" selection-end-line="251" selection-end-column="48" />
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Producto_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1173">
-              <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+        <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/movimientos_caja">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -186,6 +178,7 @@
       <find>get_subcategorias_info</find>
       <find>todasSubCategoriasJSON</find>
       <find>divsubcategorias</find>
+      <find>fil</find>
     </findStrings>
     <replaceStrings>
       <replace>FALSE</replace>
@@ -202,11 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/views/mesas/listar_mesas_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Mesas.php" />
-        <option value="$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Mesa_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Users.php" />
         <option value="$PROJECT_DIR$/application/models/User_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Empleados.php" />
         <option value="$PROJECT_DIR$/application/controllers/Orders.php" />
@@ -226,7 +214,6 @@
         <option value="$PROJECT_DIR$/assets/js/reportes.js" />
         <option value="$PROJECT_DIR$/application/views/reportes/filtroTopVentas_view.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/filtroMesero_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Reportes.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/listarRendimientoMesero_view.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/listar.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php" />
@@ -235,24 +222,30 @@
         <option value="$PROJECT_DIR$/application/controllers/Errores.php" />
         <option value="$PROJECT_DIR$/application/views/users/display_view.php" />
         <option value="$PROJECT_DIR$/assets/js/permisos.js" />
-        <option value="$PROJECT_DIR$/application/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/application/helpers/utilidades_helper.php" />
         <option value="$PROJECT_DIR$/application/controllers/Cajas.php" />
         <option value="$PROJECT_DIR$/application/views/ventas/registrar_venta_view.php" />
         <option value="$PROJECT_DIR$/application/models/Caja_model.php" />
-        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
         <option value="$PROJECT_DIR$/application/models/Venta_model.php" />
         <option value="$PROJECT_DIR$/assets/js/ventas.js" />
         <option value="$PROJECT_DIR$/application/controllers/Ventas.php" />
         <option value="$PROJECT_DIR$/application/controllers/Ingredientes.php" />
         <option value="$PROJECT_DIR$/assets/js/ingrediente.js" />
-        <option value="$PROJECT_DIR$/application/views/ingredientes/display_view.php" />
         <option value="$PROJECT_DIR$/application/models/Ingrediente_model.php" />
         <option value="$PROJECT_DIR$/application/views/categorias/listar_subcategorias.php" />
         <option value="$PROJECT_DIR$/application/controllers/Categorias.php" />
         <option value="$PROJECT_DIR$/application/models/Categoria_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/Products.php" />
         <option value="$PROJECT_DIR$/assets/js/producto.js" />
+        <option value="$PROJECT_DIR$/application/models/Producto_model.php" />
+        <option value="$PROJECT_DIR$/application/views/productos/display_view.php" />
+        <option value="$PROJECT_DIR$/application/views/ingredientes/display_view.php" />
+        <option value="$PROJECT_DIR$/application/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/listarMovimientosCaja.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reportes.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/listarMovimientosCaja_view.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/cajas_view.php" />
+        <option value="$PROJECT_DIR$/application/models/Reporte_model.php" />
       </list>
     </option>
   </component>
@@ -281,9 +274,9 @@
   </component>
   <component name="PhpWebServerValidation" path_to_validation_script="C:\xampp\htdocs\restaurant\reportes\listarTopProductos" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:9000" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="1546" />
-    <option name="y" value="-20" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -315,12 +308,6 @@
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -334,14 +321,7 @@
               <item name="restaurant" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="categorias" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ingredientes" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
@@ -349,17 +329,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="reportes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restaurant" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restaurant" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -444,7 +413,10 @@
       <workItem from="1533094245834" duration="668000" />
       <workItem from="1533173197636" duration="8604000" />
       <workItem from="1533266173069" duration="595000" />
-      <workItem from="1533390287472" duration="16186000" />
+      <workItem from="1533390287472" duration="21547000" />
+      <workItem from="1533429408458" duration="626000" />
+      <workItem from="1533439353321" duration="3095000" />
+      <workItem from="1533476665385" duration="927000" />
     </task>
     <task id="LOCAL-00001" summary="Actualizacion helper...">
       <created>1530419340365</created>
@@ -614,17 +586,24 @@
       <option name="project" value="LOCAL" />
       <updated>1533179580921</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Agregado tipo de inventario a ingredientes y productos. COMPLETO">
+      <created>1533407449109</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1533407449109</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250230000" />
+    <option name="totallyTimeSpent" value="260239000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1366" y="0" width="1366" height="768" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10438729" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18532526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -644,29 +623,30 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.19364598" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.19894099" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13836017" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17473525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3290938" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990461" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49926794" weight="0.3990461" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="11" visible="true" weight="0.21462639" />
-      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3290938" />
+      <window_info anchor="bottom" id="Database Console" order="11" weight="0.21303657" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50073206" side_tool="true" weight="0.3979885" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32867134" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.08418741" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.19288956" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -704,7 +684,8 @@
     <MESSAGE value="Apertura y cierre de caja contra venta COMPLETO" />
     <MESSAGE value="Bug productos en caja corregido." />
     <MESSAGE value="Corredigo bug fecha en ventas." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corredigo bug fecha en ventas." />
+    <MESSAGE value="Agregado tipo de inventario a ingredientes y productos. COMPLETO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregado tipo de inventario a ingredientes y productos. COMPLETO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -720,66 +701,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/js/buscadores.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="44" column="68" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users/login_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/mesas/listar_mesas_con_ordenes_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="46" selection-start-line="46" selection-end-line="62" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/users/display_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/crudEmpleados.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="424" column="43" lean-forward="true" selection-start-line="424" selection-start-column="43" selection-end-line="424" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/crudMesas.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="169" column="23" lean-forward="true" selection-start-line="169" selection-start-column="23" selection-end-line="169" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/permisos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
           <caret line="52" column="2" lean-forward="true" selection-start-line="52" selection-start-column="2" selection-end-line="52" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="111" column="42" lean-forward="true" selection-start-line="111" selection-start-column="42" selection-end-line="111" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -824,24 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="616" column="20" lean-forward="true" selection-start-line="616" selection-start-column="20" selection-end-line="616" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Caja_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/movimientos_caja">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -894,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Cajas.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="112" column="29" lean-forward="true" selection-start-line="110" selection-start-column="8" selection-end-line="112" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Venta_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-85">
@@ -950,13 +854,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/ingredientes/display_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="90" column="85" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Ingredientes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
@@ -992,13 +889,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Categoria_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1027,24 +917,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/crudCategorias.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1258">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Producto_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1173">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="251" column="48" lean-forward="true" selection-start-line="251" selection-start-column="48" selection-end-line="251" selection-end-column="48" />
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/categoria">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1055,26 +931,116 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/categoria">
+    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3656">
+          <caret line="400" column="52" lean-forward="true" selection-start-line="400" selection-start-column="52" selection-end-line="400" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="251" column="48" lean-forward="true" selection-start-line="251" selection-start-column="48" selection-end-line="251" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/crudCategorias.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/ingredientes/display_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="51" selection-start-line="51" selection-end-line="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/productos/display_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="78" column="78" lean-forward="true" selection-start-line="78" selection-start-column="27" selection-end-line="78" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Producto_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="44" column="10" lean-forward="true" selection-start-line="44" selection-start-column="10" selection-end-line="44" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/cajas.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/filtroMesero_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="34" lean-forward="true" selection-end-line="77" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/listar_reportes_ordenes_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="130" column="98" selection-start-line="130" selection-start-column="98" selection-end-line="130" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Cajas.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="29" selection-end-line="111" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/cajas_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reportes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9792">
+          <caret line="581" column="45" selection-start-line="581" selection-start-column="24" selection-end-line="581" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/listarMovimientosCaja_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://d6c9df59-67d4-4e1c-b91c-1cf90e4a0ba6/schema/habitatreal/table/movimientos_caja">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/producto.js">
+    <entry file="file://$PROJECT_DIR$/application/models/Reporte_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3656">
-          <caret line="400" column="52" lean-forward="true" selection-start-line="400" selection-start-column="52" selection-end-line="400" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="376">
+          <caret line="802" column="53" selection-start-line="802" selection-start-column="53" selection-end-line="802" selection-end-column="53" />
         </state>
       </provider>
     </entry>
