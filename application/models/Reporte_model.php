@@ -648,7 +648,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE DATE(movimientos_caja.apertura) = CURRENT_DATE
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -670,7 +670,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE DATE(movimientos_caja.apertura) = DATE(DATE(NOW())-1)
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -694,7 +694,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                     WHERE movimientos_caja.apertura >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND movimientos_caja.apertura < curdate() - INTERVAL DAYOFWEEK
                                                     (curdate())-2 DAY
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -717,7 +717,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                     WHERE movimientos_caja.apertura >= curdate() - INTERVAL DAYOFWEEK(curdate())+5 DAY  AND movimientos_caja.apertura < curdate() - INTERVAL DAYOFWEEK
                                                     (curdate())-2 DAY
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -739,7 +739,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE movimientos_caja.apertura BETWEEN SUBDATE(CURDATE(),MONTH(CURDATE())) AND ADDDATE(CURDATE(),MONTH(CURDATE()))
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -761,7 +761,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE MONTH(movimientos_caja.apertura) = MONTH(DATE_ADD(CURDATE(),INTERVAL -1 MONTH))
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -783,7 +783,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE YEAR(movimientos_caja.apertura) = YEAR(CURDATE())
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -805,7 +805,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                     WHERE YEAR(movimientos_caja.apertura) = YEAR(NOW()) - 1
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                     if ($query->num_rows() > 0) {
                         return $query->result();
@@ -830,7 +830,7 @@ empleado.apellidosEmpleado as apellidos, users.idUser as iduser,
                                                   
                                                    WHERE movimientos_caja.apertura BETWEEN "'.$fInicial.'" AND "'.$fFinal.'"
                                                     AND movimientos_caja.estado = 1 
-                                                    AND (e.idEmpleado) = 1
+                                                    AND (e.idEmpleado) > 1
                                                     GROUP BY movimientos_caja.apertura');
                 if ($query->num_rows() > 0) {
                     return $query->result();
